@@ -9,6 +9,7 @@ import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './tabs';
 
 const Tab = createBottomTabNavigator();
 
+
 export default function App() {
   return (
     <>
