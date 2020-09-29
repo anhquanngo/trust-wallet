@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-
-export const ScreenTwo = () => {
+export default function Notification() {
     return <View>
-        <Text>ScreenTwo</Text>
+        <Text>Notification Stack</Text>
     </View>
 }
+

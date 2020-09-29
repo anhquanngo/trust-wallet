@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 
-export const ScreenFour = () => {
+export default function DetailStack() {
     return <View>
-        <Text>ScreenFour</Text>
+        <Text>Detail Stack</Text>
     </View>
 }
+
