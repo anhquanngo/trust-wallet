@@ -29,7 +29,6 @@ export default function TabNavigatorWallet({setPositionTab}) {
     setActive(param);
     setPositionTab(param);
   };
-  console.log(active);
   return (
     <React.Fragment>
       <View style={{flex: 1}}>

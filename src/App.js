@@ -5,15 +5,21 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './tabs';
+import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './pages';
+
+import { Private } from './routes';
 
 const Tab = createBottomTabNavigator();
 
 
 export default function App() {
+  let [auth, setAuth] = React.useState(true);
   return (
     <>
       <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
+      {
+        auth ? <React.Fragment>
+
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={screenOptions}
@@ -24,6 +30,8 @@ export default function App() {
           <Tab.Screen name="SettingsTab" component={SettingsTab} />
         </Tab.Navigator>
       </NavigationContainer>
+        </React.Fragment> : <Private />
+      }
     </>
   );
 }

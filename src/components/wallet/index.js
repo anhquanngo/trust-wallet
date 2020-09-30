@@ -5,6 +5,8 @@ import TokenWallet from './TokenWallet'
 import CoinList from './CoinList';
 import Coin from './Coin';
 import TabNavigatorWallet from './TabNavigatorWallet';
+import StackingList from './StackingList';
+import StackingItem from './StackingItem';
 
 export {
     DetailStack,
@@ -13,5 +15,7 @@ export {
     TokenWallet,
     CoinList,
     Coin,
-    TabNavigatorWallet
+    TabNavigatorWallet,
+    StackingList,
+    StackingItem
 }

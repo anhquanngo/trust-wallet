@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 
-export default function FinanceTab() {
+export default function Public() {
     return <React.Fragment>
         
     </React.Fragment>
