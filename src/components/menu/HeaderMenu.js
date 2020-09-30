@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet } from 'react-native';
 
 // import component
-import { SearchItem } from './';
+import { SearchItem } from '../';
 
 export default function HeaderMenu({navigation}) {
   return (

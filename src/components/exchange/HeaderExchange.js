@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, StyleSheet } from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 // import component
-import { TabNavigatorExchange } from './';
+import {TabNavigatorExchange} from './';
 
-export default function HeaderExchange({navigation}) {
+export default function HeaderExchange({setPositionTab}) {
   return (
     <React.Fragment>
       <View style={styles.container}>
-        <TabNavigatorExchange />
+        <TabNavigatorExchange setPositionTab={setPositionTab}/>
       </View>
     </React.Fragment>
   );

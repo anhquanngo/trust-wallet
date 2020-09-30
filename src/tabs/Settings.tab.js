@@ -1,18 +1,17 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Setting} from '../stacks';
-import {SettingStack} from '../stacks/settings';
+import { SettingItem, SettingList } from '../components/setting';
 
 const Stack = createStackNavigator();
 
 export default function SettingTab() {
   return (
     <React.Fragment>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="SettingList">
         <Stack.Screen
-          name="Setting"
-          component={Setting}
+          name="SettingList"
+          component={SettingList}
           options={{
             headerStyle: {
               backgroundColor: '#3275BB',
@@ -20,8 +19,8 @@ export default function SettingTab() {
           }}
         />
         <Stack.Screen
-          name="SettingStack"
-          component={SettingStack}
+          name="SettingItem"
+          component={SettingItem}
           options={{
             headerStyle: {
               backgroundColor: '#3275BB',

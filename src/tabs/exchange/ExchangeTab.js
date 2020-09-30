@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function Setting({navigation}) {
+export default function ExchangeTab() {
     return <React.Fragment>
         <View>
-            <Text onPress={() => navigation.navigate('SettingStack')}>Setting Stack - </Text>
+            <Text>ExchangeTab</Text>
         </View>
     </React.Fragment>
 }

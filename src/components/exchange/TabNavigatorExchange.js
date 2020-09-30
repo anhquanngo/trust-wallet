@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Animated, Dimensions} from 'react-native';
 
 const {width} = Dimensions.get('window');
 
-export default function TabNavigatorWallet() {
+export default function TabNavigatorWallet({setPositionTab}) {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -15,6 +15,7 @@ export default function TabNavigatorWallet() {
       useNativeDriver: true,
     }).start();
     setActive(param);
+    setPositionTab(param);
   };
   return (
     <React.Fragment>

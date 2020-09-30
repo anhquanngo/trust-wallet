@@ -1,15 +1,18 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-//import component
-import {HeaderMenu} from '../components';
+import MenuContainer from './menu';
+
+const Stack = createStackNavigator();
 
 export default function MenuTab() {
   return (
-    <React.Fragment>
-      <View>
-        <HeaderMenu />
-      </View>
-    </React.Fragment>
+    <Stack.Navigator initialRouteName="MenuContainer">
+      <Stack.Screen
+        name="MenuContainer"
+        component={MenuContainer}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
   );
 }

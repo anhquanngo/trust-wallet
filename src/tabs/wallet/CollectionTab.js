@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function SettingStack() {
+export default function CollectionTab() {
     return <React.Fragment>
-        <View>
-            <Text>Setting Stack</Text>
-        </View>
+        
     </React.Fragment>
 }

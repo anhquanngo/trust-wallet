@@ -4,9 +4,9 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
 // import component
-import {TabNavigatorWallet, SearchItem} from './';
+import {TabNavigatorWallet} from './';
 
-export default function HeaderWallet({navigation}) {
+export default function HeaderWallet({navigation, setPositionTab}) {
   return (
     <React.Fragment>
       <View style={styles.container}>
@@ -18,7 +18,7 @@ export default function HeaderWallet({navigation}) {
             onPress={() => navigation.navigate('Notification')}
           />
         </View>
-        <TabNavigatorWallet />
+        <TabNavigatorWallet setPositionTab={setPositionTab}/>
         <View>
           <Ionicon
             name="ellipsis-horizontal-outline"
@@ -28,7 +28,6 @@ export default function HeaderWallet({navigation}) {
           />
         </View>
       </View>
-      <SearchItem />
     </React.Fragment>
   );
 }

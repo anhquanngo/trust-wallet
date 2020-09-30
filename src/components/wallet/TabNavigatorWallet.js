@@ -10,14 +10,16 @@ import {
   Dimensions,
 } from 'react-native';
 
+
 const {width} = Dimensions.get('window');
 
-export default function TabNavigatorWallet() {
+export default function TabNavigatorWallet({setPositionTab}) {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
   let [xTabThree, setTabThree] = React.useState(0);
   let [translateX, setTranslateX] = React.useState(new Animated.Value(0));
+
   const handleSlide = (type, param) => {
     Animated.spring(translateX, {
       toValue: type,
@@ -25,7 +27,9 @@ export default function TabNavigatorWallet() {
       useNativeDriver: true,
     }).start();
     setActive(param);
+    setPositionTab(param);
   };
+  console.log(active);
   return (
     <React.Fragment>
       <View style={{flex: 1}}>
@@ -39,7 +43,7 @@ export default function TabNavigatorWallet() {
             paddingLeft: 3,
             paddingRight: 3,
             borderRadius: 10,
-            backgroundColor: "#2664A5"
+            backgroundColor: '#2664A5',
           }}>
           <View
             style={{
@@ -47,9 +51,9 @@ export default function TabNavigatorWallet() {
               flexDirection: 'row',
               height: 35,
               borderRadius: 10,
-              backgroundColor: "#2664A5"
+              backgroundColor: '#2664A5',
             }}>
-            <Animated.View 
+            <Animated.View
               style={{
                 position: 'absolute',
                 width: '33.3%',
@@ -143,3 +147,14 @@ export default function TabNavigatorWallet() {
     </React.Fragment>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    height: 70,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#3375BB',
+  },
+});
