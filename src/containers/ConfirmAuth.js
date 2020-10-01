@@ -5,8 +5,8 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 
 export default function ConfirmAuth({route}) {
   let {words} = route.params;
-  let newWords = [...words];
-  let [randomStr, setRandomStr] = React.useState([...newWords.sort(() => 0.5 - Math.random())]);
+  let newWords = [...words].sort(() => 0.5 - Math.random());
+  let [randomStr, setRandomStr] = React.useState([...newWords]);
   let [confirmStr, setConfirmStr] = React.useState([]);
 
   console.log({words, confirmStr});
@@ -102,7 +102,7 @@ export default function ConfirmAuth({route}) {
         </View>
         <View style={{marginTop: 10}}>
           <Button title="Nhập lại" onPress={() => {
-            setRandomStr([...words]);
+            setRandomStr([...newWords]);
             setConfirmStr([]);
           }}/>
         </View>
