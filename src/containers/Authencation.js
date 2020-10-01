@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
 export default function Authencation({content, navigation}) {
@@ -7,16 +8,36 @@ export default function Authencation({content, navigation}) {
     .trim()
     .split(/( ){1,}/gi)
     .filter((item) => item.trim() !== '');
-  console.log(words);
   return (
     <React.Fragment>
       <View>
-        <View style={{width: "100%", backgroundColor: "#00f", flexWrap: "wrap"}}>
+        <View
+          style={{
+            width: '100%',
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingTop: 20,
+            paddingLeft: 20,
+            paddingRight: 20,
+          }}>
           {words.map((item, index) => (
-            <View key={index} style={{flexDirection: "row", marginRight: 5, backgroundColor: "#ccc", width: 100}}>
-              <Text>{index}</Text>
-              <Text>{item}</Text>
-            </View>
+            <TouchableOpacity key={index}>
+              <View
+                key={index}
+                style={{
+                  flexDirection: 'row',
+                  marginRight: 5,
+                  backgroundColor: '#ccc',
+                  marginBottom: 10,
+                  justifyContent: 'center',
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                }}>
+                <Text style={{marginRight: 3}}>{index}</Text>
+                <Text>{item}</Text>
+              </View>
+            </TouchableOpacity>
           ))}
         </View>
         <View>
@@ -29,7 +50,7 @@ export default function Authencation({content, navigation}) {
         <View>
           <Button
             title="Tiếp tục"
-            onPress={() => navigation.navigate('ConfirmAuth', {words})}
+            onPress={() => navigation.navigate('ConfirmAuth', {words: words})}
           />
         </View>
       </View>
