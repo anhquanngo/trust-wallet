@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 
 export default function App() {
-  let [auth, setAuth] = React.useState(true);
+  let [auth, setAuth] = React.useState(false);
   return (
     <>
       <StatusBar backgroundColor="#3375bb" barStyle="light-content" />

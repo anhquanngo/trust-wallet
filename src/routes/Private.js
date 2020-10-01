@@ -2,18 +2,23 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import { LoginForm, SignupForm } from '../containers';
+import {SliderShow, Login, Signup} from '../components';
 
+import {Authencation} from '../containers';
 
 const Stack = createStackNavigator();
 
 export default function Private() {
-  return <React.Fragment>
+  return (
+    <React.Fragment>
       <NavigationContainer>
-          <Stack.Navigator initialRouteName="LoginForm">
-              <Stack.Screen name="LoginForm" component={LoginForm} options={{headerShown: false}}/>
-              <Stack.Screen name="SignupForm" component={SignupForm} options={{headerShown: true}}/>
-          </Stack.Navigator>
+        <Stack.Navigator initialRouteName="Wellcome">
+          <Stack.Screen name="Wellcome" component={SliderShow} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Signup" component={Signup} />
+          <Stack.Screen name="Authencation" component={Authencation} />
+        </Stack.Navigator>
       </NavigationContainer>
-  </React.Fragment>;
+    </React.Fragment>
+  );
 }
