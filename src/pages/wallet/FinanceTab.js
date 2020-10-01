@@ -1,17 +1,3 @@
-<<<<<<< HEAD:src/pages/wallet/FinanceTab.js
-import React from 'react';
-import { View, Text } from 'react-native';
-
-import { StackingList } from '../../components/wallet';
-
-export default function FinanceTab() {
-    return <React.Fragment>
-        <View>
-            <StackingList />
-        </View>
-    </React.Fragment>
-}
-=======
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 
@@ -80,4 +66,3 @@ FinanceTab.defaultProps = {
 
     ]
 }
->>>>>>> feature/quan:src/tabs/wallet/FinanceTab.js

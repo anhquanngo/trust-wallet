@@ -5,19 +5,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-<<<<<<< HEAD
 import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './pages';
 
 import { Private } from './routes';
-=======
-import { WalletTab, MenuTab, ExchangeTab, SettingsTab } from './tabs';
->>>>>>> feature/quan
 
 const Tab = createBottomTabNavigator();
 
 
 export default function App() {
-  let [auth, setAuth] = React.useState(false);
+  let [auth, setAuth] = React.useState(true);
   return (
     <>
       <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
