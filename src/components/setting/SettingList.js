@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Switch, ScrollView } from 'react-native'
+import { View, Text, Switch, ScrollView, TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -7,46 +7,47 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-export default function Settings() {
+export default function Settings({ navigation }) {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <ScrollView>
-            <View>
-
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
-                            }}>
-                                <AntDesign name="wallet" size={40} color="#30B939" />
+            <View style={{ backgroundColor: '#fff' }}>
+                <TouchableOpacity onPress={() => navigation.navigate("Setting-Wallet")}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#30B939", borderRadius: 10
+                                }}>
+                                    <AntDesign name="wallet" size={35} color="#fff" />
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <Text style={{ fontSize: 22 }} >
+                                    Wallets
+                    </Text>
+                                <Text style={{ fontSize: 18, color: "#989898" }}  >
+                                    Multi-Coin Wallet Quan
+                    </Text>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                Wallets
-                    </Text>
-                            <Text style={{ fontSize: 18, color: "#989898" }}  >
-                                Multi-Coin Wallet Quan
-                    </Text>
+                            <Text style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </Text>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#000", borderRadius: 10
                             }}>
-                                <Ionicons name="moon" size={40} color="#000" />
+                                <Ionicons name="moon" size={30} color="#fff" />
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
@@ -72,9 +73,9 @@ export default function Settings() {
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#FFC000", borderRadius: 10
                             }}>
-                                <AntDesign name="gift" size={40} color="#FFC000" />
+                                <AntDesign name="gift" size={30} color="#fff" />
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
@@ -92,36 +93,38 @@ export default function Settings() {
                         </Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
-                            }}>
-                                <MaterialIcons name="security" size={40} color="#000" />
+                <TouchableOpacity onPress={() => navigation.navigate("Setting-Security")}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#8E8D94", borderRadius: 10
+                                }}>
+                                    <MaterialIcons name="security" size={30} color="#fff" />
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <Text style={{ fontSize: 22 }} >
+                                    Security
+                    </Text>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                Security
-                    </Text>
+                            <Text style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </Text>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#FF3E2D", borderRadius: 10
                             }}>
-                                <Ionicons name="notifications" size={40} color="#000" />
+                                <Ionicons name="notifications" size={30} color="#FFF" />
 
                             </View>
                         </View>
@@ -142,9 +145,9 @@ export default function Settings() {
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#32BEA6", borderRadius: 10
                             }}>
-                                <AntDesign name="setting" size={40} color="#000" />
+                                <AntDesign name="setting" size={40} color="#fff" />
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
@@ -164,9 +167,9 @@ export default function Settings() {
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#3B99FC", borderRadius: 10
                             }}>
-                                <Feather name="link" size={40} color="#3B99FC" />
+                                <Feather name="link" size={40} color="#fff" />
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
@@ -189,9 +192,9 @@ export default function Settings() {
                         <View style={{ justifyContent: "center", margin: 10 }}>
                             <View style={{
                                 justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                height: 50, width: 50, backgroundColor: "#FE9306", borderRadius: 10
                             }}>
-                                <AntDesign name="questioncircle" size={40} color="#000" />
+                                <AntDesign name="questioncircle" size={40} color="#fff" />
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
@@ -338,28 +341,30 @@ export default function Settings() {
                         </Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
-                            }}>
-                                <AntDesign name="heart" size={40} color="#FF6666" />
+                <TouchableOpacity onPress={() => navigation.navigate("About")}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#D1D1D1", borderRadius: 10
+                                }}>
+                                    <AntDesign name="heart" size={40} color="#FF6666" />
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <Text style={{ fontSize: 22 }} >
+                                    About
+                    </Text>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                About
-                    </Text>
+                            <Text style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </Text>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
             </View>
         </ScrollView >
 

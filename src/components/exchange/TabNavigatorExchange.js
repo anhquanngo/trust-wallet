@@ -1,9 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Animated, Dimensions} from 'react-native';
+import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
 
-const {width} = Dimensions.get('window');
-
-export default function TabNavigatorWallet({setPositionTab}) {
+export default function TabNavigatorWallet({ setPositionTab }) {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -19,7 +17,7 @@ export default function TabNavigatorWallet({setPositionTab}) {
   };
   return (
     <React.Fragment>
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <View
           style={{
             width: '70%',
