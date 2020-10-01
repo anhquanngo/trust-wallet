@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default function TabNavigatorWallet({setPositionTab}) {
+export default function TabNavigatorWallet({ setPositionTab }) {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -31,16 +31,13 @@ export default function TabNavigatorWallet({setPositionTab}) {
   };
   return (
     <React.Fragment>
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1, }}>
         <View
           style={{
             width: '90%',
             marginLeft: 'auto',
             marginRight: 'auto',
-            paddingTop: 3,
-            paddingBottom: 3,
-            paddingLeft: 3,
-            paddingRight: 3,
+            padding: 3,
             borderRadius: 10,
             backgroundColor: '#2664A5',
           }}>
@@ -80,7 +77,11 @@ export default function TabNavigatorWallet({setPositionTab}) {
                 // borderTopRightRadius: 0,
                 // borderBottomRightRadius: 0,
               }}
-              onLayout={(event) => setTabOne(event.nativeEvent.layout.x)}
+              onLayout={(event) => {
+
+                setTabOne(event.nativeEvent.layout.x)
+              }}
+
               onPress={() => {
                 handleSlide(xTabOne, 0);
                 // setActive(0);
@@ -104,7 +105,10 @@ export default function TabNavigatorWallet({setPositionTab}) {
                 // borderTopLeftRadius: 0,
                 // borderBottomLeftRadius: 0,
               }}
-              onLayout={(event) => setTabTwo(event.nativeEvent.layout.x)}
+              onLayout={(event) => {
+                console.log(event.nativeEvent.layout.x);
+                setTabTwo(event.nativeEvent.layout.x)
+              }}
               onPress={() => {
                 handleSlide(xTabTwo, 1);
                 // setActive(1);
