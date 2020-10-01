@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './tabs';
+import { WalletTab, MenuTab, ExchangeTab, SettingsTab } from './tabs';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +28,8 @@ export default function App() {
   );
 }
 
-const screenOptions = ({route}) => ({
-  tabBarIcon: ({focused, size, color}) => {
+const screenOptions = ({ route }) => ({
+  tabBarIcon: ({ focused, size, color }) => {
     if (route.name == 'WalletTab')
       return (
         <Ionicon

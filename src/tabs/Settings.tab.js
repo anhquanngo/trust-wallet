@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { SettingItem, SettingList } from '../components/setting';
 
@@ -10,7 +10,7 @@ export default function SettingTab() {
     <React.Fragment>
       <Stack.Navigator initialRouteName="SettingList">
         <Stack.Screen
-          name="SettingList"
+          name="Setting"
           component={SettingList}
           options={{
             headerStyle: {
