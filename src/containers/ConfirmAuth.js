@@ -5,7 +5,8 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 
 export default function ConfirmAuth({route}) {
   let {words} = route.params;
-  let [randomStr, setRandomStr] = React.useState([...words]);
+  let newWords = [...words];
+  let [randomStr, setRandomStr] = React.useState([...newWords.sort(() => 0.5 - Math.random())]);
   let [confirmStr, setConfirmStr] = React.useState([]);
 
   console.log({words, confirmStr});
@@ -58,7 +59,7 @@ export default function ConfirmAuth({route}) {
               paddingLeft: 20,
               paddingRight: 20,
             }}>
-            {randomStr.sort(() => 0.5 - Math.random()).map((item, index) => (
+            {randomStr.map((item, index) => (
               <TouchableOpacity
                 key={index}
                 onPress={() =>
