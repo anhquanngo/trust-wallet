@@ -3,16 +3,12 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 import { USER_LOGIN, USER_RECEIVED } from '../constants';
 
-import {
-    createUserUri,
-    loginUserUri,
-    getUserUri,
-  } from '../configs/url.config';
+import { getToken } from '../api';
 
 
 //get user
 function* userLogin(disp) {
-  let res = yield axios.get(getUserUri, {
+  let res = yield axios.get(getToken, {
       params: {
           id: disp.data
       }
@@ -21,5 +17,5 @@ function* userLogin(disp) {
 }
 
 export function* userLoginActionWatcher() {
-  yield takeLatest(USER_LOGIN, getUser);
+  yield takeLatest(USER_LOGIN, userLogin);
 }
