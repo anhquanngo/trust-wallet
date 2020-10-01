@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {SliderShow, Login, Signup} from '../components';
 
-import {Authencation} from '../containers';
+import {Authencation, ConfirmAuth } from '../containers';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +17,7 @@ export default function Private() {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Authencation" component={Authencation} />
+          <Stack.Screen name="ConfirmAuth" component={ConfirmAuth} />
         </Stack.Navigator>
       </NavigationContainer>
     </React.Fragment>

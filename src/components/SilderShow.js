@@ -22,7 +22,7 @@ export default function SliderShow({lists, navigation}) {
           <View style={{flexDirection: "row"}}>
             {lists &&
               lists.map((item, index) => (
-                <View style={{marginRight: 5}}>
+                <View style={{marginRight: 5}} key={index}>
                   <Ionicon
                     name="radio-button-off"
                     size={10}
