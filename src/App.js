@@ -2,7 +2,8 @@ import * as React from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
@@ -10,16 +11,22 @@ import {WalletTab, MenuTab, ExchangeTab, SettingsTab} from './pages';
 
 import {Private} from './routes';
 
-import { getMnemonicStr } from './redux/actions';
+import {getMnemonicStr} from './redux/actions';
 
 const Tab = createBottomTabNavigator();
 
 function App({mnemonicStr, getMnemonicStr}) {
-  
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
     getMnemonicStr();
+    let data = {
+      name: "Thinh",
+      age: 30,
+      email: "thinh@gmail.com"
+    };
+    AsyncStorage.setItem("user", JSON.stringify(data));
+    
   }, []);
 
   console.log(mnemonicStr);
@@ -48,12 +55,12 @@ function App({mnemonicStr, getMnemonicStr}) {
 }
 
 const mapStateToProp = (state) => ({
-  mnemonicStr: state.mnemonicStr
+  mnemonicStr: state.mnemonicStr,
 });
 
 const mapDispatchToProp = {
-  getMnemonicStr
-}
+  getMnemonicStr,
+};
 
 const screenOptions = ({route}) => ({
   tabBarIcon: ({focused, size, color}) => {
@@ -97,6 +104,5 @@ const tabBarOptions = {
   inactiveTintColor: '#68788d',
   showLabel: false,
 };
-
 
 export default connect(mapStateToProp, mapDispatchToProp)(App);

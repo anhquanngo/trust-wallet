@@ -15,3 +15,7 @@ project.ext.vectoricons = [
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+#Build App
+$ cd android
+$ ./gradlew assembleRelease
