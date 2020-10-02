@@ -1,9 +1,15 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
-import { userLogin } from './user.reducer';
+import {
+  getMnemonicStr_Reducer,
+  getFullKey_Reducer,
+  getCatagoriesMoney_Reducer,
+} from './user.reducer';
 
 const rootReducer = combineReducers({
-    user: userLogin
+  mnemonicStr: getMnemonicStr_Reducer,
+  user: getFullKey_Reducer,
+  catagories: getCatagoriesMoney_Reducer,
 });
 
 export default rootReducer;

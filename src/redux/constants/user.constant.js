@@ -1,2 +1,9 @@
-export const USER_LOGIN = "USER_LOGIN";
-export const USER_RECEIVED = "USER RECEIVED";
+export const GET_MNEMONIC_STR = "GET_MNEMONIC_STR";
+
+export const GET_FULL_KEY = "GET_FULL_KEY";
+
+export const GET_CATAGORIES_MONEY = "GET_CATAGORIES_MONEY";
+
+export const FORGOT_ACCOUNT = "FORGOT_ACCOUNT";
+
+export const DATA_RECEIVED = "DATA_RECEIVED";

@@ -1,0 +1,10 @@
+{
+    "mnemoic": {
+        "token": "DF34KLSD2434LDFK343LSDK1232LDDFK454",
+        "mnemoicStr": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    },
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }
