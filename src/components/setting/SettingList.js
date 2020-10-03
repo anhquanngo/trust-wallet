@@ -187,36 +187,41 @@ export default function Settings({navigation}) {
             </View>
           </View>
         </TouchableOpacity>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            borderBottomWidth: 0.5,
-          }}>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{justifyContent: 'center', margin: 10}}>
-              <View
-                style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: 50,
-                  width: 50,
-                  backgroundColor: '#32BEA6',
-                  borderRadius: 10,
-                }}>
-                <AntDesign name="setting" size={40} color="#fff" />
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Setting-Preferences')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              borderBottomWidth: 0.5,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{justifyContent: 'center', margin: 10}}>
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: 50,
+                    width: 50,
+                    backgroundColor: '#32BEA6',
+                    borderRadius: 10,
+                  }}>
+                  <AntDesign name="setting" size={40} color="#fff" />
+                </View>
+              </View>
+              <View style={{justifyContent: 'center'}}>
+                <Text style={{fontSize: 22}}>Preferences</Text>
               </View>
             </View>
             <View style={{justifyContent: 'center'}}>
-              <Text style={{fontSize: 22}}>Preferences</Text>
+              <Text style={{fontSize: 22, margin: 10}}>
+                <SimpleLineIcons size={20} name="arrow-right" />
+              </Text>
             </View>
           </View>
-          <View style={{justifyContent: 'center'}}>
-            <Text style={{fontSize: 22, margin: 10}}>
-              <SimpleLineIcons size={20} name="arrow-right" />
-            </Text>
-          </View>
-        </View>
+        </TouchableOpacity>
+
         <View
           style={{
             flexDirection: 'row',

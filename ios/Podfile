@@ -8,6 +8,8 @@ target 'TrustWallet_Tulpo' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
+
   target 'TrustWallet_TulpoTests' do
     inherit! :complete
     # Pods for testing

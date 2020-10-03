@@ -8,6 +8,8 @@ import {
   SettingSecurity,
   SettingNotifications,
   SettingInviteFriend,
+  SettingPreferences,
+  SettingPreferencesCurrency,
 } from '../components/setting';
 
 const Stack = createStackNavigator();
@@ -64,6 +66,24 @@ export default function SettingTab() {
         <Stack.Screen
           name="Setting-InviteFriend"
           component={SettingInviteFriend}
+          options={{
+            headerStyle: {
+              backgroundColor: '#3275BB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Setting-Preferences"
+          component={SettingPreferences}
+          options={{
+            headerStyle: {
+              backgroundColor: '#3275BB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Setting-PreferencesCurrency"
+          component={SettingPreferencesCurrency}
           options={{
             headerStyle: {
               backgroundColor: '#3275BB',
