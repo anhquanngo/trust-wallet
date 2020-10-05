@@ -7,6 +7,7 @@ import SettingInviteFriend from './Setting-InviteFriend';
 import SettingPreferences from './Setting-Preferences';
 import SettingPreferencesCurrency from './Setting-PreferencesCurrency';
 import SettingPreferencesDApp from './Setting-PreferencesDApp';
+import SettingWalletConnect from './Setting-WalletConnect';
 
 export {
   SettingItem,
@@ -18,4 +19,5 @@ export {
   SettingPreferences,
   SettingPreferencesCurrency,
   SettingPreferencesDApp,
+  SettingWalletConnect,
 };

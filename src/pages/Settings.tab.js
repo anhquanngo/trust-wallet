@@ -11,6 +11,7 @@ import {
   SettingPreferences,
   SettingPreferencesCurrency,
   SettingPreferencesDApp,
+  SettingWalletConnect,
 } from '../components/setting';
 
 const Stack = createStackNavigator();
@@ -94,6 +95,15 @@ export default function SettingTab() {
         <Stack.Screen
           name="DAppBrowser"
           component={SettingPreferencesDApp}
+          options={{
+            headerStyle: {
+              backgroundColor: '#3275BB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="WalletConnect"
+          component={SettingWalletConnect}
           options={{
             headerStyle: {
               backgroundColor: '#3275BB',

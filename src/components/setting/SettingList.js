@@ -222,41 +222,45 @@ export default function Settings({navigation}) {
           </View>
         </TouchableOpacity>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            borderBottomWidth: 0.5,
-          }}>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{justifyContent: 'center', margin: 10}}>
-              <View
-                style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: 50,
-                  width: 50,
-                  backgroundColor: '#3B99FC',
-                  borderRadius: 10,
-                }}>
-                <Feather name="link" size={40} color="#fff" />
+        <TouchableOpacity onPress={() => navigation.navigate('WalletConnect')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              borderBottomWidth: 0.5,
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{justifyContent: 'center', margin: 10}}>
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: 50,
+                    width: 50,
+                    backgroundColor: '#3B99FC',
+                    borderRadius: 10,
+                  }}>
+                  <Feather name="link" size={40} color="#fff" />
+                </View>
+              </View>
+              <View style={{justifyContent: 'center'}}>
+                <Text style={{fontSize: 22}}>WalletConnect</Text>
               </View>
             </View>
             <View style={{justifyContent: 'center'}}>
-              <Text style={{fontSize: 22}}>WalletConnect</Text>
+              <Text style={{fontSize: 22, margin: 10}}>
+                <SimpleLineIcons size={20} name="arrow-right" />
+              </Text>
             </View>
           </View>
-          <View style={{justifyContent: 'center'}}>
-            <Text style={{fontSize: 22, margin: 10}}>
-              <SimpleLineIcons size={20} name="arrow-right" />
-            </Text>
-          </View>
-        </View>
+        </TouchableOpacity>
+
         <View style={{margin: 10, paddingTop: 10, paddingBottom: 10}}>
           <Text style={{fontWeight: 'bold', fontSize: 20, color: '#3375BB'}}>
             Join Community
           </Text>
         </View>
+
         <View
           style={{
             flexDirection: 'row',
