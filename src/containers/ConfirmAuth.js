@@ -3,7 +3,7 @@ import {View, Text, Button, Alert} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export default function ConfirmAuth({route}) {
+export const ConfirmAuth = ({route}) => {
   let {words} = route.params;
   let newWords = [...words].sort(() => 0.5 - Math.random());
   let [randomStr, setRandomStr] = React.useState([...newWords]);

@@ -3,7 +3,7 @@ import {View, Text, Button, Alert} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export default function Authencation({content, navigation}) {
+export const Authencation = ({content, navigation}) => {
   let words = content
     .trim()
     .split(/( ){1,}/gi)

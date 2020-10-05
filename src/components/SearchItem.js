@@ -2,7 +2,7 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export default function SearchItem() {
+export const SearchItem = () => {
   return (
     <React.Fragment>
       <View style={styles.container}>

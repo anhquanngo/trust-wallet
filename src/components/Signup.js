@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Button, Alert} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
-export default function Signup({navigation}) {
+export const Signup = ({navigation}) => {
   let [selected, setSelected] = React.useState(false);
   console.log(selected);
   return (

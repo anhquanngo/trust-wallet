@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, Text, StyleSheet, Button} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export default function SliderShow({lists, navigation}) {
+export const SliderShow = ({lists, navigation}) => {
   let [state, setState] = React.useState(0);
   React.useEffect(() => {
     let counter = setInterval(() => {

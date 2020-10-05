@@ -8,7 +8,7 @@ import {Authencation, ConfirmAuth } from '../containers';
 
 const Stack = createStackNavigator();
 
-export default function Private() {
+export const Private = () => {
   return (
     <React.Fragment>
       <NavigationContainer>
