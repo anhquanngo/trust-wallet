@@ -10,6 +10,7 @@ import {
   SettingInviteFriend,
   SettingPreferences,
   SettingPreferencesCurrency,
+  SettingPreferencesDApp,
 } from '../components/setting';
 
 const Stack = createStackNavigator();
@@ -82,8 +83,17 @@ export default function SettingTab() {
           }}
         />
         <Stack.Screen
-          name="Setting-PreferencesCurrency"
+          name="Currency"
           component={SettingPreferencesCurrency}
+          options={{
+            headerStyle: {
+              backgroundColor: '#3275BB',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="DAppBrowser"
+          component={SettingPreferencesDApp}
           options={{
             headerStyle: {
               backgroundColor: '#3275BB',

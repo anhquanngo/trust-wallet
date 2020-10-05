@@ -6,6 +6,7 @@ import SettingNotifications from './Setting-Notifications';
 import SettingInviteFriend from './Setting-InviteFriend';
 import SettingPreferences from './Setting-Preferences';
 import SettingPreferencesCurrency from './Setting-PreferencesCurrency';
+import SettingPreferencesDApp from './Setting-PreferencesDApp';
 
 export {
   SettingItem,
@@ -16,4 +17,5 @@ export {
   SettingInviteFriend,
   SettingPreferences,
   SettingPreferencesCurrency,
+  SettingPreferencesDApp,
 };

@@ -6,8 +6,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 export default function Preferences({navigation}) {
   return (
     <View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Setting-PreferencesCurrency')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Currency')}>
         <View
           style={{
             flexDirection: 'row',
@@ -17,7 +16,7 @@ export default function Preferences({navigation}) {
           <View style={{flexDirection: 'row'}}>
             <View style={{justifyContent: 'center', margin: 10, height: 48}}>
               <View>
-                <Text style={{fontSize: 17}}>Currency</Text>
+                <Text style={{fontSize: 16}}>Currency</Text>
               </View>
               <View>
                 <Text style={{fontSize: 14, color: '#00000075'}}>USD</Text>
@@ -32,8 +31,7 @@ export default function Preferences({navigation}) {
         </View>
       </TouchableOpacity>
 
-      {/* <TouchableOpacity
-        onPress={() => navigation.navigate('Setting-PreferencesDApp')}>
+      <TouchableOpacity onPress={() => navigation.navigate('DAppBrowser')}>
         <View
           style={{
             flexDirection: 'row',
@@ -43,7 +41,7 @@ export default function Preferences({navigation}) {
           <View style={{flexDirection: 'row'}}>
             <View style={{justifyContent: 'center', margin: 10, height: 48}}>
               <View>
-                <Text style={{fontSize: 17}}>DApp Browser</Text>
+                <Text style={{fontSize: 16}}>DApp Browser</Text>
               </View>
             </View>
           </View>
@@ -53,7 +51,7 @@ export default function Preferences({navigation}) {
             </Text>
           </View>
         </View>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
   );
 }
