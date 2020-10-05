@@ -4,11 +4,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import { Text } from 'react-native';
+
+import {ThemeProvider} from 'styled-components';
+
 import {Private, Public} from './routes';
 
 import {getMnemonicStr} from './redux/actions';
 
-function App({mnemonicStr, getMnemonicStr}) {
+function App({mnemonicStr, getMnemonicStr, theme}) {
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
@@ -21,13 +25,16 @@ function App({mnemonicStr, getMnemonicStr}) {
     AsyncStorage.setItem('user', JSON.stringify(data));
   }, []);
 
-  console.log(mnemonicStr);
+  console.log(theme);
 
   return (
     <>
       <NavigationContainer>
-        <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
-        {auth ? <Public /> : <Private />}
+        <ThemeProvider theme={theme}>
+            <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
+            {auth ? <Public /> : <Private />}
+        </ThemeProvider>
+
       </NavigationContainer>
     </>
   );
@@ -35,6 +42,7 @@ function App({mnemonicStr, getMnemonicStr}) {
 
 const mapStateToProp = (state) => ({
   mnemonicStr: state.mnemonicStr,
+  theme: state.theme
 });
 
 const mapDispatchToProp = {
