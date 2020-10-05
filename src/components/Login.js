@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Login() {
+export const Login = () => {
     return <React.Fragment>
 
     </React.Fragment>
