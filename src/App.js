@@ -27,18 +27,15 @@ function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
     };
     AsyncStorage.setItem('user', JSON.stringify(data));
   }, []);
-
-  console.log(theme);
-
   return (
     <>
       <NavigationContainer>
         <ThemeProvider theme={theme}>
           <StatusBar
             backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
-            barStyle="dark-content"
+            barStyle={theme.STATUS_BAR_STYLE}
           />
-          <AppContainer>{auth ? <Public /> : <Private />}</AppContainer>
+          <AppContainer>{auth ? <Public theme={theme}/> : <Private />}</AppContainer>
         </ThemeProvider>
       </NavigationContainer>
     </>
@@ -58,7 +55,11 @@ const mapDispatchToProp = {
 const AppContainer = styled.View`
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+  padding-top: 5;
+  padding-right: 5;
+  padding-bottom: 5;
+  padding-left: 5;
+  background-color: ${props => props.theme.BACKGROUND_COLOR_PRIMARY}
 `;
 
 export default connect(mapStateToProp, mapDispatchToProp)(App);

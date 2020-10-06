@@ -22,7 +22,8 @@ import { baseUri } from './src/redux/api';
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['theme'],
+    whitelist: [],
+    blacklist: ['theme']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

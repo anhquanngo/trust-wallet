@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 
 export const Coin = (props) => {
   let {imageUrl, title, value, quality, currency} = props;
+
   return (
     <CardContainer>
       <CardBody>
@@ -31,13 +32,11 @@ Coin.defaultProps = {
 const CardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10;
-  padding-right: 10;
-  padding-left: 10;
-  padding-bottom: 10;
+  padding-top: 15;
+  padding-bottom: 15;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  margin-top: 5;
-  border-radius: 10;
+  margin-top: ${props => props.theme.MARGIN_TOP};
+  border-radius: ${props => props.theme.BORDER_RADIUS}
 `;
 
 const CardBody = styled.View`
@@ -49,9 +48,11 @@ const CardImage = styled.Image`
   height: 50;
   border-radius: 25;
   margin-right: 15;
+  margin-left: 15
 `;
 
 const CardText = styled.Text`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+  margin-right: 15
 `;

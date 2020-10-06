@@ -9,9 +9,7 @@ import {TabNavigatorWallet} from './TabNavigatorWallet';
 
 export const HeaderWallet = ({navigation, setPositionTab}) => {
   return (
-    <React.Fragment>
-      {/* <View style={styles.container}> */}
-      <HeaderContainer>
+   <HeaderContainer>
         <View>
           <IconStyle
             name="notifications-outline"
@@ -22,13 +20,12 @@ export const HeaderWallet = ({navigation, setPositionTab}) => {
         <TabNavigatorWallet setPositionTab={setPositionTab} />
         <View>
           <IconStyle
-            name="ellipsis-horizontal-outline"
+            name="options-outline"
             size={25}
             onPress={() => navigation.navigate('DetailStack')}
           />
         </View>
       </HeaderContainer>
-    </React.Fragment>
   );
 };
 
@@ -42,6 +39,7 @@ const HeaderContainer = styled.View`
   padding-bottom: 10;
   padding-left: 10;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  border-radius: 10;
 `;
 
 const IconStyle = styled(Ionicon)`

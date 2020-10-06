@@ -5,9 +5,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 
 const TokenWalletContainer = styled.View`
-  padding-top: 30;
+  margin-top: ${props => props.theme.MARGIN_TOP};
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
+  border-radius: 10;
 `;
 
 const TitleStyle = styled.Text`

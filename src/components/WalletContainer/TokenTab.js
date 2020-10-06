@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
+import styled from 'styled-components/native';
 
 //import component
 
@@ -8,13 +9,11 @@ import {CoinList} from './CoinList';
 
 export const TokenTab = () => {
   return (
-    <React.Fragment>
-      <View>
-        <TokenWallet />
-      </View>
-      <View>
-        <CoinList />
-      </View>
-    </React.Fragment>
+    <TokekWalletContainer>
+      <TokenWallet />
+      <CoinList />
+    </TokekWalletContainer>
   );
-}
+};
+
+const TokekWalletContainer = styled.View``;

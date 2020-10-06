@@ -6,7 +6,8 @@ export const darkTheme = {
   TEXT_COLOR_PRIMARY: '#FCFDFC',
   TEXT_COLOR_SECONDARY: '#98A3B7',
   TEXT_COLOR_THIRDARY: '#FD9790',
-  BORDER_RADIUS: 10
+  BORDER_RADIUS: 10,
+  MARGIN_TOP: 8
 };
 
 export const lightTheme = {
@@ -17,5 +18,6 @@ export const lightTheme = {
   TEXT_COLOR_PRIMARY: '#4C576A',
   TEXT_COLOR_SECONDARY: '#B4BDC6',
   TEXT_COLOR_THIRDARY: '#FD9790',
-  BORDER_RADIUS: 10
+  BORDER_RADIUS: 10,
+  MARGIN_TOP: 8
 };
