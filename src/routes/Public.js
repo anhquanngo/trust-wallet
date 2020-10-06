@@ -1,5 +1,5 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styled from 'styled-components/native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
@@ -28,14 +28,14 @@ export const Public = () => {
   );
 };
 
-const screenOptions = ({route}) => ({
-  tabBarIcon: ({focused, size, color}) => {
+const screenOptions = ({ route }) => ({
+  tabBarIcon: ({ focused, size, color }) => {
     if (route.name == 'WalletScreen')
       return (
         <IconStyle
           name={focused ? 'shield' : 'shield-outline'}
           size={size}
-          focused = {focused}
+          focused={focused}
         />
       );
     if (route.name == 'MenuScreen')
@@ -43,7 +43,7 @@ const screenOptions = ({route}) => ({
         <IconStyle
           name={focused ? 'grid' : 'grid-outline'}
           size={size}
-          focused = {focused}
+          focused={focused}
         />
       );
     if (route.name == 'ExchangeScreen')
@@ -51,7 +51,7 @@ const screenOptions = ({route}) => ({
         <IconStyle
           name={focused ? 'swap-horizontal' : 'swap-horizontal-outline'}
           size={size}
-          focused = {focused}
+          focused={focused}
         />
       );
     if (route.name == 'SettingScreen')
@@ -59,7 +59,7 @@ const screenOptions = ({route}) => ({
         <IconStyle
           name={focused ? 'settings' : 'settings-outline'}
           size={size}
-          focused = {focused}
+          focused={focused}
         />
       );
   },

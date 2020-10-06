@@ -1,12 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import styled from 'styled-components/native';
 
 import { Table } from './Table';
 import { Form } from './Form';
 
 export default function ExchangeTab() {
     return (
-        <View>
+        <Container>
             <View style={{ flexDirection: "row", borderBottomWidth: 0.5 }}>
                 <View style={{ flex: 1 }}>
                     <Form />
@@ -16,9 +17,26 @@ export default function ExchangeTab() {
                 </View>
             </View>
             <View style={{ flexDirection: "row", justifyContent: "space-between", margin: 20 }}>
-                <Text style={{ fontSize: 20 }}>Open Order</Text>
-                <Text style={{ fontSize: 20, color: "#3375BB" }}>All</Text>
+                <TextStylesPrimary >Open Order</TextStylesPrimary>
+                <TextStylesSecondary >All</TextStylesSecondary>
             </View>
-        </View>
+        </Container>
     )
 }
+
+const Container = styled.View`
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+    height:100%;
+`
+const TextStylesPrimary = styled.Text`
+    font-size: 20;
+    color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`
+const TextStylesSecondary = styled.Text`
+    font-size: 20;
+    color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`
+
+
+
+

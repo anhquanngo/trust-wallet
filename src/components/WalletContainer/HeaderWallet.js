@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
-import styled from 'styled-components/native';
 
 // import component
 import { TabNavigatorWallet } from './TabNavigatorWallet';

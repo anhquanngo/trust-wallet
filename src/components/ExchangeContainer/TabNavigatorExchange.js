@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import styled from 'styled-components/native';
 
 export const TabNavigatorExchange = ({ setPositionTab }) => {
   let [active, setActive] = React.useState(0);
@@ -18,41 +19,10 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
   return (
     <React.Fragment>
       <View style={{ flex: 1 }}>
-        <View
-          style={{
-            width: '70%',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            paddingTop: 3,
-            paddingBottom: 3,
-            paddingLeft: 3,
-            paddingRight: 3,
-            borderRadius: 10,
-            backgroundColor: '#2664A5',
-          }}>
-          <View
-            style={{
-              position: 'relative',
-              flexDirection: 'row',
-              height: 35,
-              borderRadius: 10,
-              backgroundColor: '#2664A5',
-            }}>
-            <Animated.View
-              style={{
-                position: 'absolute',
-                width: '50%',
-                height: '100%',
-                top: 0,
-                left: 0,
-                backgroundColor: '#3375BB',
-                borderRadius: 10,
-                transform: [
-                  {
-                    translateX,
-                  },
-                ],
-              }}
+        <TabNavigatorExchangeContainer>
+          <TabContainer>
+            <AnimatedStyle
+              style={{ transform: [{ translateX }] }}
             />
             <TouchableOpacity
               style={{
@@ -65,12 +35,10 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
                 handleSlide(xTabOne, 0);
                 // setActive(0);
               }}>
-              <Text
-                style={{
-                  color: active === 0 ? '#fff' : '#ABC3DC',
-                }}>
+              <TextStyle
+                active={active} param={0}>
                 Swap
-              </Text>
+              </TextStyle>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -81,18 +49,53 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
               onLayout={(event) => setTabTwo(event.nativeEvent.layout.x)}
               onPress={() => {
                 handleSlide(xTabTwo, 1);
-                // setActive(1);
               }}>
-              <Text
-                style={{
-                  color: active === 1 ? '#fff' : '#ABC3DC',
-                }}>
+              <TextStyle
+                active={active} param={1}>
                 Exchange
-              </Text>
+              </TextStyle>
             </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-    </React.Fragment>
+          </TabContainer>
+        </TabNavigatorExchangeContainer>
+      </View >
+    </React.Fragment >
   );
 }
+
+const TabNavigatorExchangeContainer = styled.View`
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10;
+  padding-top: 2;
+  padding-right: 3;
+  padding-bottom: 3;
+  padding-left: 3;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`;
+
+const TabContainer = styled.View`
+  position: relative;
+  flex-direction: row;
+  height: 35;
+  border-radius: 10;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`;
+
+const AnimatedStyle = styled(Animated.View)`
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  border-radius: 10;
+`;
+
+const TextStyle = styled.Text`
+  color: ${(props) =>
+    props.active == props.param
+      ? props.theme.TEXT_COLOR_PRIMARY
+      : props.theme.TEXT_COLOR_SECONDARY};
+`;
+
