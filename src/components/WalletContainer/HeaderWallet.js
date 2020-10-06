@@ -1,29 +1,28 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import styled from 'styled-components/native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
 // import component
-import {TabNavigatorWallet} from './TabNavigatorWallet';
+import { TabNavigatorWallet } from './TabNavigatorWallet';
 
-export const HeaderWallet = ({navigation, setPositionTab}) => {
+export const HeaderWallet = ({ navigation, setPositionTab }) => {
   return (
     <React.Fragment>
       <View style={styles.container}>
         <View>
-          <Ionicon
+          <IconTextActive
             name="notifications-outline"
             size={25}
-            color="#F1F6FA"
             onPress={() => navigation.navigate('Notification')}
           />
         </View>
-        <TabNavigatorWallet setPositionTab={setPositionTab}/>
+        <TabNavigatorWallet setPositionTab={setPositionTab} />
         <View>
-          <Ionicon
+          <IconTextActive
             name="ellipsis-horizontal-outline"
             size={25}
-            color="#F1F6FA"
             onPress={() => navigation.navigate('DetailStack')}
           />
         </View>
@@ -42,3 +41,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#3375BB',
   },
 });
+
+const TextStyle = styled.Text`
+color: ${props => props.theme.PRIMARY_TEXT_COLOR}`
+
+const BackGroundStyle = styled.View`
+color: ${props => props.theme.PRIMARY_BACKGROUND_COLOR}`
+
+const ButtonActive = styled.View`
+color: ${props => props.theme.PRIMARY_BUTTON_COLOR_ACTIVE}`
+
+const ButtonDisActive = styled.View`
+color: ${props => props.theme.PRIMARY_BUTTON_COLOR_DISACTIVE}`
+
+const ButtonTextActive = styled.View`
+color: ${props => props.theme.PRIMARY_BUTTON_TEXT_COLOR_ACTIVE}`
+
+const ButtonTextDisActive = styled.View`
+color: ${props => props.theme.PRIMARY_BUTTON_TEXT_COLOR_DISACTIVE}`
+
+const IconTextActive = styled(Ionicon)`
+color: ${props => props.theme.PRIMARY_ICON_TEXT_COLOR_ACTIVE}
+`
+
+const IconTextDisActive = styled.View`
+color: ${props => props.theme.PRIMARY_ICON_TEXT_COLOR_ACTIVE}`
