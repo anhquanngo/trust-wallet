@@ -1,81 +1,85 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import styled from 'styled-components/native';
+
+const TokenWalletContainer = styled.View`
+  padding-top: 30;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  align-items: center;
+`;
+
+const TitleStyle = styled.Text`
+  color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
+  font-size: 50;
+  text-align: center;
+`;
+const SubTitleStyle = styled.Text`
+  color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+  font-size: 25;
+  text-align: center;
+`;
+const IconStyleContainer = styled.View`
+  height: 70;
+  width: 70;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+  border-radius: 50;
+  justify-content: center;
+  align-items: center;
+`;
+
+const IconStyle = styled(AntDesign)`
+  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`;
+
+const TextStyleContainer = styled.View`
+  padding-top: 10;
+  padding-bottom: 30;
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-around;
+  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`;
+
+const TextStyle = styled.Text`
+  color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+  font-size: 20;
+`;
+
 export const TokenWallet = (props) => {
-    const {name} = props;
-    return (
+  const {name} = props;
+  return (
+    <TokenWalletContainer>
+      <TitleStyle> $0.00</TitleStyle>
+      <SubTitleStyle>Multi-Coin Wallet {name}</SubTitleStyle>
       <View
         style={{
-          paddingTop: 30,
-          backgroundColor: '#3375BB',
-          alignItems: 'center',
+          paddingTop: 25,
+          width: '90%',
+          color: '#BDD2E9',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
         }}>
-        <Text style={{fontSize: 50, color: '#FFFFFF', textAlign: 'center'}}>
-          đ0.00
-        </Text>
-        <Text style={{fontSize: 25, color: '#BDD2E9', textAlign: 'center'}}>
-          Multi-Coin Wallet {name}
-        </Text>
-        <View
-          style={{
-            paddingTop: 25,
-            width: '90%',
-            color: '#BDD2E9',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-          }}>
-          <View
-            style={{
-              height: 70,
-              width: 70,
-              backgroundColor: '#4883C2',
-              borderRadius: 50,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <AntDesign name="arrowup" size={30} color="#fff" />
-          </View>
-          <View
-            style={{
-              height: 70,
-              width: 70,
-              backgroundColor: '#4883C2',
-              borderRadius: 50,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <AntDesign name="arrowdown" size={30} color="#fff" />
-          </View>
-          <View
-            style={{
-              height: 70,
-              width: 70,
-              backgroundColor: '#4883C2',
-              borderRadius: 50,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <AntDesign name="tago" size={30} color="#fff" />
-          </View>
-        </View>
-        <View
-          style={{
-            paddingTop: 10,
-            paddingBottom: 30,
-            width: '90%',
-            color: '#BDD2E9',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-          }}>
-          <Text style={{color: '#fff', fontSize: 20}}>Send</Text>
-          <Text style={{color: '#fff', fontSize: 20}}>Receive</Text>
-          <Text style={{color: '#fff', fontSize: 20}}>Buy</Text>
-        </View>
+        <IconStyleContainer>
+          <IconStyle name="arrowup" size={30} />
+        </IconStyleContainer>
+        <IconStyleContainer>
+          <IconStyle name="arrowdown" size={30} />
+        </IconStyleContainer>
+        <IconStyleContainer>
+          <IconStyle name="tago" size={30} />
+        </IconStyleContainer>
       </View>
-    );
-  };
-  
-  TokenWallet.defaultProps = {
-    name: 'Quan',
-  };
+      <TextStyleContainer>
+        <TextStyle> Send</TextStyle>
+        <TextStyle> Receive</TextStyle>
+        <TextStyle> Buy</TextStyle>
+      </TextStyleContainer>
+    </TokenWalletContainer>
+  );
+};
+
+TokenWallet.defaultProps = {
+  name: 'Quan',
+};

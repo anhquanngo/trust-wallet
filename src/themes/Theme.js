@@ -1,17 +1,21 @@
 export const darkTheme = {
-    mode: "dard",
-    PRIMARY_BACKGROUND_COLOR: "#212121",
-    PRIMARY_TEXT_COLOR: "#ffffff",
-    PRIMARY_BUTTON_COLOR: "#23a8d9",
-    PRIMARY_BUTTON_TEXT_COLOR: "#ffffff",
-    STATUS_BAR_STYLE: "light-content",
-}
+  mode: 'dard',
+  STATUS_BAR_STYLE: 'light-content',
+  BACKGROUND_COLOR_PRIMARY: '#273250',
+  BACKGROUND_COLOR_SECONDARY: '#384168',
+  TEXT_COLOR_PRIMARY: '#FCFDFC',
+  TEXT_COLOR_SECONDARY: '#98A3B7',
+  TEXT_COLOR_THIRDARY: '#FD9790',
+  BORDER_RADIUS: 10
+};
 
 export const lightTheme = {
-    mode: "light",
-    PRIMARY_BACKGROUND_COLOR: "#ffffff",
-    PRIMARY_TEXT_COLOR: "#212121",
-    PRIMARY_BUTTON_COLOR: "#8022d9",
-    PRIMARY_BUTTON_TEXT_COLOR: "#ffffff",
-    STATUS_BAR_STYLE: "default",
-}
+  mode: 'light',
+  STATUS_BAR_STYLE: 'dark-content',
+  BACKGROUND_COLOR_PRIMARY: '#E9EAEE',
+  BACKGROUND_COLOR_SECONDARY: '#F7F7F7',
+  TEXT_COLOR_PRIMARY: '#4C576A',
+  TEXT_COLOR_SECONDARY: '#B4BDC6',
+  TEXT_COLOR_THIRDARY: '#FD9790',
+  BORDER_RADIUS: 10
+};

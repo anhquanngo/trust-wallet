@@ -9,11 +9,11 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
+import styled from 'styled-components/native';
 
+const {width} = Dimensions.get('window');
 
-const { width } = Dimensions.get('window');
-
-export const TabNavigatorWallet = ({ setPositionTab }) => {
+export const TabNavigatorWallet = ({setPositionTab}) => {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -29,40 +29,15 @@ export const TabNavigatorWallet = ({ setPositionTab }) => {
     setActive(param);
     setPositionTab(param);
   };
+
   return (
     <React.Fragment>
-      <View style={{ flex: 1, }}>
-        <View
-          style={{
-            width: '90%',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            padding: 3,
-            borderRadius: 10,
-            backgroundColor: '#2664A5',
-          }}>
-          <View
-            style={{
-              position: 'relative',
-              flexDirection: 'row',
-              height: 35,
-              borderRadius: 10,
-              backgroundColor: '#2664A5',
-            }}>
-            <Animated.View
+      <View style={{flex: 1}}>
+        <TabNavigatorWalletContainer>
+          <TabContainer>
+            <AnimatedStyle
               style={{
-                position: 'absolute',
-                width: '33.3%',
-                height: '100%',
-                top: 0,
-                left: 0,
-                backgroundColor: '#3375BB',
-                borderRadius: 10,
-                transform: [
-                  {
-                    translateX,
-                  },
-                ],
+                transform: [{translateX}],
               }}
             />
             <TouchableOpacity
@@ -70,86 +45,54 @@ export const TabNavigatorWallet = ({ setPositionTab }) => {
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                // borderWidth: 1,
-                // borderColor: '#007aff',
-                // borderRadius: 4,
-                // borderRightWidth: 0,
-                // borderTopRightRadius: 0,
-                // borderBottomRightRadius: 0,
               }}
               onLayout={(event) => {
-
-                setTabOne(event.nativeEvent.layout.x)
+                setTabOne(event.nativeEvent.layout.x);
               }}
-
               onPress={() => {
                 handleSlide(xTabOne, 0);
-                // setActive(0);
               }}>
-              <Text
-                style={{
-                  color: active === 0 ? '#fff' : '#ABC3DC',
-                }}>
+              <TextStyle active={active} param={0}>
                 Tokens
-              </Text>
+              </TextStyle>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                // borderWidth: 1,
-                // borderColor: '#007aff',
-                // borderRadius: 4,
-                // borderLeftWidth: 0,
-                // borderTopLeftRadius: 0,
-                // borderBottomLeftRadius: 0,
               }}
               onLayout={(event) => {
                 console.log(event.nativeEvent.layout.x);
-                setTabTwo(event.nativeEvent.layout.x)
+                setTabTwo(event.nativeEvent.layout.x);
               }}
               onPress={() => {
                 handleSlide(xTabTwo, 1);
-                // setActive(1);
               }}>
-              <Text
-                style={{
-                  color: active === 1 ? '#fff' : '#ABC3DC',
-                }}>
+              <TextStyle active={active} param={1}>
                 Finance
-              </Text>
+              </TextStyle>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                // borderWidth: 1,
-                // borderColor: '#007aff',
-                // borderRadius: 4,
-                // borderLeftWidth: 0,
-                // borderTopLeftRadius: 0,
-                // borderBottomLeftRadius: 0,
               }}
               onLayout={(event) => setTabThree(event.nativeEvent.layout.x)}
               onPress={() => {
                 handleSlide(xTabThree, 2);
-                // setActive(2);
               }}>
-              <Text
-                style={{
-                  color: active === 2 ? '#fff' : '#ABC3DC',
-                }}>
+              <TextStyle active={active} param={2}>
                 Collect
-              </Text>
+              </TextStyle>
             </TouchableOpacity>
-          </View>
-        </View>
+          </TabContainer>
+        </TabNavigatorWalletContainer>
       </View>
     </React.Fragment>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -161,3 +104,40 @@ const styles = StyleSheet.create({
     backgroundColor: '#3375BB',
   },
 });
+
+const TabNavigatorWalletContainer = styled.View`
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10;
+  padding-top: 2;
+  padding-right: 3;
+  padding-bottom: 3;
+  padding-left: 3;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`;
+
+const TabContainer = styled.View`
+  position: relative;
+  flex-direction: row;
+  height: 35;
+  border-radius: 10;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`;
+
+const AnimatedStyle = styled(Animated.View)`
+  position: absolute;
+  width: 33.3%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  border-radius: 10;
+`;
+
+const TextStyle = styled.Text`
+  color: ${(props) =>
+    props.active == props.param
+      ? props.theme.TEXT_COLOR_PRIMARY
+      : props.theme.TEXT_COLOR_SECONDARY};
+`;

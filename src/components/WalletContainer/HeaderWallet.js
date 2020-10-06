@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
+import styled from 'styled-components/native';
 
 // import component
 import {TabNavigatorWallet} from './TabNavigatorWallet';
@@ -9,36 +10,40 @@ import {TabNavigatorWallet} from './TabNavigatorWallet';
 export const HeaderWallet = ({navigation, setPositionTab}) => {
   return (
     <React.Fragment>
-      <View style={styles.container}>
+      {/* <View style={styles.container}> */}
+      <HeaderContainer>
         <View>
-          <Ionicon
+          <IconStyle
             name="notifications-outline"
             size={25}
-            color="#F1F6FA"
             onPress={() => navigation.navigate('Notification')}
           />
         </View>
-        <TabNavigatorWallet setPositionTab={setPositionTab}/>
+        <TabNavigatorWallet setPositionTab={setPositionTab} />
         <View>
-          <Ionicon
+          <IconStyle
             name="ellipsis-horizontal-outline"
             size={25}
-            color="#F1F6FA"
             onPress={() => navigation.navigate('DetailStack')}
           />
         </View>
-      </View>
+      </HeaderContainer>
     </React.Fragment>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    height: 70,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#3375BB',
-  },
-});
+const HeaderContainer = styled.View`
+  flex-direction: row;
+  height: 70;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10;
+  padding-right: 10;
+  padding-bottom: 10;
+  padding-left: 10;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+`;
+
+const IconStyle = styled(Ionicon)`
+  color: ${props => props.theme.TEXT_COLOR_PRIMARY}
+`;

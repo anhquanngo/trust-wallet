@@ -1,5 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import styled from 'styled-components/native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
@@ -31,41 +32,47 @@ const screenOptions = ({route}) => ({
   tabBarIcon: ({focused, size, color}) => {
     if (route.name == 'WalletScreen')
       return (
-        <Ionicon
+        <IconStyle
           name={focused ? 'shield' : 'shield-outline'}
           size={size}
-          color={color}
+          focused = {focused}
         />
       );
     if (route.name == 'MenuScreen')
       return (
-        <Ionicon
+        <IconStyle
           name={focused ? 'grid' : 'grid-outline'}
           size={size}
-          color={color}
+          focused = {focused}
         />
       );
     if (route.name == 'ExchangeScreen')
       return (
-        <Ionicon
+        <IconStyle
           name={focused ? 'swap-horizontal' : 'swap-horizontal-outline'}
           size={size}
-          color={color}
+          focused = {focused}
         />
       );
     if (route.name == 'SettingScreen')
       return (
-        <Ionicon
+        <IconStyle
           name={focused ? 'settings' : 'settings-outline'}
           size={size}
-          color={color}
+          focused = {focused}
         />
       );
   },
 });
 
 const tabBarOptions = {
-  activeTintColor: '#3375bb',
-  inactiveTintColor: '#68788d',
+  // activeTintColor: '#3375bb',
+  // inactiveTintColor: '#68788d',
   showLabel: false,
 };
+
+const IconStyle = styled(Ionicon)`
+  color: ${props => props.focused ? (props.theme.TEXT_COLOR_PRIMARY) : (
+    props.theme.TEXT_COLOR_SECONDARY
+  )}
+`;
