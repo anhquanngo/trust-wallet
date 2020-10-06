@@ -1,20 +1,28 @@
 import * as React from 'react';
-import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {connect} from 'react-redux';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native';
 
+<<<<<<< HEAD
 import {Text} from 'react-native';
+=======
+import { ThemeProvider } from 'styled-components';
+>>>>>>> feature/quan
 
-import {ThemeProvider} from 'styled-components';
+import { Private, Public } from './routes';
 
-import {Private, Public} from './routes';
+import { getMnemonicStr } from './redux/actions';
 
+<<<<<<< HEAD
 import {getMnemonicStr, switchTheme} from './redux/actions';
 import {DARK_THEME} from './redux/constants';
 
 function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
+=======
+function App({ mnemonicStr, getMnemonicStr, theme }) {
+>>>>>>> feature/quan
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
@@ -34,11 +42,16 @@ function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
     <>
       <NavigationContainer>
         <ThemeProvider theme={theme}>
+<<<<<<< HEAD
           <StatusBar
             backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
             barStyle="dark-content"
           />
           <AppContainer>{auth ? <Public /> : <Private />}</AppContainer>
+=======
+          <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
+          {auth ? <Public /> : <Private />}
+>>>>>>> feature/quan
         </ThemeProvider>
       </NavigationContainer>
     </>

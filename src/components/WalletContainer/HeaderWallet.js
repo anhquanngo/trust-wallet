@@ -1,13 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import styled from 'styled-components/native';
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 
 // import component
-import {TabNavigatorWallet} from './TabNavigatorWallet';
+import { TabNavigatorWallet } from './TabNavigatorWallet';
 
-export const HeaderWallet = ({navigation, setPositionTab}) => {
+export const HeaderWallet = ({ navigation, setPositionTab }) => {
   return (
     <React.Fragment>
       {/* <View style={styles.container}> */}
