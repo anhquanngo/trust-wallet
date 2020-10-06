@@ -14,7 +14,7 @@ export const Notification = () => {
 
 
 const TextStyle = styled.Text`
-    color: ${props => props.theme.PRIMARY_TEXT_COLOR}
+    color: ${props => props.theme.TEXT_COLOR_PRIMARY};
 `;
 
 const WrapIcon = styled(Ionicon)`

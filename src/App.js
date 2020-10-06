@@ -3,20 +3,23 @@ import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
+import styled from 'styled-components/native';
 
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
 import {ThemeProvider} from 'styled-components';
 
 import {Private, Public} from './routes';
 
-import {getMnemonicStr} from './redux/actions';
+import {getMnemonicStr, switchTheme} from './redux/actions';
+import {DARK_THEME} from './redux/constants';
 
-function App({mnemonicStr, getMnemonicStr, theme}) {
+function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
     getMnemonicStr();
+    // switchTheme(DARK_THEME);
     let data = {
       name: 'Thinh',
       age: 30,
@@ -31,10 +34,12 @@ function App({mnemonicStr, getMnemonicStr, theme}) {
     <>
       <NavigationContainer>
         <ThemeProvider theme={theme}>
-            <StatusBar backgroundColor="#3375bb" barStyle="light-content" />
-            {auth ? <Public /> : <Private />}
+          <StatusBar
+            backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
+            barStyle="dark-content"
+          />
+          <AppContainer>{auth ? <Public /> : <Private />}</AppContainer>
         </ThemeProvider>
-
       </NavigationContainer>
     </>
   );
@@ -42,11 +47,18 @@ function App({mnemonicStr, getMnemonicStr, theme}) {
 
 const mapStateToProp = (state) => ({
   mnemonicStr: state.mnemonicStr,
-  theme: state.theme
+  theme: state.theme,
 });
 
 const mapDispatchToProp = {
   getMnemonicStr,
+  switchTheme,
 };
+
+const AppContainer = styled.View`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`;
 
 export default connect(mapStateToProp, mapDispatchToProp)(App);
