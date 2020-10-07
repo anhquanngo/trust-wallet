@@ -5,18 +5,20 @@ import styled from 'styled-components/native';
 export const Coin = (props) => {
   let { imageUrl, title, value, quality, currency } = props;
   return (
-    <CardContainer>
-      <CardBody>
-        <CardImage source={{ uri: `${imageUrl}` }} />
+    <View >
+      <CardContainer>
+        <CardBody>
+          <CardImage source={{ uri: `${imageUrl}` }} />
+          <View style={{ justifyContent: 'center' }}>
+            <CardText fontSize={22}>{title}</CardText>
+            <CardText fontSize={15}>{value}</CardText>
+          </View>
+        </CardBody>
         <View style={{ justifyContent: 'center' }}>
-          <CardText fontSize={22}>{title}</CardText>
-          <CardText fontSize={15}>{value}</CardText>
+          <CardText fontSize={20}>{`${quality} ${currency}`}</CardText>
         </View>
-      </CardBody>
-      <View style={{ justifyContent: 'center' }}>
-        <CardText fontSize={20}>{`${quality} ${currency}`}</CardText>
-      </View>
-    </CardContainer>
+      </CardContainer>
+    </View>
   );
 };
 
@@ -35,9 +37,8 @@ const CardContainer = styled.View`
   padding-right: 10;
   padding-left: 10;
   padding-bottom: 10;
+  border-width:0.5;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  margin-top: 5;
-  border-radius: 10;
 `;
 
 const CardBody = styled.View`

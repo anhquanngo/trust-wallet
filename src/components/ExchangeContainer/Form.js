@@ -29,7 +29,7 @@ export const Form = () => {
                                     handleSlide(xTabOne, 0);
                                     // setActive(0);
                                 }}>
-                                <Text style={{ color: "#fff" }}>Buy</Text>
+                                <TextThirdary >Buy</TextThirdary>
                             </ButtonTabStyle>
                             <ButtonTabStyle
                                 onLayout={(event) => setTabTwo(event.nativeEvent.layout.x)}
@@ -37,7 +37,7 @@ export const Form = () => {
                                     handleSlide(xTabTwo, 1);
                                     // setActive(0);
                                 }}
-                            ><Text style={{ color: "#fff" }}>Sell</Text>
+                            ><TextThirdary >Sell</TextThirdary>
                             </ButtonTabStyle>
                         </TabContainer>
                     </TabExContainer>

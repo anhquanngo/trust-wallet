@@ -37,7 +37,7 @@ function App({ mnemonicStr, getMnemonicStr, theme, switchTheme }) {
             backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
             barStyle="dark-content"
           />
-          <AppContainer>{auth ? <Public /> : <Private />}</AppContainer>
+          <AppContainer>{auth ? <Public theme={theme} /> : <Private />}</AppContainer>
         </ThemeProvider>
       </NavigationContainer>
     </>

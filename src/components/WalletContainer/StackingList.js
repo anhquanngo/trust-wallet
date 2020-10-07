@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
+import styled from 'styled-components/native';
 import { StackingItem } from './StackingItem';
 
 export const StakingList = (props) => {
     const { lists } = props
     return (
-        <View>
-            <Text style={{ color: "#3E7CBE", fontWeight: "bold", fontSize: 20, padding: 15 }}>Staking</Text>
+        <View >
             {
                 lists && lists.map((item, index) => {
                     return (
-                        <StackingItem item={item} key={index}/>
+                        <StackingItem item={item} key={index} />
                     )
                 })
             }
@@ -59,3 +59,9 @@ StakingList.defaultProps = {
 
     ]
 }
+const TextPrimary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`
+const TextSecondary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`

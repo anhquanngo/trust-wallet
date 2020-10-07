@@ -13,12 +13,18 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-export const Public = () => {
+export const Public = ({ theme }) => {
   return (
     <React.Fragment>
       <Tab.Navigator
         screenOptions={screenOptions}
-        tabBarOptions={tabBarOptions}>
+        tabBarOptions={{
+          showLabel: false,
+          style: {
+            backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
+            borderTopColor: "transparent"
+          }
+        }}>
         <Tab.Screen name="WalletScreen" component={WalletScreen} />
         <Tab.Screen name="MenuScreen" component={MenuScreen} />
         <Tab.Screen name="ExchangeScreen" component={ExchangeScreen} />
