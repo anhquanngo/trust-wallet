@@ -15,7 +15,7 @@ import { ThemeProvider } from 'styled-components'
 
 
 function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
-  let [auth, setAuth] = React.useState(true);
+  let [auth, setAuth] = React.useState(false);
 
   React.useEffect(() => {
     getMnemonicStr();

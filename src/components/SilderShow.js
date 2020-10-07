@@ -29,6 +29,7 @@ const SliderImage = styled.View`
 const ImageStyle = styled.Image`
   width: 50%;
   height: 50%;
+  opacity: 0.8
 `;
 
 const SliderBody = styled.View`
@@ -87,7 +88,7 @@ export const SliderShow = ({lists, navigation}) => {
                 lists.map((item, index) => (
                   <View style={{marginRight: 5}} key={index}>
                     <Ionicon
-                      name="radio-button-on"
+                      name="ellipse-sharp"
                       size={10}
                       color={index == state ? '#666666aa' : '#ccc'}
                     />
