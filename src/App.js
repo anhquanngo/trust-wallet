@@ -15,7 +15,7 @@ import {getMnemonicStr, switchTheme} from './redux/actions';
 import {DARK_THEME} from './redux/constants';
 
 function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
-  let [auth, setAuth] = React.useState(true);
+  let [auth, setAuth] = React.useState(false);
 
   React.useEffect(() => {
     getMnemonicStr();

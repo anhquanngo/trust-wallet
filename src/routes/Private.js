@@ -11,7 +11,6 @@ const Stack = createStackNavigator();
 export const Private = () => {
   return (
     <React.Fragment>
-      <NavigationContainer>
         <Stack.Navigator initialRouteName="Wellcome">
           <Stack.Screen name="Wellcome" component={SliderShow} />
           <Stack.Screen name="Login" component={Login} />
@@ -19,7 +18,6 @@ export const Private = () => {
           <Stack.Screen name="Authencation" component={Authencation} />
           <Stack.Screen name="ConfirmAuth" component={ConfirmAuth} />
         </Stack.Navigator>
-      </NavigationContainer>
     </React.Fragment>
   );
 }

@@ -21,7 +21,7 @@ export const Public = ({theme}) => {
         tabBarOptions={{
           showLabel: false,
           style: {
-            backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             borderTopColor: "transparent",
           }
         }}>
