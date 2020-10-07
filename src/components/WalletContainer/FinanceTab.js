@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
+import styled from 'styled-components/native';
+
 
 export const FinanceTab = (props) => {
     const { lists } = props
     return (
-        <View>
-            <Text style={{ color: "#3E7CBE", fontWeight: "bold", fontSize: 20, padding: 15 }}>Staking</Text>
+        <Container style={{ height: "100%" }}>
+            <TextSecondary style={{ fontWeight: "bold", fontSize: 20, padding: 15 }}>Staking</TextSecondary>
             {
                 lists && lists.map((item, index) => {
                     return (
@@ -14,25 +16,20 @@ export const FinanceTab = (props) => {
                                 <Image source={{ uri: `${item.imageUrl}` }} style={{ width: 50, height: 50, margin: 15 }} />
                             </View>
                             <View style={{ justifyContent: "center" }}>
-                                <Text style={{ fontSize: 20 }}>{item.title}</Text>
-                                <Text style={{ fontSize: 16, color: "gray" }}>APR {item.percent}%</Text>
+                                <TextPrimary style={{ fontSize: 20 }}>{item.title}</TextPrimary>
+                                <TextSecondary style={{ fontSize: 16, color: "gray" }}>APR {item.percent}%</TextSecondary>
                             </View>
                         </View>
                     )
                 })
             }
-        </View>
+        </Container>
     )
 }
 
 FinanceTab.defaultProps = {
     lists: [
-        {
-            imageUrl: "https://s2.coinmarketcap.com/static/img/coins/200x200/2011.png",
-            title: "Tezos (XTZ)",
-            percent: "6,09"
 
-        },
         {
             imageUrl: "https://cdn.iconscout.com/icon/premium/png-512-thumb/tron-1429786-1210336.png",
             title: "Tron (TRX)",
@@ -66,3 +63,14 @@ FinanceTab.defaultProps = {
 
     ]
 }
+
+const Container = styled.View`
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`
+
+const TextPrimary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`
+const TextSecondary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`

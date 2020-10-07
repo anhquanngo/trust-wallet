@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export const TabNavigatorWallet = ({setPositionTab}) => {
+export const TabNavigatorWallet = ({ setPositionTab }) => {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -32,12 +32,12 @@ export const TabNavigatorWallet = ({setPositionTab}) => {
 
   return (
     <React.Fragment>
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <TabNavigatorWalletContainer>
           <TabContainer>
             <AnimatedStyle
               style={{
-                transform: [{translateX}],
+                transform: [{ translateX }],
               }}
             />
             <TouchableOpacity
@@ -94,16 +94,6 @@ export const TabNavigatorWallet = ({setPositionTab}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    height: 70,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#3375BB',
-  },
-});
 
 const TabNavigatorWalletContainer = styled.View`
   width: 90%;

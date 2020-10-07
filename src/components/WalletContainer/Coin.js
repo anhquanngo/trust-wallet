@@ -1,23 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Coin = (props) => {
-  let {imageUrl, title, value, quality, currency} = props;
-
+  let { imageUrl, title, value, quality, currency } = props;
   return (
-    <CardContainer>
-      <CardBody>
-        <CardImage source={{uri: `${imageUrl}`}} />
-        <View style={{justifyContent: 'center'}}>
-          <CardText fontSize={22}>{title}</CardText>
-          <CardText fontSize={15}>{value}</CardText>
+    <View >
+      <CardContainer>
+        <CardBody>
+          <CardImage source={{ uri: `${imageUrl}` }} />
+          <View style={{ justifyContent: 'center' }}>
+            <CardText fontSize={22}>{title}</CardText>
+            <CardText fontSize={15}>{value}</CardText>
+          </View>
+        </CardBody>
+        <View style={{ justifyContent: 'center' }}>
+          <CardText fontSize={20}>{`${quality} ${currency}`}</CardText>
         </View>
-      </CardBody>
-      <View style={{justifyContent: 'center'}}>
-        <CardText fontSize={20}>{`${quality} ${currency}`}</CardText>
-      </View>
-    </CardContainer>
+      </CardContainer>
+    </View>
   );
 };
 
@@ -32,11 +33,12 @@ Coin.defaultProps = {
 const CardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 15;
-  padding-bottom: 15;
+  padding-top: 10;
+  padding-right: 10;
+  padding-left: 10;
+  padding-bottom: 10;
+  border-width:0.5;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  margin-top: ${props => props.theme.MARGIN_TOP};
-  border-radius: ${props => props.theme.BORDER_RADIUS}
 `;
 
 const CardBody = styled.View`

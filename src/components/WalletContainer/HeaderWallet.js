@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
-
-import Ionicon from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-// import component
-import {TabNavigatorWallet} from './TabNavigatorWallet';
+import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export const HeaderWallet = ({navigation, setPositionTab}) => {
+// import component
+import { TabNavigatorWallet } from './TabNavigatorWallet';
+
+export const HeaderWallet = ({ navigation, setPositionTab }) => {
   return (
    <HeaderContainer>
         <View>

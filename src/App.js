@@ -1,21 +1,21 @@
 import * as React from 'react';
-import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {connect} from 'react-redux';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native';
 
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
-import {ThemeProvider} from 'styled-components';
+import { Private, Public } from './routes';
 
-import {Private, Public} from './routes';
+import { getMnemonicStr, switchTheme } from './redux/actions';
+import { DARK_THEME } from './redux/constants';
+import { ThemeProvider } from 'styled-components'
 
-import {getMnemonicStr, switchTheme} from './redux/actions';
-import {DARK_THEME} from './redux/constants';
 
 function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
-  let [auth, setAuth] = React.useState(false);
+  let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
     getMnemonicStr();

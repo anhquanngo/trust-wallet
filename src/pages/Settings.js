@@ -8,13 +8,17 @@ const Stack = createStackNavigator();
 export const SettingScreen = () => {
   return (
     <React.Fragment>
-      <Stack.Navigator initialRouteName="SettingList">
+      <Stack.Navigator initialRouteName="SettingList"
+        screenOptions={{
+          headerTintColor: 'white',
+        }}
+      >
         <Stack.Screen
           name="SettingList"
           component={SettingList}
           options={{
             headerStyle: {
-              backgroundColor: '#3275BB',
+              backgroundColor: '#384267',
             },
           }}
         />
@@ -23,7 +27,7 @@ export const SettingScreen = () => {
           component={SettingWallet}
           options={{
             headerStyle: {
-              backgroundColor: '#3275BB',
+              backgroundColor: '#384267',
             },
           }}
         />
@@ -32,7 +36,7 @@ export const SettingScreen = () => {
           component={SettingSecurity}
           options={{
             headerStyle: {
-              backgroundColor: '#3275BB',
+              backgroundColor: '#384267',
             },
           }}
         />
@@ -41,11 +45,13 @@ export const SettingScreen = () => {
           component={SettingAbout}
           options={{
             headerStyle: {
-              backgroundColor: '#3275BB',
+              backgroundColor: '#384267',
             },
           }}
         />
       </Stack.Navigator>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
+
+

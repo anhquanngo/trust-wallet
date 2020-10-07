@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import styled from 'styled-components/native';
@@ -49,7 +49,7 @@ const TextStyle = styled.Text`
 `;
 
 export const TokenWallet = (props) => {
-  const {name} = props;
+  const { name } = props;
   return (
     <TokenWalletContainer>
       <TitleStyle> $0.00</TitleStyle>
