@@ -6,12 +6,12 @@ import styled from 'styled-components/native';
 export const FinanceTab = (props) => {
     const { lists } = props
     return (
-        <Container style={{ height: "100%" }}>
-            <TextSecondary style={{ fontWeight: "bold", fontSize: 20, padding: 15 }}>Staking</TextSecondary>
+        <Container >
+            <TextSecondary style={{ fontWeight: "bold", fontSize: 20, padding: 10 }}>Staking</TextSecondary>
             {
                 lists && lists.map((item, index) => {
                     return (
-                        <View key={index} style={{ flexDirection: 'row', borderBottomWidth: 0.5 }}>
+                        <ItemCoin key={index}>
                             <View>
                                 <Image source={{ uri: `${item.imageUrl}` }} style={{ width: 50, height: 50, margin: 15 }} />
                             </View>
@@ -19,7 +19,7 @@ export const FinanceTab = (props) => {
                                 <TextPrimary style={{ fontSize: 20 }}>{item.title}</TextPrimary>
                                 <TextSecondary style={{ fontSize: 16, color: "gray" }}>APR {item.percent}%</TextSecondary>
                             </View>
-                        </View>
+                        </ItemCoin>
                     )
                 })
             }
@@ -60,6 +60,18 @@ FinanceTab.defaultProps = {
             percent: "8,06"
 
         },
+        {
+            imageUrl: "https://assets.coingecko.com/coins/images/1481/large/cosmos_hub.png?1555657960",
+            title: "Cosmos (ATOM)",
+            percent: "8,06"
+
+        },
+        {
+            imageUrl: "https://assets.coingecko.com/coins/images/1481/large/cosmos_hub.png?1555657960",
+            title: "Cosmos (ATOM)",
+            percent: "8,06"
+
+        },
 
     ]
 }
@@ -73,4 +85,11 @@ const TextPrimary = styled.Text`
 `
 const TextSecondary = styled.Text`
     color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`
+
+const ItemCoin = styled.View`
+    flex-direction: row;
+    border-bottom-width: 0.5;
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+    border-radius:10   
 `

@@ -1,14 +1,14 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
 //import component
-import {HeaderWallet} from './HeaderWallet';
-import {TokenTab} from './TokenTab';
-import {FinanceTab} from './FinanceTab';
-import {CollectionTab} from './CollectionTab';
+import { HeaderWallet } from './HeaderWallet';
+import { TokenTab } from './TokenTab';
+import { FinanceTab } from './FinanceTab';
+import { CollectionTab } from './CollectionTab';
 
-export default function WalletContainer({navigation}) {
+export default function WalletContainer({ navigation }) {
   let [positionTab, setPositionTab] = React.useState(0);
   return (
     <WalletContainerStyle>
@@ -16,8 +16,8 @@ export default function WalletContainer({navigation}) {
       <ScrollView>
         {positionTab === 0 ? <TokenTab /> : null}
         {positionTab === 1 ? <FinanceTab /> : null}
-        {positionTab === 2 ? <CollectionTab /> : null}
       </ScrollView>
+      {positionTab === 2 ? <CollectionTab /> : null}
     </WalletContainerStyle>
   );
 }

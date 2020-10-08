@@ -6,13 +6,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import styled from 'styled-components/native'
 
 export const SettingList = ({ navigation }) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <ScrollView>
-            <View style={{ backgroundColor: '#fff' }}>
+            <Container >
                 <TouchableOpacity onPress={() => navigation.navigate("Setting-Wallet")}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                         <View style={{ flexDirection: "row" }}>
@@ -25,18 +26,18 @@ export const SettingList = ({ navigation }) => {
                                 </View>
                             </View>
                             <View style={{ justifyContent: "center" }}>
-                                <Text style={{ fontSize: 22 }} >
+                                <TextPrimary style={{ fontSize: 22 }} >
                                     Wallets
-                    </Text>
-                                <Text style={{ fontSize: 18, color: "#989898" }}  >
+                    </TextPrimary>
+                                <TextSecondary style={{ fontSize: 18 }}  >
                                     Multi-Coin Wallet Quan
-                    </Text>
+                    </TextSecondary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22, margin: 10 }} >
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                                 <SimpleLineIcons size={20} name="arrow-right" />
-                            </Text>
+                            </TextPrimary>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -51,9 +52,9 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Dark Mode
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
@@ -68,31 +69,33 @@ export const SettingList = ({ navigation }) => {
                         </Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#FFC000", borderRadius: 10
-                            }}>
-                                <AntDesign name="gift" size={30} color="#fff" />
+                <TouchableOpacity onPress={() => navigation.navigate('Setting-InviteFriend')}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#FFC000", borderRadius: 10
+                                }}>
+                                    <AntDesign name="gift" size={30} color="#fff" />
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <TextPrimary style={{ fontSize: 22 }} >
+                                    Invite a Friend
+                    </TextPrimary>
+                                <TextSecondary style={{ fontSize: 18 }}  >
+                                    Get TWT Tokens
+                    </TextSecondary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                Invite a Friend
-                    </Text>
-                            <Text style={{ fontSize: 18, color: "#989898" }}  >
-                                Get TWT Tokens
-                    </Text>
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </TextPrimary>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Setting-Security")}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                         <View style={{ flexDirection: "row" }}>
@@ -105,63 +108,67 @@ export const SettingList = ({ navigation }) => {
                                 </View>
                             </View>
                             <View style={{ justifyContent: "center" }}>
-                                <Text style={{ fontSize: 22 }} >
+                                <TextPrimary style={{ fontSize: 22 }} >
                                     Security
-                    </Text>
+                    </TextPrimary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22, margin: 10 }} >
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                                 <SimpleLineIcons size={20} name="arrow-right" />
-                            </Text>
+                            </TextPrimary>
                         </View>
                     </View>
                 </TouchableOpacity>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#FF3E2D", borderRadius: 10
-                            }}>
-                                <Ionicons name="notifications" size={30} color="#FFF" />
+                <TouchableOpacity onPress={() => navigation.navigate("Setting-Notifications")}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#FF3E2D", borderRadius: 10
+                                }}>
+                                    <Ionicons name="notifications" size={30} color="#FFF" />
 
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <TextPrimary style={{ fontSize: 22 }} >
+                                    Notifications
+                    </TextPrimary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                Notifications
-                    </Text>
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </TextPrimary>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ justifyContent: "center", margin: 10 }}>
-                            <View style={{
-                                justifyContent: "center", alignItems: "center",
-                                height: 50, width: 50, backgroundColor: "#32BEA6", borderRadius: 10
-                            }}>
-                                <AntDesign name="setting" size={40} color="#fff" />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Setting-Preferences")}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View style={{ justifyContent: "center", margin: 10 }}>
+                                <View style={{
+                                    justifyContent: "center", alignItems: "center",
+                                    height: 50, width: 50, backgroundColor: "#32BEA6", borderRadius: 10
+                                }}>
+                                    <AntDesign name="setting" size={40} color="#fff" />
+                                </View>
+                            </View>
+                            <View style={{ justifyContent: "center" }}>
+                                <TextPrimary style={{ fontSize: 22 }} >
+                                    Setting
+                    </TextPrimary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
-                                Setting
-                    </Text>
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
+                                <SimpleLineIcons size={20} name="arrow-right" />
+                            </TextPrimary>
                         </View>
                     </View>
-                    <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
-                            <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
-                    </View>
-                </View>
+                </TouchableOpacity>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ justifyContent: "center", margin: 10 }}>
@@ -173,19 +180,19 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 WalletConnect
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ margin: 10, paddingTop: 10, paddingBottom: 10 }}>
-                    <Text style={{ fontWeight: "bold", fontSize: 20, color: "#3375BB" }}>Join Community</Text>
+                    <TextSecondary style={{ fontWeight: "bold", fontSize: 20 }}>Join Community</TextSecondary>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                     <View style={{ flexDirection: "row" }}>
@@ -198,15 +205,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Help Center
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -220,15 +227,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Twitter
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -242,15 +249,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Telegram
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -264,15 +271,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Facebook
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -286,15 +293,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Reddit
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -308,15 +315,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Youtube
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -330,15 +337,15 @@ export const SettingList = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Make a suggestion
-                    </Text>
+                    </TextPrimary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
-                        <Text style={{ fontSize: 22, margin: 10 }} >
+                        <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                             <SimpleLineIcons size={20} name="arrow-right" />
-                        </Text>
+                        </TextPrimary>
                     </View>
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate("About")}>
@@ -353,20 +360,32 @@ export const SettingList = ({ navigation }) => {
                                 </View>
                             </View>
                             <View style={{ justifyContent: "center" }}>
-                                <Text style={{ fontSize: 22 }} >
+                                <TextPrimary style={{ fontSize: 22 }} >
                                     About
-                    </Text>
+                    </TextPrimary>
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22, margin: 10 }} >
+                            <TextPrimary style={{ fontSize: 22, margin: 10 }} >
                                 <SimpleLineIcons size={20} name="arrow-right" />
-                            </Text>
+                            </TextPrimary>
                         </View>
                     </View>
                 </TouchableOpacity>
-            </View>
+            </Container>
         </ScrollView >
 
     )
 }
+
+
+const Container = styled.View`
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`
+
+const TextPrimary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`
+const TextSecondary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`

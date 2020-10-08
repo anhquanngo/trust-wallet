@@ -37,7 +37,9 @@ const CardContainer = styled.View`
   padding-right: 10;
   padding-left: 10;
   padding-bottom: 10;
-  border-width:0.5;
+  border-top-width:1;
+  border-bottom-width:1;
+  border-radius:10;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
 

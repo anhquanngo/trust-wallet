@@ -1,23 +1,23 @@
 import React from 'react';
-import {FlatList, ScrollView} from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
-import {Coin} from './Coin';
+import { Coin } from './Coin';
 
 const CoinListContainer = styled.View`
   padding-bottom: 60;
 `;
 
 export const CoinList = (props) => {
-  let {lists} = props;
-  const renderItem = ({item}) => <Coin {...item} />;
+  let { lists } = props;
+  const renderItem = ({ item }) => <Coin {...item} />;
   return (
     <CoinListContainer>
-        <FlatList
-          data={lists}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.title}
-        />
+      <FlatList
+        data={lists}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.title}
+      />
     </CoinListContainer>
   );
 };

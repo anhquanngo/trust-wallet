@@ -10,16 +10,16 @@ import { Text } from 'react-native';
 import { Private, Public } from './routes';
 
 import { getMnemonicStr, switchTheme } from './redux/actions';
-import { DARK_THEME } from './redux/constants';
+import { DARK_THEME, LIGHT_THEME } from './redux/constants';
 import { ThemeProvider } from 'styled-components'
 
 
-function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
+function App({ mnemonicStr, getMnemonicStr, theme, switchTheme }) {
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
     getMnemonicStr();
-    // switchTheme(DARK_THEME);
+    switchTheme(DARK_THEME);
     let data = {
       name: 'Thinh',
       age: 30,
@@ -35,7 +35,7 @@ function App({mnemonicStr, getMnemonicStr, theme, switchTheme}) {
             backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
             barStyle={theme.STATUS_BAR_STYLE}
           />
-          <AppContainer>{auth ? <Public theme={theme}/> : <Private />}</AppContainer>
+          <AppContainer>{auth ? <Public theme={theme} /> : <Private />}</AppContainer>
         </ThemeProvider>
       </NavigationContainer>
     </>

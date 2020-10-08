@@ -9,6 +9,7 @@ const TokenWalletContainer = styled.View`
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
   border-radius: 10;
+  border-bottom-width:1;
 `;
 
 const TitleStyle = styled.Text`
@@ -34,18 +35,11 @@ const IconStyle = styled(AntDesign)`
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
 `;
 
-const TextStyleContainer = styled.View`
-  padding-top: 10;
-  padding-bottom: 30;
-  width: 90%;
-  flex-direction: row;
-  justify-content: space-around;
-  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
-`;
-
 const TextStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
   font-size: 20;
+  padding-top:10;
+  padding-bottom:10;
 `;
 
 export const TokenWallet = (props) => {
@@ -62,21 +56,25 @@ export const TokenWallet = (props) => {
           flexDirection: 'row',
           justifyContent: 'space-around',
         }}>
-        <IconStyleContainer>
-          <IconStyle name="arrowup" size={30} />
-        </IconStyleContainer>
-        <IconStyleContainer>
-          <IconStyle name="arrowdown" size={30} />
-        </IconStyleContainer>
-        <IconStyleContainer>
-          <IconStyle name="tago" size={30} />
-        </IconStyleContainer>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="arrowup" size={30} />
+          </IconStyleContainer>
+          <TextStyle>Send</TextStyle>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="arrowdown" size={30} />
+          </IconStyleContainer>
+          <TextStyle> Receive</TextStyle>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="tago" size={30} />
+          </IconStyleContainer>
+          <TextStyle> Buy</TextStyle>
+        </View>
       </View>
-      <TextStyleContainer>
-        <TextStyle> Send</TextStyle>
-        <TextStyle> Receive</TextStyle>
-        <TextStyle> Buy</TextStyle>
-      </TextStyleContainer>
     </TokenWalletContainer>
   );
 };
