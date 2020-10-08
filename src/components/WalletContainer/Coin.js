@@ -3,19 +3,20 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Coin = (props) => {
-  let { imageUrl, title, value, quality, currency } = props;
+  // let { imageUrl, title, value, quality, currency } = props;
+  let {WalletSymbol, Name} = props;
   return (
     <View >
       <CardContainer>
         <CardBody>
-          <CardImage source={{ uri: `${imageUrl}` }} />
+          {/* <CardImage source={{ uri: `${imageUrl}` }} /> */}
           <View style={{ justifyContent: 'center' }}>
-            <CardText fontSize={22}>{title}</CardText>
-            <CardText fontSize={15}>{value}</CardText>
+            <CardText fontSize={22}>{WalletSymbol}</CardText>
+            {/* <CardText fontSize={15}>{value}</CardText> */}
           </View>
         </CardBody>
         <View style={{ justifyContent: 'center' }}>
-          <CardText fontSize={20}>{`${quality} ${currency}`}</CardText>
+          {/* <CardText fontSize={20}>{`${quality} ${currency}`}</CardText> */}
         </View>
       </CardContainer>
     </View>

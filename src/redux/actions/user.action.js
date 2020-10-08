@@ -2,8 +2,9 @@ import {
   GET_MNEMONIC_STR,
   GET_TOKEN_STR,
   GET_USER_INFO,
-  GET_CATAGORIES_MONEY,
+  GET_ALL_WALLET_BY_ADDRESS,
   FORGOT_ACCOUNT,
+  INSERT_WALLET_SYMBOL
 } from '../constants';
 
 export const getMnemonicStr = (data) => ({
@@ -21,12 +22,21 @@ export const getUserInfo = (data) => ({
   data: data,
 });
 
-export const getCatagoriesMoney = (data) => ({
-  type: GET_CATAGORIES_MONEY,
+export const getAllWalletByAddress = (data) => ({
+  type: GET_ALL_WALLET_BY_ADDRESS,
   data: data,
 });
+
+export const insertWalletSymbol = (data) => {
+  console.log(data);
+  return ({
+    type: INSERT_WALLET_SYMBOL,
+    data: data
+  })
+}
 
 export const getForgotAccount = (data) => ({
   type: FORGOT_ACCOUNT,
   data: data,
 });
+

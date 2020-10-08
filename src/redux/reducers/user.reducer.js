@@ -1,16 +1,23 @@
 import { 
   GET_MNEMONIC_STR,
-  GET_TOKEN_STR,  
+  MNEMONIC_RECEIVED,
+  GET_TOKEN_STR,
+  TOKEN_RECEIVED,
   GET_USER_INFO,
-  GET_CATAGORIES_MONEY,
+  USER_RECEIVED,
+  GET_ALL_WALLET_BY_ADDRESS,
+  WALLET_RECEIVED,
+  INSERT_WALLET_SYMBOL,
+  INSERT_WALLET_RECEIVED,
   FORGOT_ACCOUNT,
-  DATA_RECEIVED } from '../constants';
+
+} from '../constants';
 
 
 export const getMnemonicStr_Reducer = (state = "", action) => {
   switch (action.type) {
     case GET_MNEMONIC_STR: return state;
-    case DATA_RECEIVED: return action.data;
+    case MNEMONIC_RECEIVED: return action.data;
     default: return state;
   }
 }
@@ -18,7 +25,7 @@ export const getMnemonicStr_Reducer = (state = "", action) => {
 export const getTokenStr_Reducer = (state = "", action) => {
   switch (action.type) {
     case GET_TOKEN_STR: return state;
-    case DATA_RECEIVED: return action.data;
+    case TOKEN_RECEIVED: return action.data;
     default: return state;
   }
 }
@@ -27,15 +34,23 @@ export const getUserInfo_Reducer = (state = {}, action) => {
   switch (action.type) {
     case GET_USER_INFO: return state;
     case FORGOT_ACCOUNT: return state;
-    case DATA_RECEIVED: return action.data;
+    case USER_RECEIVED: return action.data;
     default: return state;
   }
 }
 
-export const getCatagoriesMoney_Reducer = (state = {}, action) => {
+export const getAllWalletByAddress_Reducer = (state = [], action) => {
   switch (action.type) {
-    case GET_CATAGORIES_MONEY: return state;
-    case DATA_RECEIVED: return action.data;
+    case GET_ALL_WALLET_BY_ADDRESS: return state;
+    case WALLET_RECEIVED: return action.data;
+    default: return state;
+  }
+}
+
+export const insertWalletSymbol_Reducer = (state = {}, action) => {
+  switch (action.type) {
+    case INSERT_WALLET_SYMBOL: return state;
+    case INSERT_WALLET_RECEIVED: return action.data;
     default: return state;
   }
 }

@@ -1,22 +1,39 @@
-import React, { useState } from 'react'
-import styled from 'styled-components/native';
-import { DetailStackCoin } from './Detail.stack.coin'
+import React, { useState } from 'react';
+import { View, Text, Switch } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { DetailStackCoin } from './Detail.stack.coin';
 
-export const DetailStack = () => {
-    return <Container>
-        <DetailStackCoin />
-        <DetailStackCoin />
-        <DetailStackCoin />
-        <DetailStackCoin />
-        <DetailStackCoin />
-        <DetailStackCoin />
-        <DetailStackCoin />
-    </Container>
-}
+export const DetailStack = ({ lists }) => {
+  return (
+    <React.Fragment>
+      {
+        lists && lists.map((item, index) => <DetailStackCoin key={index} {...item} />)
+      }
+    </React.Fragment>
+  );
+};
 
-const Container = styled.View`
-    background-color: ${props => props.theme.BACKGROUND_COLOR_SECONDARY};
-    height: 100%; 
-    
-`
-
+DetailStack.defaultProps = {
+  lists: [
+    {
+      WalletSymbol: 'FIN',
+      Name: 'FINFINE',
+    },
+    {
+      WalletSymbol: 'FIN2',
+      Name: 'FINFINE2',
+    },
+    {
+      WalletSymbol: 'FIN3',
+      Name: 'FINFINE3',
+    },
+    {
+      WalletSymbol: 'FIN3',
+      Name: 'FINFINE3',
+    },
+    {
+      WalletSymbol: 'FIN4',
+      Name: 'FINFINE4',
+    },
+  ],
+};
