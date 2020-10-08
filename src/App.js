@@ -4,29 +4,25 @@ import { NavigationContainer } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native';
+import axios from 'axios';
 
 import { Text } from 'react-native';
 
 import { Private, Public } from './routes';
 
-import { getMnemonicStr, switchTheme } from './redux/actions';
-import { DARK_THEME, LIGHT_THEME } from './redux/constants';
-import { ThemeProvider } from 'styled-components'
+import { getMnemonicStr, switchTheme, getUserInfo } from './redux/actions';
+import { DARK_THEME } from './redux/constants';
+import { ThemeProvider } from 'styled-components';
 
+import { getMnemonicStr_Uri } from './redux/api/index';
 
-function App({ mnemonicStr, getMnemonicStr, theme, switchTheme }) {
+function App({ theme, getUserInfo }) {
   let [auth, setAuth] = React.useState(true);
 
   React.useEffect(() => {
-    getMnemonicStr();
-    switchTheme(DARK_THEME);
-    let data = {
-      name: 'Thinh',
-      age: 30,
-      email: 'thinh@gmail.com',
-    };
-    AsyncStorage.setItem('user', JSON.stringify(data));
+    getUserInfo();
   }, []);
+
   return (
     <>
       <NavigationContainer>
@@ -35,7 +31,9 @@ function App({ mnemonicStr, getMnemonicStr, theme, switchTheme }) {
             backgroundColor={theme.BACKGROUND_COLOR_PRIMARY}
             barStyle={theme.STATUS_BAR_STYLE}
           />
-          <AppContainer>{auth ? <Public theme={theme} /> : <Private />}</AppContainer>
+          <AppContainer>
+            {auth ? <Public theme={theme} /> : <Private />}
+          </AppContainer>
         </ThemeProvider>
       </NavigationContainer>
     </>
@@ -43,13 +41,12 @@ function App({ mnemonicStr, getMnemonicStr, theme, switchTheme }) {
 }
 
 const mapStateToProp = (state) => ({
-  mnemonicStr: state.mnemonicStr,
   theme: state.theme,
+  user: state.user
 });
 
 const mapDispatchToProp = {
-  getMnemonicStr,
-  switchTheme,
+  getUserInfo,
 };
 
 const AppContainer = styled.View`
@@ -59,7 +56,7 @@ const AppContainer = styled.View`
   padding-right: 5;
   padding-bottom: 5;
   padding-left: 5;
-  background-color: ${props => props.theme.BACKGROUND_COLOR_PRIMARY}
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 
 export default connect(mapStateToProp, mapDispatchToProp)(App);

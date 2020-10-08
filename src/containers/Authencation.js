@@ -3,12 +3,22 @@ import {View, Text, Button, Dimensions} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
+import {connect, useSelector, useDispatch} from 'react-redux';
 
-const { width } = Dimensions.get("window");
+import {getMnemonicStr} from '../redux/actions';
 
-const AuthencationContainer = styled.View``;
+const {width} = Dimensions.get('window');
 
-const AuthencationHeader = styled.View``;
+const AuthencationContainer = styled.View`
+  /* background-color: #f00; */
+  background-color: #1c1c27;
+  height: 100%;
+  justify-content: space-between;
+`;
+
+const AuthencationHeader = styled.View`
+  margin-bottom: 20;
+`;
 
 const AuthencationBody = styled.View`
   width: 100%;
@@ -21,7 +31,14 @@ const AuthencationBody = styled.View`
 `;
 
 const AuthencationFooter = styled.View`
-
+  align-items: center;
+  background-color: #ddd;
+  width: 70%;
+  padding-top: 5;
+  padding-right: 10;
+  padding-bottom: 5;
+  padding-left: 10;
+  border-radius: 10;
 `;
 
 const ButtonStyle = styled.TouchableOpacity`
@@ -42,53 +59,82 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bolder ? 'bold' : 'normal')};
 `;
 
-export const Authencation = ({content, navigation}) => {
-  let words = content
-    .trim()
-    .split(/( ){1,}/gi)
-    .filter((item) => item.trim() !== '');
+export const Authencation = ({navigation}) => {
+  let dispatch = useDispatch();
+  let mnemonicStr = useSelector((state) => state.mnemonicStr);
+  let words;
+  console.log(mnemonicStr);
+
+  React.useEffect(() => {
+    dispatch(getMnemonicStr());
+  }, []);
+
+  if (typeof mnemonicStr == 'string' ) {
+    words = mnemonicStr
+      .trim()
+      .split(/( ){1,}/gi)
+      .filter((item) => item.trim() !== '');
+  }
   return (
     <React.Fragment>
       <AuthencationContainer>
-        <AuthencationHeader>
-          <TextStyle size={20}>Cụm từ phục hồi ví của bạn</TextStyle>
-          <TextStyle size={16}>
-            Viết xuống hoặc sao chép những cụm từ này theo đúng thứ tự và lưu
-            chúng ở nơi an toàn
-          </TextStyle>
-        </AuthencationHeader>
-        <AuthencationBody>
-          {words.map((item, index) => (
-            <TouchableOpacity key={index}>
-              <View
-                key={index}
-                style={{
-                  flexDirection: 'row',
-                  marginRight: 5,
-                  backgroundColor: '#ccc',
-                  marginBottom: 10,
-                  justifyContent: 'center',
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                }}>
-                <Text style={{marginRight: 3}}>{index}</Text>
-                <Text>{item}</Text>
-              </View>
-            </TouchableOpacity>
-          ))}
-        </AuthencationBody>
-        <AuthencationFooter>
-          <Ionicon name="information-circle-outline" size={30} color="#0fe" />
-          <Text>
-            Không bao giờ chia sẻ cụm từ phục hồi với bất cứ ai, phải lưu trữ
-            chúng an toàn và bí mật
-          </Text>
-        </AuthencationFooter>
-        <ButtonStyle backgroud>
-          <TextStyle size={14} uppercase bolder color='#fff'>
-            Tiếp tục
-          </TextStyle>
-        </ButtonStyle>
+        <View>
+          <AuthencationHeader>
+            <TextStyle size={18} color="#fff">
+              Cụm từ phục hồi ví của bạn
+            </TextStyle>
+            <TextStyle size={14} color="#A5A7AC">
+              Viết xuống hoặc sao chép những cụm từ này theo đúng thứ tự và lưu
+              chúng ở nơi an toàn
+            </TextStyle>
+          </AuthencationHeader>
+          <AuthencationBody>
+            {words &&
+              words.map((item, index) => (
+                <TouchableOpacity key={index}>
+                  <View
+                    key={index}
+                    style={{
+                      flexDirection: 'row',
+                      marginRight: 7,
+                      backgroundColor: '#363A45',
+                      marginBottom: 10,
+                      justifyContent: 'center',
+                      paddingLeft: 10,
+                      paddingRight: 10,
+                      borderRadius: 3,
+                    }}>
+                    <Text style={{marginRight: 3, color: '#A5A7AC'}}>
+                      {index + 1}
+                    </Text>
+                    <TextStyle size={14} color="#fff" bolder>
+                      {item}
+                    </TextStyle>
+                  </View>
+                </TouchableOpacity>
+              ))}
+          </AuthencationBody>
+        </View>
+        <View style={{alignItems: 'center', marginBottom: 10}}>
+          <AuthencationFooter>
+            <Ionicon
+              name="information-circle-outline"
+              size={20}
+              color="#2285D3"
+            />
+            <TextStyle size={16}>
+              Không bao giờ chia sẻ cụm từ phục hồi với bất cứ ai, phải lưu trữ
+              chúng an toàn và bí mật
+            </TextStyle>
+          </AuthencationFooter>
+          <ButtonStyle
+            backgroud
+            onPress={() => navigation.navigate('ConfirmAuth', {words})}>
+            <TextStyle size={14} uppercase bolder color="#fff">
+              Tiếp tục
+            </TextStyle>
+          </ButtonStyle>
+        </View>
       </AuthencationContainer>
     </React.Fragment>
   );

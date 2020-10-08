@@ -1,7 +1,13 @@
-import { GET_MNEMONIC_STR, GET_FULL_KEY, GET_CATAGORIES_MONEY, FORGOT_ACCOUNT, DATA_RECEIVED } from '../constants';
+import { 
+  GET_MNEMONIC_STR,
+  GET_TOKEN_STR,  
+  GET_USER_INFO,
+  GET_CATAGORIES_MONEY,
+  FORGOT_ACCOUNT,
+  DATA_RECEIVED } from '../constants';
 
 
-export const getMnemonicStr_Reducer = (state = {}, action) => {
+export const getMnemonicStr_Reducer = (state = "", action) => {
   switch (action.type) {
     case GET_MNEMONIC_STR: return state;
     case DATA_RECEIVED: return action.data;
@@ -9,9 +15,17 @@ export const getMnemonicStr_Reducer = (state = {}, action) => {
   }
 }
 
-export const getFullKey_Reducer = (state = {}, action) => {
+export const getTokenStr_Reducer = (state = "", action) => {
   switch (action.type) {
-    case GET_FULL_KEY: return state;
+    case GET_TOKEN_STR: return state;
+    case DATA_RECEIVED: return action.data;
+    default: return state;
+  }
+}
+
+export const getUserInfo_Reducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_USER_INFO: return state;
     case FORGOT_ACCOUNT: return state;
     case DATA_RECEIVED: return action.data;
     default: return state;

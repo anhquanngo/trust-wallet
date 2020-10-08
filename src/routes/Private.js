@@ -12,11 +12,11 @@ export const Private = () => {
   return (
     <React.Fragment>
         <Stack.Navigator initialRouteName="Wellcome">
-          <Stack.Screen name="Wellcome" component={SliderShow} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Signup" component={Signup} />
-          <Stack.Screen name="Authencation" component={Authencation} />
-          <Stack.Screen name="ConfirmAuth" component={ConfirmAuth} />
+          <Stack.Screen name="Wellcome" component={SliderShow}options={{headerShown: false}}/>
+          <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+          <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
+          <Stack.Screen name="Authencation" component={Authencation} options={{headerShown: false}}/>
+          <Stack.Screen name="ConfirmAuth" component={ConfirmAuth} options={{headerShown: false}}/>
         </Stack.Navigator>
     </React.Fragment>
   );

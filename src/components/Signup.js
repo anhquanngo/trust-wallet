@@ -101,7 +101,7 @@ export const Signup = ({navigation}) => {
                 borderRadius: 50,
                 padding: 10,
                 fontWeight: 'bold',
-                opacity: 0.95,
+                opacity: 0.9,
               }}
             />
           </View>
