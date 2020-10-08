@@ -1,6 +1,8 @@
 export const GET_MNEMONIC_STR = "GET_MNEMONIC_STR";
 
-export const GET_FULL_KEY = "GET_FULL_KEY";
+export const GET_TOKEN_STR = "GET_TOKEN_STR";
+
+export const GET_USER_INFO = "GET_USER_INFO";
 
 export const GET_CATAGORIES_MONEY = "GET_CATAGORIES_MONEY";
 

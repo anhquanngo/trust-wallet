@@ -2,7 +2,8 @@ import {all} from 'redux-saga/effects';
 
 import {
   getMnemonicStr_ActionWatcher,
-  getFullKey_ActionWatcher,
+  getTokenStr_ActionWatcher,
+  getUserInfo_ActionWatcher,
   getCatagoriesMoney_ActionWatcher,
   getForgotAccount_ActionWatcher,
 } from './user.saga';
@@ -14,7 +15,8 @@ import {
 export default function* rootSaga() {
   yield all([
       getMnemonicStr_ActionWatcher(),
-      getFullKey_ActionWatcher(),
+      getTokenStr_ActionWatcher(),
+      getUserInfo_ActionWatcher(),
       getCatagoriesMoney_ActionWatcher(),
       getForgotAccount_ActionWatcher(),
       switchTheme_ActionWatcher()

@@ -1,6 +1,7 @@
 import {
   GET_MNEMONIC_STR,
-  GET_FULL_KEY,
+  GET_TOKEN_STR,
+  GET_USER_INFO,
   GET_CATAGORIES_MONEY,
   FORGOT_ACCOUNT,
 } from '../constants';
@@ -10,8 +11,13 @@ export const getMnemonicStr = (data) => ({
   data: data,
 });
 
-export const getFullKey = (data) => ({
-  type: GET_FULL_KEY,
+export const getTokenStr = (data) => ({
+  type: GET_TOKEN_STR,
+  data: data
+})
+
+export const getUserInfo = (data) => ({
+  type: GET_USER_INFO,
   data: data,
 });
 

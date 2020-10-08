@@ -1,4 +1,8 @@
-export const baseUri = 'https://5f6852b7dc0bff0016f433bf.mockapi.io/api/mapi';
+export const APP_SECRET_KEY = 'game@2020!#$%*+^&*())(*&^%$#@!';
+
+export const baseUri = 'http://222.252.28.199:8080';
+
+// export const baseUri = 'https://polarized-spot-bath.glitch.me';
 
 /**
  * Get 12 words response:
@@ -7,10 +11,10 @@ export const baseUri = 'https://5f6852b7dc0bff0016f433bf.mockapi.io/api/mapi';
  *  MnemonicStr:
  * }
  */
-export const getMnemonicStr_Uri = '/mnemoic';
+export const getMnemonicStr_Uri = '/GetMNemonic';
 
 /**
- * Get Full Key response:
+ * Get AuthenNmemonic response:
  * {
  *  Token:
  *  Status: true || fasle
@@ -20,7 +24,7 @@ export const getMnemonicStr_Uri = '/mnemoic';
  *  MoneyDefault: BNB, BTC, ETH
  * }
  */
-export const getFullKey_Uri = '/getfullkey';
+export const getUserInfo_Uri = '/AuthenNmemonic';
 
 /**
  * Get Danh Muc Dong Tien
