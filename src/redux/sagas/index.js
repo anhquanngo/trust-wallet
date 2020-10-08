@@ -4,8 +4,9 @@ import {
   getMnemonicStr_ActionWatcher,
   getTokenStr_ActionWatcher,
   getUserInfo_ActionWatcher,
-  getCatagoriesMoney_ActionWatcher,
+  getAllWalletByAddress_ActionWatcher,
   getForgotAccount_ActionWatcher,
+  insertWalletSymbol_ActionWatcher
 } from './user.saga';
 
 import {
@@ -17,8 +18,9 @@ export default function* rootSaga() {
       getMnemonicStr_ActionWatcher(),
       getTokenStr_ActionWatcher(),
       getUserInfo_ActionWatcher(),
-      getCatagoriesMoney_ActionWatcher(),
+      getAllWalletByAddress_ActionWatcher(),
       getForgotAccount_ActionWatcher(),
-      switchTheme_ActionWatcher()
+      switchTheme_ActionWatcher(),
+      insertWalletSymbol_ActionWatcher()
   ]);
 }

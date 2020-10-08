@@ -2,6 +2,9 @@ import React from 'react';
 import {View, Text, Alert, Dimensions} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
+import {useSelector, useDispatch} from 'react-redux';
+
+import {getUserInfo} from '../redux/actions';
 
 import styled from 'styled-components/native';
 
@@ -60,8 +63,10 @@ export const ConfirmAuth = ({route}) => {
   let newWords = [...words].sort(() => 0.5 - Math.random());
   let [randomStr, setRandomStr] = React.useState([...newWords]);
   let [confirmStr, setConfirmStr] = React.useState([]);
-
-  console.log({words, confirmStr});
+  // let user = useSelector((state) => state.user);
+  let dispatch = useDispatch();
+  let [state, setState] = React.useState(false);
+  // console.log({words, confirmStr});
 
   return (
     <React.Fragment>
@@ -140,11 +145,13 @@ export const ConfirmAuth = ({route}) => {
             </ConfirmBody>
           )}
           <View style={{alignItems: 'center', marginBottom: 10}}>
+            {state && <Ionicon name="reload-outline" size={20} color="#0f0" />}
             <ButtonStyle
               backgroud
               onPress={() => {
                 if (words.join('') === confirmStr.join('')) {
-                  Alert.alert('Bạn đã check đúng');
+                  setState(true);
+                  dispatch(getUserInfo());
                 } else {
                   Alert.alert('Bạn đã check sai');
                 }

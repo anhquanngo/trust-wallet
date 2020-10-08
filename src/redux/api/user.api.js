@@ -6,10 +6,6 @@ export const baseUri = 'http://222.252.28.199:8080';
 
 /**
  * Get 12 words response:
- * {
- *  Token:
- *  MnemonicStr:
- * }
  */
 export const getMnemonicStr_Uri = '/GetMNemonic';
 
@@ -30,8 +26,14 @@ export const getUserInfo_Uri = '/AuthenNmemonic';
  * Get Danh Muc Dong Tien
  */
 
-export const getCatagoriesMoney_Uri = '/catagoriesmoney';
+export const getAllWalletByAddress_Uri = '/GetAllWalletByAddress';
 
+
+/**
+ * insert symbol to account
+ */
+
+ export const insertWalletSymbol_Uri = '/InsertWalletSymbol';
 /**
  * Recover account
  */
