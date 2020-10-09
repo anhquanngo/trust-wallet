@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, Text, Button, Dimensions} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { View, Text, Button, Dimensions } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
-import {connect, useSelector, useDispatch} from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 
-import {getMnemonicStr} from '../redux/actions';
+import { getMnemonicStr } from '../redux/actions';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const AuthencationContainer = styled.View`
   /* background-color: #f00; */
@@ -35,10 +35,10 @@ const AuthencationFooter = styled.View`
   background-color: #ddd;
   width: 70%;
   padding-top: 5;
-  padding-right: 10;
+  padding-right: 10px;
   padding-bottom: 5;
   padding-left: 10;
-  border-radius: 10;
+  border-radius: 10px;
 `;
 
 const ButtonStyle = styled.TouchableOpacity`
@@ -47,8 +47,8 @@ const ButtonStyle = styled.TouchableOpacity`
   align-items: center;
   margin-top: 20;
   padding-top: 10;
-  padding-bottom: 10;
-  border-radius: 10;
+  padding-bottom: 10px;
+  border-radius: 10px;
 `;
 
 const TextStyle = styled.Text`
@@ -59,7 +59,7 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bolder ? 'bold' : 'normal')};
 `;
 
-export const Authencation = ({navigation}) => {
+export const Authencation = ({ navigation }) => {
   let dispatch = useDispatch();
   let mnemonicStr = useSelector((state) => state.mnemonicStr);
   let words;
@@ -69,7 +69,7 @@ export const Authencation = ({navigation}) => {
     dispatch(getMnemonicStr());
   }, []);
 
-  if (typeof mnemonicStr == 'string' ) {
+  if (typeof mnemonicStr == 'string') {
     words = mnemonicStr
       .trim()
       .split(/( ){1,}/gi)
@@ -104,7 +104,7 @@ export const Authencation = ({navigation}) => {
                       paddingRight: 10,
                       borderRadius: 3,
                     }}>
-                    <Text style={{marginRight: 3, color: '#A5A7AC'}}>
+                    <Text style={{ marginRight: 3, color: '#A5A7AC' }}>
                       {index + 1}
                     </Text>
                     <TextStyle size={14} color="#fff" bolder>
@@ -115,7 +115,7 @@ export const Authencation = ({navigation}) => {
               ))}
           </AuthencationBody>
         </View>
-        <View style={{alignItems: 'center', marginBottom: 10}}>
+        <View style={{ alignItems: 'center', marginBottom: 10 }}>
           <AuthencationFooter>
             <Ionicon
               name="information-circle-outline"
@@ -129,7 +129,7 @@ export const Authencation = ({navigation}) => {
           </AuthencationFooter>
           <ButtonStyle
             backgroud
-            onPress={() => navigation.navigate('ConfirmAuth', {words})}>
+            onPress={() => navigation.navigate('ConfirmAuth', { words })}>
             <TextStyle size={14} uppercase bolder color="#fff">
               Tiếp tục
             </TextStyle>

@@ -99,19 +99,19 @@ const TabNavigatorWalletContainer = styled.View`
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10;
-  padding-top: 2;
-  padding-right: 3;
-  padding-bottom: 3;
-  padding-left: 3;
+  border-radius: 10px;
+  padding-top: 2px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 
 const TabContainer = styled.View`
   position: relative;
   flex-direction: row;
-  height: 35;
-  border-radius: 10;
+  height: 35px;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 
@@ -122,7 +122,7 @@ const AnimatedStyle = styled(Animated.View)`
   top: 0;
   left: 0;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  border-radius: 10;
+  border-radius: 10px;
 `;
 
 const TextStyle = styled.Text`

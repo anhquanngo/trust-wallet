@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, Text, Alert, Dimensions} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { View, Text, Alert, Dimensions } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {getUserInfo} from '../redux/actions';
+import { getUserInfo } from '../redux/actions';
 
 import styled from 'styled-components/native';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const ConfirmContainer = styled.View`
   background-color: #1c1c27;
@@ -47,7 +47,7 @@ const ButtonStyle = styled.TouchableOpacity`
   margin-top: 10;
   padding-top: 5;
   padding-bottom: 5;
-  border-radius: 10;
+  border-radius: 10px;
 `;
 
 const TextStyle = styled.Text`
@@ -58,8 +58,8 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bolder ? 'bold' : 'normal')};
 `;
 
-export const ConfirmAuth = ({route}) => {
-  let {words} = route.params;
+export const ConfirmAuth = ({ route }) => {
+  let { words } = route.params;
   let newWords = [...words].sort(() => 0.5 - Math.random());
   let [randomStr, setRandomStr] = React.useState([...newWords]);
   let [confirmStr, setConfirmStr] = React.useState([]);
@@ -97,7 +97,7 @@ export const ConfirmAuth = ({route}) => {
                       paddingRight: 10,
                       borderRadius: 3,
                     }}>
-                    <Text style={{marginRight: 3, color: '#A5A7AC'}}>
+                    <Text style={{ marginRight: 3, color: '#A5A7AC' }}>
                       {index + 1}
                     </Text>
                     <TextStyle size={14} color="#fff" bolder>
@@ -144,7 +144,7 @@ export const ConfirmAuth = ({route}) => {
               ))}
             </ConfirmBody>
           )}
-          <View style={{alignItems: 'center', marginBottom: 10}}>
+          <View style={{ alignItems: 'center', marginBottom: 10 }}>
             {state && <Ionicon name="reload-outline" size={20} color="#0f0" />}
             <ButtonStyle
               backgroud

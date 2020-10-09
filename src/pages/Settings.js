@@ -1,11 +1,13 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useSelector } from 'react-redux'
 
-import { SettingSecurity, SettingAbout, SettingWallet, SettingList } from '../components/SettingContainer';
+import { SettingSecurity, SettingAbout, SettingInviteFriend, SettingNotifications, SettingPreferences, PreferencesCurrency, SettingWallet, SettingList } from '../components/SettingContainer';
 
 const Stack = createStackNavigator();
 
 export const SettingScreen = () => {
+  const theme = useSelector(state => state.theme)
   return (
     <React.Fragment>
       <Stack.Navigator initialRouteName="SettingList"
@@ -18,8 +20,44 @@ export const SettingScreen = () => {
           component={SettingList}
           options={{
             headerStyle: {
-              backgroundColor: '#384267',
-            },
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
+          }}
+        />
+        <Stack.Screen
+          name="Setting-InviteFriend"
+          component={SettingInviteFriend}
+          options={{
+            headerStyle: {
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
+          }}
+        />
+        <Stack.Screen
+          name="Setting-Notifications"
+          component={SettingNotifications}
+          options={{
+            headerStyle: {
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
+          }}
+        />
+        <Stack.Screen
+          name="Setting-Preferences"
+          component={SettingPreferences}
+          options={{
+            headerStyle: {
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
+          }}
+        />
+        <Stack.Screen
+          name="Preferences-Currency"
+          component={PreferencesCurrency}
+          options={{
+            headerStyle: {
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
         <Stack.Screen
@@ -27,8 +65,8 @@ export const SettingScreen = () => {
           component={SettingWallet}
           options={{
             headerStyle: {
-              backgroundColor: '#384267',
-            },
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
         <Stack.Screen
@@ -36,8 +74,8 @@ export const SettingScreen = () => {
           component={SettingSecurity}
           options={{
             headerStyle: {
-              backgroundColor: '#384267',
-            },
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
         <Stack.Screen
@@ -45,8 +83,8 @@ export const SettingScreen = () => {
           component={SettingAbout}
           options={{
             headerStyle: {
-              backgroundColor: '#384267',
-            },
+              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+            }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
       </Stack.Navigator>

@@ -6,7 +6,7 @@ import { StackingItem } from './StackingItem';
 export const StakingList = (props) => {
     const { lists } = props
     return (
-        <View >
+        <Container>
             {
                 lists && lists.map((item, index) => {
                     return (
@@ -14,7 +14,7 @@ export const StakingList = (props) => {
                     )
                 })
             }
-        </View>
+        </Container>
     )
 }
 
@@ -59,6 +59,10 @@ StakingList.defaultProps = {
 
     ]
 }
+const Container = styled.View`
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`
+
 const TextPrimary = styled.Text`
     color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
 `

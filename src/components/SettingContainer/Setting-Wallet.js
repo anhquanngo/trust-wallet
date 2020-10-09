@@ -2,12 +2,13 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import styled from 'styled-components/native';
 
 export const SettingWallet = ({ navigation }) => {
     return <React.Fragment>
-        <View style={{ backgroundColor: "fff" }} >
+        <Container >
             <View style={{ margin: 10 }}>
-                <Text style={{ fontSize: 16, color: "#8F9CB8" }}>CÁC VI MULTI-COIN</Text>
+                <TextSecondary style={{ fontSize: 16, color: "#8F9CB8" }}>CÁC VI MULTI-COIN</TextSecondary>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Setting-Wallet")}>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
@@ -21,12 +22,12 @@ export const SettingWallet = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={{ justifyContent: "center" }}>
-                            <Text style={{ fontSize: 22 }} >
+                            <TextPrimary style={{ fontSize: 22 }} >
                                 Wallets
-                    </Text>
-                            <Text style={{ fontSize: 18, color: "#989898" }}  >
+                    </TextPrimary>
+                            <TextSecondary style={{ fontSize: 18 }}  >
                                 Multi-Coin Wallet Quan
-                    </Text>
+                    </TextSecondary>
                         </View>
                     </View>
                     <View style={{ justifyContent: "center" }}>
@@ -36,6 +37,19 @@ export const SettingWallet = ({ navigation }) => {
                     </View>
                 </View>
             </TouchableOpacity>
-        </View>
+        </Container>
     </React.Fragment>
 }
+
+
+const Container = styled.View`
+    height:100%;
+    background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+`
+
+const TextPrimary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`
+const TextSecondary = styled.Text`
+    color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`

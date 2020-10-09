@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import {View, Text, Switch} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Switch } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {DetailStackCoin} from './Detail.stack.coin';
+import { DetailStackCoin } from './Detail.stack.coin';
 
-export const DetailStack = ({lists}) => {
-  console.log("DetailStack rendering")
+export const DetailStack = ({ lists }) => {
   return (
     <React.Fragment>
-        {
-            lists && lists.map((item, index) => <DetailStackCoin key={index} {...item}/>)
-        }
+      {
+        lists && lists.map((item, index) => <DetailStackCoin key={index} {...item} />)
+      }
     </React.Fragment>
   );
 };

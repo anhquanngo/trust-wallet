@@ -46,7 +46,7 @@ export const Form = () => {
                 <TextSecondary style={{ paddingTop: 10, paddingBottom: 10, fontSize: 20 }}>~đ128.67</TextSecondary>
                 <TextInputStyle placeholder="Amount MITH" />
             </View>
-            <View style={{ flexDirection: "row", justifyContent: "space-around", paddingBottom: 10 }}>
+            <View style={{ flexDirection: "row", justifyContent: "space-around", paddingBottom: 11 }}>
                 <ButtonPercent style={{ backgroundColor: "#4867AA20", justifyContent: "center", alignItems: "center", width: 40, height: 30, borderRadius: 5 }}
                 ><TextThirdary>25%</TextThirdary>
                 </ButtonPercent>
@@ -113,8 +113,8 @@ const TextSecondary = styled.Text`
 const TabExContainer = styled.View`
     flex-direction: row;
     flex: 1;
-    border-radius: 10;
-    padding-top: 2;
+    border-radius: 10px;
+    padding-top: 2px;
     padding-right: 3;
     padding-bottom: 3;
     padding-left: 3;
@@ -126,7 +126,7 @@ const TabContainer = styled.View`
   position: relative;
   flex-direction: row;
   height: 35;
-  border-radius: 10;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 
@@ -137,7 +137,7 @@ const AnimatedStyle = styled(Animated.View)`
   top: 0;
   left: 0;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  border-radius: 10;
+  border-radius: 10px;
 `;
 
 const ButtonPercent = styled.TouchableOpacity`
@@ -163,7 +163,7 @@ const TextThirdary = styled.Text`
 const TextInputStyle = styled.TextInput`
     height: 50;
     border-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
-    border-radius:10;
+    border-radius: 10px;
     border-width: 0.5;
     background-color: #E9E9EB;
 `

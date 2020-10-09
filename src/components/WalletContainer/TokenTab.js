@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styled from 'styled-components/native';
 
 //import component
@@ -9,11 +9,10 @@ import { CoinList } from './CoinList';
 
 export const TokenTab = () => {
   return (
-    <TokekWalletContainer>
+    <View>
       <TokenWallet />
       <CoinList />
-    </TokekWalletContainer>
+    </View>
   );
 };
 
-const TokekWalletContainer = styled.View``;

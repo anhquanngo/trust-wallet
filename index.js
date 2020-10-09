@@ -2,19 +2,19 @@
  * @format
  */
 import React from 'react';
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 
-import {createStore, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import {persistStore, persistReducer} from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
-import {PersistGate} from 'redux-persist/es/integration/react';
+import { PersistGate } from 'redux-persist/es/integration/react';
 import axios from 'axios';
 
 import App from './src/App';
-import {name as appName} from './src/app.json';
-import {baseUri, APP_SECRET_KEY} from './src/redux/api';
+import { name as appName } from './src/app.json';
+import { baseUri, APP_SECRET_KEY } from './src/redux/api';
 
 //set default axios request
 axios.defaults.baseURL = baseUri;
@@ -28,8 +28,8 @@ import rootSaga from './src/redux/sagas';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['user'],
-  blacklist: ['theme'],
+  whitelist: ['theme'],
+  blacklist: [''],
 };
 
 const sagaMiddleware = createSagaMiddleware();

@@ -5,27 +5,28 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
 
 const TokenWalletContainer = styled.View`
-  margin-top: ${props => props.theme.MARGIN_TOP};
+  margin-top: 8px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
-  border-radius: 10;
+  border-radius: 10px;
+  border-bottom-width:1px;
 `;
 
 const TitleStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
-  font-size: 50;
+  font-size: 50px;
   text-align: center;
 `;
 const SubTitleStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
-  font-size: 25;
+  font-size: 25px;
   text-align: center;
 `;
 const IconStyleContainer = styled.View`
-  height: 70;
-  width: 70;
+  height: 70px;
+  width: 70px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
-  border-radius: 50;
+  border-radius: 50px;
   justify-content: center;
   align-items: center;
 `;
@@ -34,18 +35,11 @@ const IconStyle = styled(AntDesign)`
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
 `;
 
-const TextStyleContainer = styled.View`
-  padding-top: 10;
-  padding-bottom: 30;
-  width: 90%;
-  flex-direction: row;
-  justify-content: space-around;
-  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
-`;
-
 const TextStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
-  font-size: 20;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 export const TokenWallet = (props) => {
@@ -62,21 +56,25 @@ export const TokenWallet = (props) => {
           flexDirection: 'row',
           justifyContent: 'space-around',
         }}>
-        <IconStyleContainer>
-          <IconStyle name="arrowup" size={30} />
-        </IconStyleContainer>
-        <IconStyleContainer>
-          <IconStyle name="arrowdown" size={30} />
-        </IconStyleContainer>
-        <IconStyleContainer>
-          <IconStyle name="tago" size={30} />
-        </IconStyleContainer>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="arrowup" size={30} />
+          </IconStyleContainer>
+          <TextStyle>Send</TextStyle>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="arrowdown" size={30} />
+          </IconStyleContainer>
+          <TextStyle> Receive</TextStyle>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <IconStyleContainer>
+            <IconStyle name="tago" size={30} />
+          </IconStyleContainer>
+          <TextStyle> Buy</TextStyle>
+        </View>
       </View>
-      <TextStyleContainer>
-        <TextStyle> Send</TextStyle>
-        <TextStyle> Receive</TextStyle>
-        <TextStyle> Buy</TextStyle>
-      </TextStyleContainer>
     </TokenWalletContainer>
   );
 };

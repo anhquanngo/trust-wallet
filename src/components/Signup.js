@@ -12,7 +12,7 @@ import styled from 'styled-components/native';
 
 import sliderOne from '../assets/img/slider/sliderOne.png';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const SignupContainer = styled.View`
   background-color: #1c1f25;
@@ -46,8 +46,8 @@ const ButtonStyle = styled.TouchableOpacity`
   align-items: center;
   margin-top: 20;
   padding-top: 10;
-  padding-bottom: 10;
-  border-radius: 10;
+  padding-bottom: 10px;
+  border-radius: 10px;
 `;
 
 const TextStyle = styled.Text`
@@ -58,7 +58,7 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bolder ? 'bold' : 'normal')};
 `;
 
-export const Signup = ({navigation}) => {
+export const Signup = ({ navigation }) => {
   let [selected, setSelected] = React.useState(false);
   return (
     <React.Fragment>
@@ -115,7 +115,7 @@ export const Signup = ({navigation}) => {
             <CheckBox
               value={selected}
               onValueChange={setSelected}
-              tintColors={{true: '#137AC7', false: '#137AC7'}}
+              tintColors={{ true: '#137AC7', false: '#137AC7' }}
             />
           </View>
           <View>
@@ -126,12 +126,12 @@ export const Signup = ({navigation}) => {
           </View>
         </View>
         <ButtonContainer>
-        <ButtonStyle backgroud
-          onPress={() => selected ? navigation.navigate('Authencation') : Alert.alert("Vui lòng chấp nhận điều khoản.")}>
-          <TextStyle size={14} uppercase bolder color='#fff'>
-            Tiếp tục
+          <ButtonStyle backgroud
+            onPress={() => selected ? navigation.navigate('Authencation') : Alert.alert("Vui lòng chấp nhận điều khoản.")}>
+            <TextStyle size={14} uppercase bolder color='#fff'>
+              Tiếp tục
           </TextStyle>
-        </ButtonStyle>
+          </ButtonStyle>
         </ButtonContainer>
       </SignupContainer>
     </React.Fragment>

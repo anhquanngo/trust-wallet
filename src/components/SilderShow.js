@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Dimensions} from 'react-native';
+import { View, Dimensions } from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 
 import sliderOne from '../assets/img/slider/sliderOne.png';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const SliderShowContainer = styled.View`
   background-color: #1c1f25;
@@ -56,11 +56,11 @@ const ButtonStyle = styled.TouchableOpacity`
   width: ${(width * 2) / 3};
   align-items: center;
   padding-top: 10;
-  padding-bottom: 10;
-  border-radius: 10;
+  padding-bottom: 10px;
+  border-radius: 10px;
 `;
 
-export const SliderShow = ({lists, navigation}) => {
+export const SliderShow = ({ lists, navigation }) => {
   let [state, setState] = React.useState(0);
   React.useEffect(() => {
     let counter = setInterval(() => {
@@ -83,10 +83,10 @@ export const SliderShow = ({lists, navigation}) => {
               <TextStyle size={20}>{lists[state].title}</TextStyle>
               <TextStyle size={14}>{lists[state].subTitle}</TextStyle>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               {lists &&
                 lists.map((item, index) => (
-                  <View style={{marginRight: 5}} key={index}>
+                  <View style={{ marginRight: 5 }} key={index}>
                     <Ionicon
                       name="ellipse-sharp"
                       size={10}
@@ -98,7 +98,7 @@ export const SliderShow = ({lists, navigation}) => {
           </SliderBody>
         </SliderContainer>
         <ButtonContainer>
-          <View style={{marginBottom: 5}}>
+          <View style={{ marginBottom: 5 }}>
             <ButtonStyle
               backgroud
               onPress={() => navigation.navigate('Signup')}>
