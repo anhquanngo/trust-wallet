@@ -1,8 +1,8 @@
 export const APP_SECRET_KEY = 'game@2020!#$%*+^&*())(*&^%$#@!';
 
-export const baseUri = 'http://222.252.28.199:8080';
+// export const baseUri = 'http://222.252.28.199:8080';
 
-// export const baseUri = 'https://polarized-spot-bath.glitch.me';
+export const baseUri = 'https://trust-wallet-demo.glitch.me/';
 
 /**
  * Get 12 words response:

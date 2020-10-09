@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {DetailStackCoin} from './Detail.stack.coin';
 
 export const DetailStack = ({lists}) => {
+  console.log("DetailStack rendering")
   return (
     <React.Fragment>
         {
