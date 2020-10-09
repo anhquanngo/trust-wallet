@@ -10,6 +10,8 @@ import {
   INSERT_WALLET_SYMBOL,
   INSERT_WALLET_RECEIVED,
   FORGOT_ACCOUNT,
+  GET_CURRENT_BALANCE_ETH,
+  CURRENT_BALANCE_ETH_RECEIVED
 
 } from '../constants';
 
@@ -51,6 +53,14 @@ export const insertWalletSymbol_Reducer = (state = {}, action) => {
   switch (action.type) {
     case INSERT_WALLET_SYMBOL: return state;
     case INSERT_WALLET_RECEIVED: return action.data;
+    default: return state;
+  }
+}
+
+export const getCurrenBalanceEth_Reducer = (state = "0.00", action) => {
+  switch (action.type) {
+    case GET_CURRENT_BALANCE_ETH: return state;
+    case CURRENT_BALANCE_ETH_RECEIVED: return action.data;
     default: return state;
   }
 }

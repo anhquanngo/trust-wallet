@@ -17,13 +17,7 @@ import { ThemeProvider } from 'styled-components';
 import { getMnemonicStr_Uri } from './redux/api/index';
 
 function App({ theme, state, user }) {
-
-  // React.useEffect(() => {
-  //   getUserInfo();
-  // }, []);
-
   console.log(state);
-
   return (
     <>
       <NavigationContainer>

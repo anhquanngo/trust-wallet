@@ -1,8 +1,16 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {searchInput} from '../redux/actions';
 
 export const SearchItem = ({title}) => {
+  let value = useSelector(state => state.search);
+  let dispatch = useDispatch();
+  const onChangeText = (text) => {
+    dispatch(searchInput(text));
+  }
   return (
     <React.Fragment>
       <View style={styles.container}>
@@ -11,6 +19,8 @@ export const SearchItem = ({title}) => {
           placeholder={title}
           placeholderTextColor="#AAAAAA"
           style={styles.textSearch}
+          onChangeText={onChangeText}
+          value={value}
         />
       </View>
     </React.Fragment>

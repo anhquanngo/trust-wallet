@@ -7,6 +7,7 @@ import {
   getAllWalletByAddress_ActionWatcher,
   getForgotAccount_ActionWatcher,
   insertWalletSymbol_ActionWatcher,
+  getCurrentBalanceEth_ActionWatcher
 } from './user.saga';
 
 import {
@@ -24,6 +25,7 @@ export default function* rootSaga() {
       getForgotAccount_ActionWatcher(),
       switchTheme_ActionWatcher(),
       insertWalletSymbol_ActionWatcher(),
-      switchCoin_ActionWatcher()
+      switchCoin_ActionWatcher(),
+      getCurrentBalanceEth_ActionWatcher()
   ]);
 }

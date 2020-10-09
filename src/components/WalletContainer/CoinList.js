@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {getAllWalletByAddress} from '../../redux/actions';
+import {intersectionArray} from '../../utils';
 
 import {freshToken} from '../../services';
 
@@ -14,17 +15,28 @@ const CoinListContainer = styled.View`
 `;
 
 export const CoinList = (props) => {
-  const renderItem = ({item}) => <Coin {...item} />;
   let dispatch = useDispatch();
-  let coins = useSelector((state) => state.coins);
-  let listMoney = coins.filter((item) => item.active);
+  const renderItem = ({item}) => <Coin {...item} />;
 
+  let coins = useSelector((state) => state.coins);
+  let updateCoin = coins.filter((item) => item.active);
+
+  let updateListMoney = useSelector((state) => state.listMoney);
+
+  let user = useSelector((state) => state.user);
+  let result = intersectionArray(updateCoin, updateListMoney, 'WalletSymbol');
+  console.log(result);
+
+  React.useEffect(() => {
+    dispatch(getAllWalletByAddress(user.AddressBip));
+  }, []);
+  
   return (
     <React.Fragment>
-      {listMoney.length > 0 && (
+      {result.length > 0 && (
         <CoinListContainer>
           <FlatList
-            data={listMoney}
+            data={result}
             renderItem={renderItem}
             keyExtractor={(item) => item.Name}
           />

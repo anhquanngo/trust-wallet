@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useSelector, useDispatch} from 'react-redux';
+import { getCurrentBalanceEth } from '../../redux/actions';
 
 import styled from 'styled-components/native';
 
@@ -9,8 +11,8 @@ const TokenWalletContainer = styled.View`
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
   border-radius: 10px;
-  /* border-bottom-width:1px; */;
-  margin-bottom: 5
+  /* border-bottom-width:1px; */
+  margin-bottom: 5;
 `;
 
 const TitleStyle = styled.Text`
@@ -44,10 +46,15 @@ const TextStyle = styled.Text`
 `;
 
 export const TokenWallet = (props) => {
-  const { name } = props;
+  const {name} = props;
+  const value = useSelector((state) => state.balance);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(getCurrentBalanceEth());
+  })
   return (
     <TokenWalletContainer>
-      <TitleStyle> $0.00</TitleStyle>
+      <TitleStyle>${value}</TitleStyle>
       <SubTitleStyle>Multi-Coin Wallet {name}</SubTitleStyle>
       <View
         style={{
@@ -57,19 +64,19 @@ export const TokenWallet = (props) => {
           flexDirection: 'row',
           justifyContent: 'space-around',
         }}>
-        <View style={{ alignItems: "center" }}>
+        <View style={{alignItems: 'center'}}>
           <IconStyleContainer>
             <IconStyle name="arrowup" size={30} />
           </IconStyleContainer>
           <TextStyle>Send</TextStyle>
         </View>
-        <View style={{ alignItems: "center" }}>
+        <View style={{alignItems: 'center'}}>
           <IconStyleContainer>
             <IconStyle name="arrowdown" size={30} />
           </IconStyleContainer>
           <TextStyle> Receive</TextStyle>
         </View>
-        <View style={{ alignItems: "center" }}>
+        <View style={{alignItems: 'center'}}>
           <IconStyleContainer>
             <IconStyle name="tago" size={30} />
           </IconStyleContainer>
@@ -81,5 +88,5 @@ export const TokenWallet = (props) => {
 };
 
 TokenWallet.defaultProps = {
-  name: 'Quan',
+  name: 'Fin',
 };

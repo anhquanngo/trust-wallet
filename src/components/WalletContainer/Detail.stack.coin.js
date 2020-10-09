@@ -2,13 +2,23 @@ import React, {useState} from 'react';
 import {View, Text, Switch, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useSelector, useDispatch} from 'react-redux';
-import {switchCoin} from '../../redux/actions';
+import {switchCoin, insertWalletSymbol} from '../../redux/actions';
 import {freshToken} from '../../services';
 
 export const DetailStackCoin = ({WalletSymbol, Name, avatar, active}) => {
   let dispatch = useDispatch();
+  let user = useSelector((state) => state.user);
   const toggleSwitch = async () => {
     dispatch(switchCoin({Name: Name, active: !active}));
+    if (!active) {
+      dispatch(
+        insertWalletSymbol({
+          address: user.AddressBip,
+          symbol: WalletSymbol,
+          name: Name,
+        }),
+      );
+    }
   };
   return (
     <View

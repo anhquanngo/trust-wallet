@@ -4,7 +4,8 @@ import {
   GET_USER_INFO,
   GET_ALL_WALLET_BY_ADDRESS,
   FORGOT_ACCOUNT,
-  INSERT_WALLET_SYMBOL
+  INSERT_WALLET_SYMBOL,
+  GET_CURRENT_BALANCE_ETH
 } from '../constants';
 
 export const getMnemonicStr = (data) => ({
@@ -27,13 +28,15 @@ export const getAllWalletByAddress = (data) => ({
   data: data,
 });
 
-export const insertWalletSymbol = (data) => {
-  console.log(data);
-  return ({
-    type: INSERT_WALLET_SYMBOL,
-    data: data
-  })
-}
+export const insertWalletSymbol = (data) => ({
+  type: INSERT_WALLET_SYMBOL,
+  data: data
+})
+
+export const getCurrentBalanceEth = (data) => ({
+  type: GET_CURRENT_BALANCE_ETH,
+  data: data
+})
 
 export const getForgotAccount = (data) => ({
   type: FORGOT_ACCOUNT,

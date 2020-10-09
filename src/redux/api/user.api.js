@@ -1,8 +1,8 @@
 export const APP_SECRET_KEY = 'game@2020!#$%*+^&*())(*&^%$#@!';
 
-// export const baseUri = 'http://222.252.28.199:8080';
+export const baseUri = 'http://222.252.28.199:8080';
 
-export const baseUri = 'https://trust-wallet-demo.glitch.me/';
+// export const baseUri = 'https://trust-wallet-demo.glitch.me/';
 
 /**
  * Get 12 words response:
@@ -34,7 +34,12 @@ export const getAllWalletByAddress_Uri = '/GetAllWalletByAddress';
  */
 
  export const insertWalletSymbol_Uri = '/InsertWalletSymbol';
+
 /**
+ * get current balance eth
+ */
+export const getCurrentBalanceEth_Uri = '/GetCurrentBalanceETH';
+ /**
  * Recover account
  */
 

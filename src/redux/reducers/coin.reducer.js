@@ -2,7 +2,6 @@ import {SWITCH_COIN, COIN_CHANGED} from '../constants';
 import {coinList} from '../../configs';
 
 export const switchCoin = (state = coinList, action) => {
-  console.log(action.data);
   switch (action.type) {
     case SWITCH_COIN: {
       return state.map((item) => {

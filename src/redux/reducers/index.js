@@ -5,12 +5,15 @@ import {
   getTokenStr_Reducer,
   getUserInfo_Reducer,
   getAllWalletByAddress_Reducer,
-  insertWalletSymbol_Reducer
+  insertWalletSymbol_Reducer,
+  getCurrenBalanceEth_Reducer
 } from './user.reducer';
 
 import { themeReducer } from './theme.reducer';
 
 import { switchCoin } from './coin.reducer';
+
+import { searchReducer } from './search.reducer';
 
 
 const rootReducer = combineReducers({
@@ -20,7 +23,9 @@ const rootReducer = combineReducers({
   listMoney: getAllWalletByAddress_Reducer,
   insertWallet: insertWalletSymbol_Reducer,
   theme: themeReducer,
-  coins: switchCoin
+  coins: switchCoin,
+  search: searchReducer,
+  balance: getCurrenBalanceEth_Reducer
 });
 
 export default rootReducer;

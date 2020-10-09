@@ -22,7 +22,7 @@ export const Public = ({theme}) => {
           showLabel: false,
           style: {
             backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
-            borderTopColor: "transparent",
+            borderTopColor: "transparent",            
           }
         }}>
         <Tab.Screen name="WalletScreen" component={WalletScreen} />

@@ -11,12 +11,12 @@ export const Coin = (props) => {
         <CardBody>
           <CardImage source={{uri: avatar}} />
           <View style={{justifyContent: 'center'}}>
-            <CardText fontSize={22}>{WalletSymbol}</CardText>
+            <CardText fontSize={22}>{Name}</CardText>
             {/* <CardText fontSize={15}>{value}</CardText> */}
           </View>
         </CardBody>
         <View style={{justifyContent: 'center'}}>
-          {/* <CardText fontSize={20}>{`${quality} ${currency}`}</CardText> */}
+          <CardText fontSize={18}>{`0 ${WalletSymbol}`}</CardText>
         </View>
       </CardContainer>
     </View>
