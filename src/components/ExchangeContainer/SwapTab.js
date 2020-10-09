@@ -1,17 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import CoinDetail from './CoinDetail'
 
-const SwapTab = () => (
-    <Container >
-        <CoinDetail />
-        <ButtonExchange>
-            <TextButtonExchange>
-                ↑↓
+const CoinDetail1 = {
+    currency: "BNB",
+    quality: 10,
+    qualityBalance: 20
+
+}
+const CoinDetail2 = {
+    currency: "ETH",
+    quality: 20,
+    qualityBalance: 30
+}
+
+function Exchange() {
+    const [change, setChange] = useState(true)
+    const onSwitch = () => {
+        setChange(!change)
+    }
+    if (change === true) {
+        return <View>
+            <CoinDetail {...CoinDetail1} />
+            <ButtonExchange>
+                <TouchableOpacity onPress={onSwitch}>
+                    <TextButtonExchange>
+                        ↑↓
                 </TextButtonExchange>
-        </ButtonExchange>
-        <CoinDetail />
+                </TouchableOpacity>
+            </ButtonExchange>
+            <CoinDetail {...CoinDetail2} />
+        </View>
+    } else {
+        return <View>
+            <CoinDetail {...CoinDetail2} />
+            <ButtonExchange>
+                <TouchableOpacity onPress={onSwitch}>
+                    <TextButtonExchange>
+                        ↑↓
+                </TextButtonExchange>
+                </TouchableOpacity>
+            </ButtonExchange>
+            <CoinDetail {...CoinDetail1} />
+        </View>
+    }
+
+}
+
+
+const SwapTab = (props) => (
+    <Container >
+        <Exchange />
         <ViewPercent>
             <ButtonPercent>
                 <TextThirdary>25%</TextThirdary>

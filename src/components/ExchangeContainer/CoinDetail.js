@@ -2,7 +2,8 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import styled from 'styled-components/native';
 
-export default function CoinDetail() {
+export default function CoinDetail(props) {
+    const { currency, quality, qualityBalance } = props
     return (
         <Container>
             <View
@@ -12,9 +13,9 @@ export default function CoinDetail() {
                     marginLeft: 20,
                     marginTop: 5,
                 }}>
-                <TextSECONDARY>You Pay</TextSECONDARY>
-                <TextPRIMARY style={{ fontWeight: 'bold', fontSize: 22 }}>0</TextPRIMARY>
-                <TextSECONDARY>Balance: 0 BNB</TextSECONDARY>
+                <TextSECONDARY>Currency</TextSECONDARY>
+                <TextPRIMARY style={{ fontWeight: 'bold', fontSize: 22 }}>{quality}</TextPRIMARY>
+                <TextSECONDARY>Balance: {qualityBalance} {currency}</TextSECONDARY>
             </View>
 
             <View
@@ -25,13 +26,19 @@ export default function CoinDetail() {
                     alignItems: 'center',
                 }}>
                 <TextPRIMARY>image</TextPRIMARY>
-                <TextPRIMARY style={{ fontWeight: 'bold', fontSize: 22 }}>BNB</TextPRIMARY>
+                <TextPRIMARY style={{ fontWeight: 'bold', fontSize: 22 }}>{currency}</TextPRIMARY>
                 <TextPRIMARY style={{ color: 'gray', fontSize: 24, fontWeight: 'bold' }}>
                     {'>'}
                 </TextPRIMARY>
             </View>
         </Container>
     )
+}
+
+CoinDetail.defaultProps = {
+    currency: "ETH",
+    quality: 20,
+    qualityBalance: 30
 }
 
 
