@@ -18,12 +18,12 @@ export const HeaderExchange = ({ setPositionTab }) => {
 
 const HeaderContainer = styled.View`
   flex-direction: row;
-  height: 70;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
   padding-top: 10;
-  padding-bottom: 10;
+  padding-bottom: 10px;
   padding-left: 10;
-  padding-right: 10;
+  padding-right: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;

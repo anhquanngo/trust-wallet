@@ -33,7 +33,7 @@ function App({ theme, user }) {
             barStyle={theme.STATUS_BAR_STYLE}
           />
           <AppContainer>
-            {user._id ? <Public theme={theme} /> : <Private />}
+            {true ? <Public theme={theme} /> : <Private />}
           </AppContainer>
         </ThemeProvider>
       </NavigationContainer>
@@ -53,10 +53,6 @@ const mapDispatchToProp = {
 const AppContainer = styled.View`
   width: 100%;
   height: 100%;
-  padding-top: 5;
-  padding-right: 5;
-  padding-bottom: 5;
-  padding-left: 5;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 

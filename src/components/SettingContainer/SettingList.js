@@ -7,14 +7,33 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styled from 'styled-components/native'
+import { useSelector, useDispatch } from 'react-redux';
+import { switchTheme } from '../../redux/actions';
+import { LIGHT_THEME, DARK_THEME } from '../../redux/constants';
 
 export const SettingList = ({ navigation }) => {
     const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    let color
+    let dispatch = useDispatch();
+    const toggleSwitch = async () => {
+        setIsEnabled(isEnabled => !isEnabled)
+        if (isEnabled == true) {
+            color = 0
+        } else {
+            color = 1
+        }
+        dispatch(
+            switchTheme({
+                data: color
+            }),
+        );
+
+    };
+
     return (
         <ScrollView>
             <Container >
-                <TouchableOpacity onPress={() => navigation.navigate("Setting-Wallet")}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Setting-Wallet")}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                         <View style={{ flexDirection: "row" }}>
                             <View style={{ justifyContent: "center", margin: 10 }}>
@@ -40,7 +59,7 @@ export const SettingList = ({ navigation }) => {
                             </TextPrimary>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ justifyContent: "center", margin: 10 }}>
@@ -69,7 +88,7 @@ export const SettingList = ({ navigation }) => {
                         </Text>
                     </View>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Setting-InviteFriend')}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate('Setting-InviteFriend')}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                         <View style={{ flexDirection: "row" }}>
                             <View style={{ justifyContent: "center", margin: 10 }}>
@@ -95,8 +114,8 @@ export const SettingList = ({ navigation }) => {
                             </TextPrimary>
                         </View>
                     </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Setting-Security")}>
+                </TouchableOpacity> */}
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Setting-Security")}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", borderBottomWidth: 0.5 }}>
                         <View style={{ flexDirection: "row" }}>
                             <View style={{ justifyContent: "center", margin: 10 }}>
@@ -371,7 +390,7 @@ export const SettingList = ({ navigation }) => {
                             </TextPrimary>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </Container>
         </ScrollView >
 

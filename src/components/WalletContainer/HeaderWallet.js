@@ -9,37 +9,37 @@ import { TabNavigatorWallet } from './TabNavigatorWallet';
 
 export const HeaderWallet = ({ navigation, setPositionTab }) => {
   return (
-   <HeaderContainer>
-        <View>
-          <IconStyle
-            name="notifications-outline"
-            size={25}
-            onPress={() => navigation.navigate('Notification')}
-          />
-        </View>
-        <TabNavigatorWallet setPositionTab={setPositionTab} />
-        <View>
-          <IconStyle
-            name="options-outline"
-            size={25}
-            onPress={() => navigation.navigate('DetailStack')}
-          />
-        </View>
-      </HeaderContainer>
+    <HeaderContainer>
+      <View>
+        <IconStyle
+          name="notifications-outline"
+          size={25}
+          onPress={() => navigation.navigate('Notification')}
+        />
+      </View>
+      <TabNavigatorWallet setPositionTab={setPositionTab} />
+      <View>
+        <IconStyle
+          name="options-outline"
+          size={25}
+          onPress={() => navigation.navigate('DetailStack')}
+        />
+      </View>
+    </HeaderContainer>
   );
 };
 
 const HeaderContainer = styled.View`
   flex-direction: row;
-  height: 70;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10;
-  padding-right: 10;
-  padding-bottom: 10;
-  padding-left: 10;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-  border-radius: 10;
+  border-radius: 10px;
 `;
 
 const IconStyle = styled(Ionicon)`

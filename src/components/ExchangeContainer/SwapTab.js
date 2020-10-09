@@ -51,7 +51,7 @@ const ButtonNext = styled.Text`
     padding-left: 15;
     padding-right: 15;
     padding-bottom: 15;
-    border-radius:10;
+    border-radius: 10px;
     text-align: center;
     font-size: 20;
     font-weight: bold;
@@ -93,7 +93,7 @@ const ButtonPercent = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
     background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-    border-radius: 10;
+    border-radius: 10px;
 `
 const TextThirdary = styled.Text`
     color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};

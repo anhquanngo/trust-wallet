@@ -36,10 +36,10 @@ export default function CoinDetail() {
 
 
 const Container = styled.View`
-    margin-bottom:5;
+    margin-bottom:5px;
     background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
-    border-radius: 5;
-    height: 100;
+    border-radius: 5px;
+    height: 100px;
     width: 100%;
     flex-direction: row;
 `

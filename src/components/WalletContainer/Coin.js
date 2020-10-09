@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 export const Coin = (props) => {
   // let { imageUrl, title, value, quality, currency } = props;
-  let {WalletSymbol, Name} = props;
+  let { WalletSymbol, Name } = props;
   return (
     <View >
       <CardContainer>
@@ -35,12 +35,12 @@ const CardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   padding-top: 10;
-  padding-right: 10;
+  padding-right: 10px;
   padding-left: 10;
-  padding-bottom: 10;
+  padding-bottom: 10px;
   border-top-width:1;
   border-bottom-width:1;
-  border-radius:10;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
 
