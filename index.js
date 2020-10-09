@@ -28,8 +28,8 @@ import rootSaga from './src/redux/sagas';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['theme', 'user', 'coins'],
-  blacklist: [''],
+  whitelist: ['theme', 'user', 'coins', 'token'],
+  // blacklist: [''],
 };
 
 const sagaMiddleware = createSagaMiddleware();

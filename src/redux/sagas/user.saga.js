@@ -36,7 +36,10 @@ function* getMnemonicStr(disp) {
   let res = yield axios.get(getMnemonicStr_Uri);
   if (res.data.Item) {
     let nmemonic = res.data.Item.Nmemonic;
+    let token = res.data.token;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     yield put({type: MNEMONIC_RECEIVED, data: nmemonic});
+    yield put({type: TOKEN_RECEIVED, data: token})
   }
 }
 
@@ -63,7 +66,7 @@ export function* getTokenStr_ActionWatcher() {
  */
 
 function* getUserInfo(disp) {
-  yield freshToken();
+  // yield freshToken();
   let res = yield axios.get(getUserInfo_Uri);
   let user;
   if (res.data.Item) {
@@ -83,7 +86,7 @@ export function* getUserInfo_ActionWatcher() {
  */
 
 function* getAllWalletByAddress(disp) {
-  yield freshToken();
+  // yield freshToken();
   let res = yield axios.get(getAllWalletByAddress_Uri, {
     params: {
       address: disp.data,
@@ -104,10 +107,10 @@ export function* getAllWalletByAddress_ActionWatcher() {
  */
 
 function* insertWalletSymbol(disp) {
-  console.log({...disp.data});
-  let token = yield freshToken();
-  console.log(token);
-  let res = yield axios.post(insertWalletSymbol_Uri, {
+  // console.log({...disp.data});
+  // let token = yield freshToken();
+  // console.log(token);
+  let res = yield axios.post(insertWalletSymbol_Uri, null, {
     params: {
       ...disp.data
     },

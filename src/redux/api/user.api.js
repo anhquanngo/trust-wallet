@@ -35,6 +35,11 @@ export const getAllWalletByAddress_Uri = '/GetAllWalletByAddress';
 
  export const insertWalletSymbol_Uri = '/InsertWalletSymbol';
 
+ /**
+  * remove symbol from account
+  */
+ export const removeSymbolInWallit = 'RemoveSymbolInWallit'
+
 /**
  * get current balance eth
  */

@@ -42,5 +42,5 @@ export const coinList = [
         WalletSymbol: "XRP",
         Name: "Ripple",
         active: false
-    },
+    }
 ];
