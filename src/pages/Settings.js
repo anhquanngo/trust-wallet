@@ -20,7 +20,7 @@ export const SettingScreen = () => {
           component={SettingList}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -29,7 +29,7 @@ export const SettingScreen = () => {
           component={SettingInviteFriend}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -38,7 +38,7 @@ export const SettingScreen = () => {
           component={SettingNotifications}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -47,7 +47,7 @@ export const SettingScreen = () => {
           component={SettingPreferences}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -56,7 +56,7 @@ export const SettingScreen = () => {
           component={PreferencesCurrency}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -65,7 +65,7 @@ export const SettingScreen = () => {
           component={SettingWallet}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -74,7 +74,7 @@ export const SettingScreen = () => {
           component={SettingSecurity}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />
@@ -83,7 +83,7 @@ export const SettingScreen = () => {
           component={SettingAbout}
           options={{
             headerStyle: {
-              backgroundColor: theme.BACKGROUND_COLOR_PRIMARY,
+              backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
             }, headerTintColor: theme.TEXT_COLOR_PRIMARY,
           }}
         />

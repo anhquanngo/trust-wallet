@@ -3,6 +3,8 @@ import { View, Text, Switch } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { DetailStackCoin } from './Detail.stack.coin';
 
+import { coinList } from '../../configs/coinList';
+
 export const DetailStack = ({ lists }) => {
   return (
     <React.Fragment>
@@ -14,26 +16,5 @@ export const DetailStack = ({ lists }) => {
 };
 
 DetailStack.defaultProps = {
-  lists: [
-    {
-      WalletSymbol: 'FIN',
-      Name: 'FINFINE',
-    },
-    {
-      WalletSymbol: 'FIN2',
-      Name: 'FINFINE2',
-    },
-    {
-      WalletSymbol: 'FIN3',
-      Name: 'FINFINE3',
-    },
-    {
-      WalletSymbol: 'FIN3',
-      Name: 'FINFINE3',
-    },
-    {
-      WalletSymbol: 'FIN4',
-      Name: 'FINFINE4',
-    },
-  ],
+  lists: coinList
 };
