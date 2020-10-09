@@ -10,6 +10,8 @@ import {
 
 import { themeReducer } from './theme.reducer';
 
+import { switchCoin } from './coin.reducer';
+
 
 const rootReducer = combineReducers({
   mnemonicStr: getMnemonicStr_Reducer,
@@ -17,7 +19,8 @@ const rootReducer = combineReducers({
   user: getUserInfo_Reducer,
   listMoney: getAllWalletByAddress_Reducer,
   insertWallet: insertWalletSymbol_Reducer,
-  theme: themeReducer
+  theme: themeReducer,
+  coins: switchCoin
 });
 
 export default rootReducer;

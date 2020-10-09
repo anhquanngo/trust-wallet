@@ -2,13 +2,13 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-export const SearchItem = () => {
+export const SearchItem = ({title}) => {
   return (
     <React.Fragment>
       <View style={styles.container}>
         <Ionicon name="search-outline" size={30} color="#DADADA" style={styles.iconSearch}/>
         <TextInput
-          placeholder="Search or enter website"
+          placeholder={title}
           placeholderTextColor="#AAAAAA"
           style={styles.textSearch}
         />
