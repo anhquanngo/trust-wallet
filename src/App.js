@@ -16,13 +16,13 @@ import { ThemeProvider } from 'styled-components';
 
 import { getMnemonicStr_Uri } from './redux/api/index';
 
-function App({ theme, user }) {
+function App({ theme, state, user }) {
 
   // React.useEffect(() => {
   //   getUserInfo();
   // }, []);
 
-  console.log(user);
+  console.log(state);
 
   return (
     <>
@@ -33,7 +33,7 @@ function App({ theme, user }) {
             barStyle={theme.STATUS_BAR_STYLE}
           />
           <AppContainer>
-            {true ? <Public theme={theme} /> : <Private />}
+            {user._id ? <Public theme={theme} /> : <Private />}
           </AppContainer>
         </ThemeProvider>
       </NavigationContainer>
@@ -43,6 +43,7 @@ function App({ theme, user }) {
 
 const mapStateToProp = (state) => ({
   theme: state.theme,
+  state: state,
   user: state.user
 });
 

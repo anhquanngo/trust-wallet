@@ -26,7 +26,7 @@ export const Public = ({theme}) => {
           }
         }}>
         <Tab.Screen name="WalletScreen" component={WalletScreen} />
-        <Tab.Screen name="MenuScreen" component={MenuScreen} />
+        {/* <Tab.Screen name="MenuScreen" component={MenuScreen} /> */}
         <Tab.Screen name="ExchangeScreen" component={ExchangeScreen} />
         <Tab.Screen name="SettingScreen" component={SettingScreen} />
       </Tab.Navigator>

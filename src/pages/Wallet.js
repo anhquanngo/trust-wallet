@@ -31,7 +31,7 @@ export const WalletScreen = () => {
             backgroundColor: theme.BACKGROUND_COLOR_SECONDARY
           },
           headerTintColor: theme.TEXT_COLOR_PRIMARY,
-          headerTitle: (props) => <SearchItem {...props} />,
+          headerTitle: (props) => <SearchItem title="Search tokens" />,
         }}
       />
       <Stack.Screen

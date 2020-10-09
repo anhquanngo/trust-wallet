@@ -9,7 +9,8 @@ const TokenWalletContainer = styled.View`
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
   border-radius: 10px;
-  border-bottom-width:1px;
+  /* border-bottom-width:1px; */;
+  margin-bottom: 5
 `;
 
 const TitleStyle = styled.Text`

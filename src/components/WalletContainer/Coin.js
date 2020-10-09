@@ -1,21 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Coin = (props) => {
   // let { imageUrl, title, value, quality, currency } = props;
-  let { WalletSymbol, Name } = props;
+  let {WalletSymbol, Name, avatar} = props;
   return (
-    <View >
+    <View>
       <CardContainer>
         <CardBody>
-          {/* <CardImage source={{ uri: `${imageUrl}` }} /> */}
-          <View style={{ justifyContent: 'center' }}>
+          <CardImage source={{uri: avatar}} />
+          <View style={{justifyContent: 'center'}}>
             <CardText fontSize={22}>{WalletSymbol}</CardText>
             {/* <CardText fontSize={15}>{value}</CardText> */}
           </View>
         </CardBody>
-        <View style={{ justifyContent: 'center' }}>
+        <View style={{justifyContent: 'center'}}>
           {/* <CardText fontSize={20}>{`${quality} ${currency}`}</CardText> */}
         </View>
       </CardContainer>
@@ -38,8 +38,9 @@ const CardContainer = styled.View`
   padding-right: 10px;
   padding-left: 10;
   padding-bottom: 10px;
-  border-top-width:1;
-  border-bottom-width:1;
+  /* border-top-width: 1; */
+  /* border-bottom-width: 1; */
+  margin-bottom: 5;
   border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
@@ -53,11 +54,11 @@ const CardImage = styled.Image`
   height: 50;
   border-radius: 25;
   margin-right: 15;
-  margin-left: 15
+  margin-left: 15;
 `;
 
 const CardText = styled.Text`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
-  margin-right: 15
+  margin-right: 15;
 `;

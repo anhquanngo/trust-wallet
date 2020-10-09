@@ -88,7 +88,6 @@ function* getAllWalletByAddress(disp) {
   });
   if (res.data.Item) {
     let lists = res.data.Item.recordsets[0];
-    console.log(lists);
     yield put({type: WALLET_RECEIVED, data: lists});
   }
 }
