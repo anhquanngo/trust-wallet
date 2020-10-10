@@ -9,17 +9,17 @@ import {TokenTab} from './TokenTab';
 import {FinanceTab} from './FinanceTab';
 import {CollectionTab} from './CollectionTab';
 
-export default function WalletContainer({navigation}) {
+export default function WalletContainer(props) {
   let [positionTab, setPositionTab] = React.useState(0);
   return (
     <WalletContainerStyle>
-      <HeaderWallet navigation={navigation} setPositionTab={setPositionTab} />
+      <HeaderWallet {...props} setPositionTab={setPositionTab} />
       <ScrollView
         style={{
           overflow: 'scroll',
           height: (height * 4) / 5,
         }}>
-        {positionTab === 0 ? <TokenTab /> : null}
+        {positionTab === 0 ? <TokenTab {...props}/> : null}
       </ScrollView>
       {positionTab === 1 ? <FinanceTab /> : null}
       {positionTab === 2 ? <CollectionTab /> : null}

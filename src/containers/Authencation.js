@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, Text, Button, Dimensions } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, Button, Dimensions} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import {connect, useSelector, useDispatch} from 'react-redux';
+import {Loading} from '../components';
 
-import { getMnemonicStr } from '../redux/actions';
+import {getMnemonicStr} from '../redux/actions';
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const AuthencationContainer = styled.View`
   /* background-color: #f00; */
@@ -59,7 +60,7 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bolder ? 'bold' : 'normal')};
 `;
 
-export const Authencation = ({ navigation }) => {
+export const Authencation = ({navigation}) => {
   let dispatch = useDispatch();
   let mnemonicStr = useSelector((state) => state.mnemonicStr);
   let words;
@@ -89,7 +90,7 @@ export const Authencation = ({ navigation }) => {
             </TextStyle>
           </AuthencationHeader>
           <AuthencationBody>
-            {words &&
+            {words ? (
               words.map((item, index) => (
                 <TouchableOpacity key={index}>
                   <View
@@ -104,7 +105,7 @@ export const Authencation = ({ navigation }) => {
                       paddingRight: 10,
                       borderRadius: 3,
                     }}>
-                    <Text style={{ marginRight: 3, color: '#A5A7AC' }}>
+                    <Text style={{marginRight: 3, color: '#A5A7AC'}}>
                       {index + 1}
                     </Text>
                     <TextStyle size={14} color="#fff" bolder>
@@ -112,10 +113,13 @@ export const Authencation = ({ navigation }) => {
                     </TextStyle>
                   </View>
                 </TouchableOpacity>
-              ))}
+              ))
+            ) : (
+              <Loading />
+            )}
           </AuthencationBody>
         </View>
-        <View style={{ alignItems: 'center', marginBottom: 10 }}>
+        <View style={{alignItems: 'center', marginBottom: 10}}>
           <AuthencationFooter>
             <Ionicon
               name="information-circle-outline"
@@ -129,7 +133,7 @@ export const Authencation = ({ navigation }) => {
           </AuthencationFooter>
           <ButtonStyle
             backgroud
-            onPress={() => navigation.navigate('ConfirmAuth', { words })}>
+            onPress={() => navigation.navigate('ConfirmAuth', {words})}>
             <TextStyle size={14} uppercase bolder color="#fff">
               Tiếp tục
             </TextStyle>

@@ -49,13 +49,7 @@ export const getAllWalletByAddress_Reducer = (state = [], action) => {
   }
 }
 
-export const insertWalletSymbol_Reducer = (state = {}, action) => {
-  switch (action.type) {
-    case INSERT_WALLET_SYMBOL: return state;
-    case INSERT_WALLET_RECEIVED: return action.data;
-    default: return state;
-  }
-}
+
 
 export const getCurrenBalanceEth_Reducer = (state = "0.00", action) => {
   switch (action.type) {

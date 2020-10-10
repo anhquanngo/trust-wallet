@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity, Alert} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useSelector, useDispatch} from 'react-redux';
-import { getCurrentBalanceEth } from '../../redux/actions';
+import {getCurrentBalanceEth} from '../../redux/actions';
 
 import styled from 'styled-components/native';
 
@@ -46,12 +46,12 @@ const TextStyle = styled.Text`
 `;
 
 export const TokenWallet = (props) => {
-  const {name} = props;
+  const {name, navigation} = props;
   const value = useSelector((state) => state.balance);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getCurrentBalanceEth());
-  })
+  });
   return (
     <TokenWalletContainer>
       <TitleStyle>${value}</TitleStyle>
@@ -64,12 +64,14 @@ export const TokenWallet = (props) => {
           flexDirection: 'row',
           justifyContent: 'space-around',
         }}>
-        <View style={{alignItems: 'center'}}>
-          <IconStyleContainer>
-            <IconStyle name="arrowup" size={30} />
-          </IconStyleContainer>
-          <TextStyle>Send</TextStyle>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate("SendETH")}>
+          <View style={{alignItems: 'center'}}>
+            <IconStyleContainer>
+              <IconStyle name="arrowup" size={30} />
+            </IconStyleContainer>
+            <TextStyle>Send</TextStyle>
+          </View>
+        </TouchableOpacity>
         <View style={{alignItems: 'center'}}>
           <IconStyleContainer>
             <IconStyle name="arrowdown" size={30} />

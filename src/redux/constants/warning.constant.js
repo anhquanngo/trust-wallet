@@ -1,0 +1,1 @@
+export const WARNING_RECEIVED = 'WARNING_RECEIVED';

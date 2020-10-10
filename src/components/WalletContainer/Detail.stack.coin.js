@@ -9,16 +9,14 @@ export const DetailStackCoin = ({WalletSymbol, Name, avatar, active}) => {
   let dispatch = useDispatch();
   let user = useSelector((state) => state.user);
   const toggleSwitch = async () => {
-    dispatch(switchCoin({Name: Name, active: !active}));
-    if (!active) {
-      dispatch(
-        insertWalletSymbol({
-          address: user.AddressBip,
-          symbol: WalletSymbol,
-          name: Name,
-        }),
-      );
-    }
+    dispatch(
+      switchCoin({
+        name: Name,
+        address: user.AddressBip,
+        symbol: WalletSymbol,
+        active: !active,
+      }),
+    );
   };
   return (
     <View

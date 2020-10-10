@@ -149,6 +149,7 @@ export const ConfirmAuth = ({ route }) => {
             <ButtonStyle
               backgroud
               onPress={() => {
+                // console.log({words, confirmStr});
                 if (words.join('') === confirmStr.join('')) {
                   setState(true);
                   dispatch(getUserInfo());

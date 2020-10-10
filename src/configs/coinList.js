@@ -23,13 +23,13 @@ export const coinList = [
         avatar: BTC,
         WalletSymbol: "BTC",
         Name: "Bitcoin",
-        active: false
+        active: true
     },
     {
         avatar: ETH,
         WalletSymbol: "ETH",
         Name: "Ethereum",
-        active: false
+        active: true
     },
     {
         avatar: LTC,

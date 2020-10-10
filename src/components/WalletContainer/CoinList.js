@@ -10,41 +10,35 @@ import {freshToken} from '../../services';
 
 import {Coin} from './Coin';
 
-import { setToken } from '../../services';
+import {setToken} from '../../services';
+
 
 const CoinListContainer = styled.View`
   /* padding-bottom: 60; */
 `;
 
 export const CoinList = (props) => {
-  // let dispatch = useDispatch();
+  // console.log("CoinList rendering...");
   const renderItem = ({item}) => <Coin {...item} />;
+  const dispatch = useDispatch();
+  let user = useSelector((state) => state.user);
 
-  let coins = useSelector((state) => state.coins);
-  let updateCoin = coins.filter((item) => item.active);
-
-  // let updateListMoney = useSelector((state) => state.listMoney);
-
-  // let user = useSelector((state) => state.user);
-  // let token = useSelector(state => state.token);
-
-  // let result = intersectionArray(updateCoin, updateListMoney, 'WalletSymbol');
-
-  // console.log(updateCoin);
-  // console.log(updateListMoney);
+  let coins = useSelector((state) => state.coins.filter((item) => item.active));
+  let listMoney = useSelector(state => state.listMoney);
+  console.log(listMoney);
+  // let result = intersectionArray(coins, listMoney, 'WalletSymbol');
   // console.log(result);
-
-  // React.useEffect(() => {
-  //   setToken(token);
-  //   dispatch(getAllWalletByAddress(user.AddressBip));
-  // }, []);
   
+  React.useEffect(() => {
+      dispatch(getAllWalletByAddress(user.AddressBip));
+  }, []);
+
   return (
     <React.Fragment>
-      {updateCoin.length > 0 && (
+      {coins.length > 0 && (
         <CoinListContainer>
           <FlatList
-            data={updateCoin}
+            data={coins}
             renderItem={renderItem}
             keyExtractor={(item) => item.Name}
           />

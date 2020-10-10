@@ -7,10 +7,10 @@ import styled from 'styled-components/native';
 import { TokenWallet } from './TokenWallet';
 import { CoinList } from './CoinList';
 
-export const TokenTab = () => {
+export const TokenTab = (props) => {
   return (
     <View>
-      <TokenWallet />
+      <TokenWallet {...props} />
       <CoinList />
     </View>
   );

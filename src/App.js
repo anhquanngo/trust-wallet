@@ -16,7 +16,13 @@ import { ThemeProvider } from 'styled-components';
 
 import { getMnemonicStr_Uri } from './redux/api/index';
 
-function App({ theme, state, user }) {
+function App({ theme, state, user, token }) {
+  React.useEffect(() => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    // AsyncStorage.clear();
+    // AsyncStorage.removeItem('coins');
+
+  }, []);
   console.log(state);
   return (
     <>
@@ -38,7 +44,8 @@ function App({ theme, state, user }) {
 const mapStateToProp = (state) => ({
   theme: state.theme,
   state: state,
-  user: state.user
+  user: state.user,
+  token: state.token
 });
 
 const mapDispatchToProp = {

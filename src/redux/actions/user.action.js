@@ -28,10 +28,6 @@ export const getAllWalletByAddress = (data) => ({
   data: data,
 });
 
-export const insertWalletSymbol = (data) => ({
-  type: INSERT_WALLET_SYMBOL,
-  data: data
-})
 
 export const getCurrentBalanceEth = (data) => ({
   type: GET_CURRENT_BALANCE_ETH,

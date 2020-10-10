@@ -44,6 +44,18 @@ export const getAllWalletByAddress_Uri = '/GetAllWalletByAddress';
  * get current balance eth
  */
 export const getCurrentBalanceEth_Uri = '/GetCurrentBalanceETH';
+
+/**
+ * post{
+ * fromAddress
+	toAddress
+	gasPrice: 210000000000
+	gasLimit: 42000
+    value
+}
+ */
+
+ export const sendETH_Uri = '/SendETH';
  /**
  * Recover account
  */

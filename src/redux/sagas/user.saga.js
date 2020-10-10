@@ -37,9 +37,8 @@ function* getMnemonicStr(disp) {
   if (res.data.Item) {
     let nmemonic = res.data.Item.Nmemonic;
     let token = res.data.token;
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     yield put({type: MNEMONIC_RECEIVED, data: nmemonic});
-    yield put({type: TOKEN_RECEIVED, data: token})
+    yield put({type: TOKEN_RECEIVED, data: token});
   }
 }
 
@@ -87,12 +86,14 @@ export function* getUserInfo_ActionWatcher() {
 
 function* getAllWalletByAddress(disp) {
   // yield freshToken();
+  // console.log(disp);
   let res = yield axios.get(getAllWalletByAddress_Uri, {
     params: {
       address: disp.data,
     },
   });
-  if (res.data.Item) {
+  console.log(res);
+  if (res.data.StatusCode == 200) {
     let lists = res.data.Item.recordsets[0];
     yield put({type: WALLET_RECEIVED, data: lists});
   }
@@ -100,27 +101,6 @@ function* getAllWalletByAddress(disp) {
 
 export function* getAllWalletByAddress_ActionWatcher() {
   yield takeLatest(GET_ALL_WALLET_BY_ADDRESS, getAllWalletByAddress);
-}
-
-/**
- * insert symbol to account
- */
-
-function* insertWalletSymbol(disp) {
-  // console.log({...disp.data});
-  // let token = yield freshToken();
-  // console.log(token);
-  let res = yield axios.post(insertWalletSymbol_Uri, null, {
-    params: {
-      ...disp.data
-    },
-  });
-  // console.log(res);
-  yield put({type: INSERT_WALLET_RECEIVED, data: res.data});
-}
-
-export function* insertWalletSymbol_ActionWatcher() {
-  yield takeLatest(INSERT_WALLET_SYMBOL, insertWalletSymbol);
 }
 
 /**
