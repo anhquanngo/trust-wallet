@@ -89,35 +89,41 @@ export const Authencation = ({navigation}) => {
               chúng ở nơi an toàn
             </TextStyle>
           </AuthencationHeader>
-          <AuthencationBody>
-            {words ? (
-              words.map((item, index) => (
-                <TouchableOpacity key={index}>
-                  <View
-                    key={index}
-                    style={{
-                      flexDirection: 'row',
-                      marginRight: 7,
-                      backgroundColor: '#363A45',
-                      marginBottom: 10,
-                      justifyContent: 'center',
-                      paddingLeft: 10,
-                      paddingRight: 10,
-                      borderRadius: 3,
-                    }}>
-                    <Text style={{marginRight: 3, color: '#A5A7AC'}}>
-                      {index + 1}
-                    </Text>
-                    <TextStyle size={14} color="#fff" bolder>
-                      {item}
-                    </TextStyle>
-                  </View>
-                </TouchableOpacity>
-              ))
-            ) : (
-              <Loading />
-            )}
-          </AuthencationBody>
+          {mnemonicStr == "" ? (
+            <TextStyle size={14} bolder color="#2285D3">
+              Đang đợi máy chủ phản hồi
+            </TextStyle>
+          ) : (
+            <AuthencationBody>
+              {words ? (
+                words.map((item, index) => (
+                  <TouchableOpacity key={index}>
+                    <View
+                      key={index}
+                      style={{
+                        flexDirection: 'row',
+                        marginRight: 7,
+                        backgroundColor: '#363A45',
+                        marginBottom: 10,
+                        justifyContent: 'center',
+                        paddingLeft: 10,
+                        paddingRight: 10,
+                        borderRadius: 3,
+                      }}>
+                      <Text style={{marginRight: 3, color: '#A5A7AC'}}>
+                        {index + 1}
+                      </Text>
+                      <TextStyle size={14} color="#fff" bolder>
+                        {item}
+                      </TextStyle>
+                    </View>
+                  </TouchableOpacity>
+                ))
+              ) : (
+                <Loading />
+              )}
+            </AuthencationBody>
+          )}
         </View>
         <View style={{alignItems: 'center', marginBottom: 10}}>
           <AuthencationFooter>
@@ -133,7 +139,7 @@ export const Authencation = ({navigation}) => {
           </AuthencationFooter>
           <ButtonStyle
             backgroud
-            onPress={() => navigation.navigate('ConfirmAuth', {words})}>
+            onPress={() => mnemonicStr && navigation.navigate('ConfirmAuth', {words})}>
             <TextStyle size={14} uppercase bolder color="#fff">
               Tiếp tục
             </TextStyle>

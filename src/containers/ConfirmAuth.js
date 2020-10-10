@@ -145,7 +145,9 @@ export const ConfirmAuth = ({ route }) => {
             </ConfirmBody>
           )}
           <View style={{ alignItems: 'center', marginBottom: 10 }}>
-            {state && <Ionicon name="reload-outline" size={20} color="#0f0" />}
+            {state && <TextStyle size={14} bolder color="#2285D3">
+                Đang chờ máy chủ phản hồi ...
+              </TextStyle>}
             <ButtonStyle
               backgroud
               onPress={() => {
