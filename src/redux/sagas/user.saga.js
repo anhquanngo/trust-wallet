@@ -127,8 +127,9 @@ function* getCurrentBalanceEth(disp) {
       addres: disp.data,
     },
   });
-
-  yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: '0.05'});
+  if (res.data) {
+    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: res.data});
+  }
 }
 
 export function* getCurrentBalanceEth_ActionWatcher() {

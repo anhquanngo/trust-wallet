@@ -72,6 +72,7 @@ export const SendETH = () => {
   let [toAddress, setToAddress] = React.useState();
   let [value, setValue] = React.useState();
   let [warn, setWarn] = React.useState();
+  // let balance = useSelector(state => state.balance);
 
   const gasPrice = 210000000000;
   const gasLimit = 42000;

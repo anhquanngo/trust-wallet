@@ -17,7 +17,7 @@ const TokenWalletContainer = styled.View`
 
 const TitleStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
-  font-size: 50px;
+  font-size: ${(props) => (props.size ? props.size : '50')};
   text-align: center;
 `;
 const SubTitleStyle = styled.Text`
@@ -47,14 +47,20 @@ const TextStyle = styled.Text`
 
 export const TokenWallet = (props) => {
   const {name, navigation} = props;
-  const value = useSelector((state) => state.balance);
+  const balance = useSelector((state) => state.balance);
   const dispatch = useDispatch();
+
   React.useEffect(() => {
     dispatch(getCurrentBalanceEth());
-  });
+  }, []);
+  console.log(balance);
   return (
     <TokenWalletContainer>
-      <TitleStyle>${value}</TitleStyle>
+      {balance.Message ? (
+        <TitleStyle size={20}>{balance.Message}</TitleStyle>
+      ) : (
+        <TitleStyle>${balance.Item}</TitleStyle>
+      )}
       <SubTitleStyle>Multi-Coin Wallet {name}</SubTitleStyle>
       <View
         style={{
@@ -64,7 +70,7 @@ export const TokenWallet = (props) => {
           flexDirection: 'row',
           justifyContent: 'space-around',
         }}>
-        <TouchableOpacity onPress={() => navigation.navigate("SendETH")}>
+        <TouchableOpacity onPress={() => navigation.navigate('SendETH')}>
           <View style={{alignItems: 'center'}}>
             <IconStyleContainer>
               <IconStyle name="arrowup" size={30} />

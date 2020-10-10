@@ -51,7 +51,7 @@ export const getAllWalletByAddress_Reducer = (state = [], action) => {
 
 
 
-export const getCurrenBalanceEth_Reducer = (state = "0.00", action) => {
+export const getCurrenBalanceEth_Reducer = (state = {}, action) => {
   switch (action.type) {
     case GET_CURRENT_BALANCE_ETH: return state;
     case CURRENT_BALANCE_ETH_RECEIVED: return action.data;
