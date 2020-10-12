@@ -37,6 +37,7 @@ function* getMnemonicStr(disp) {
   if (res.data.Item) {
     let nmemonic = res.data.Item.Nmemonic;
     let token = res.data.token;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     yield put({type: MNEMONIC_RECEIVED, data: nmemonic});
     yield put({type: TOKEN_RECEIVED, data: token});
   }

@@ -1,27 +1,26 @@
 import * as React from 'react';
-import { StatusBar } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { connect } from 'react-redux';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native';
 import axios from 'axios';
 
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
-import { Private, Public } from './routes';
+import {Private, Public} from './routes';
 
-import { getMnemonicStr, switchTheme, getUserInfo } from './redux/actions';
-import { DARK_THEME } from './redux/constants';
-import { ThemeProvider } from 'styled-components';
+import {getMnemonicStr, switchTheme, getUserInfo} from './redux/actions';
+import {DARK_THEME} from './redux/constants';
+import {ThemeProvider} from 'styled-components';
 
-import { getMnemonicStr_Uri } from './redux/api/index';
+import {getMnemonicStr_Uri} from './redux/api/index';
 
-function App({ theme, state, user, token }) {
+function App({theme, state, user, token}) {
   React.useEffect(() => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     // AsyncStorage.clear();
     // AsyncStorage.removeItem('coins');
-
   }, []);
   // console.log(state);
   return (
@@ -33,7 +32,7 @@ function App({ theme, state, user, token }) {
             barStyle={theme.STATUS_BAR_STYLE}
           />
           <AppContainer>
-            {true ? <Public theme={theme} /> : <Private />}
+            {user._id ? <Public theme={theme} /> : <Private />}
           </AppContainer>
         </ThemeProvider>
       </NavigationContainer>
@@ -45,7 +44,7 @@ const mapStateToProp = (state) => ({
   theme: state.theme,
   state: state,
   user: state.user,
-  token: state.token
+  token: state.token,
 });
 
 const mapDispatchToProp = {

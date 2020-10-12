@@ -98,10 +98,10 @@ export const SendETH = () => {
   };
 
   const onChangeValue = (text) => {
-    setValue(text);
-    if (!/^[0-9]*$/gm.test(value)) {
+    if (!/^[0-9]*\.?[0-9]*$/gm.test(text)) {
       setWarn('Giá trị nhập phải là số');
     } else {
+      setValue(text);
       setWarn(null);
     }
   };
