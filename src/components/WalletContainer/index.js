@@ -14,14 +14,24 @@ export default function WalletContainer(props) {
   return (
     <WalletContainerStyle>
       <HeaderWallet {...props} setPositionTab={setPositionTab} />
-      <ScrollView
-        style={{
-          overflow: 'scroll',
-          height: (height * 4) / 5,
-        }}>
-        {positionTab === 0 ? <TokenTab {...props}/> : null}
-      </ScrollView>
-      {positionTab === 1 ? <FinanceTab /> : null}
+      {positionTab === 0 ? (
+        <ScrollView
+          style={{
+            overflow: 'scroll',
+            height: (height * 4) / 5,
+          }}>
+          <TokenTab {...props} />
+        </ScrollView>
+      ) : null}
+      {positionTab === 1 ? (
+        <ScrollView
+          style={{
+            overflow: 'scroll',
+            height: (height * 4) / 5,
+          }}>
+          <FinanceTab />
+        </ScrollView>
+      ) : null}
       {positionTab === 2 ? <CollectionTab /> : null}
     </WalletContainerStyle>
   );

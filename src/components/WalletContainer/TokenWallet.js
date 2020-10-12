@@ -7,17 +7,18 @@ import {getCurrentBalanceEth} from '../../redux/actions';
 import styled from 'styled-components/native';
 
 const TokenWalletContainer = styled.View`
-  margin-top: 8px;
+  margin-top: ${props => props.theme.MARGIN_TOP};
+  padding-top: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   align-items: center;
-  border-radius: 10px;
+  border-radius: ${props => props.theme.BORDER_RADIUS};
   /* border-bottom-width:1px; */
-  margin-bottom: 5;
+  /* margin-bottom: 5; */
 `;
 
 const TitleStyle = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
-  font-size: ${(props) => (props.size ? props.size : '50')};
+  font-size: ${(props) => (props.size ? props.size : '50px')};
   text-align: center;
 `;
 const SubTitleStyle = styled.Text`
@@ -53,7 +54,7 @@ export const TokenWallet = (props) => {
   React.useEffect(() => {
     dispatch(getCurrentBalanceEth());
   }, []);
-  console.log(balance);
+  // console.log(balance);
   return (
     <TokenWalletContainer>
       {balance.Message ? (

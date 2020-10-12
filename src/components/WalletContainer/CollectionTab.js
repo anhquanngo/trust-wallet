@@ -30,5 +30,5 @@ const ButtonStyle = styled.TouchableOpacity`
     background-color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
     padding-top: 10;
     padding-bottom: 10px;
-    width: 100;
+    width: 100px;
 `

@@ -63,7 +63,7 @@ export const TabNavigatorWallet = ({ setPositionTab }) => {
                 alignItems: 'center',
               }}
               onLayout={(event) => {
-                console.log(event.nativeEvent.layout.x);
+                // console.log(event.nativeEvent.layout.x);
                 setTabTwo(event.nativeEvent.layout.x);
               }}
               onPress={() => {

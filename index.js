@@ -4,12 +4,13 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import { PersistGate } from 'redux-persist/es/integration/react';
+import { createLogger } from 'redux-logger';
 import axios from 'axios';
 
 import App from './src/App';
@@ -34,7 +35,7 @@ const persistConfig = {
 
 const sagaMiddleware = createSagaMiddleware();
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(persistedReducer, compose(applyMiddleware(sagaMiddleware, createLogger())));
 
 const persistedStore = persistStore(store);
 

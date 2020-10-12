@@ -1,47 +1,50 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import Ionicon from 'react-native-vector-icons/Ionicons';
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import {searchInput} from '../redux/actions';
+import styled from 'styled-components/native';
+
+const SearchContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  border-radius: ${(props) => props.theme.BORDER_RADIUS};
+  width: 90%;
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
+  padding-left: 10px;
+`;
+
+const InputStyle = styled.TextInput`
+  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+  font-size: 16px;
+  
+`;
+
+const IconStyle = styled(Ionicon)`
+  color: ${(props) => props.theme.TEXT_COLOR_SECONDARY};
+`;
 
 export const SearchItem = ({title}) => {
-  let value = useSelector(state => state.search);
+  let value = useSelector((state) => state.search);
+  let theme = useSelector((state) => state.theme);
+
   let dispatch = useDispatch();
   const onChangeText = (text) => {
     dispatch(searchInput(text));
-  }
+  };
   return (
     <React.Fragment>
-      <View style={styles.container}>
-        <Ionicon name="search-outline" size={30} color="#DADADA" style={styles.iconSearch}/>
-        <TextInput
+      <SearchContainer>
+        <IconStyle name="search-outline" size={18} />
+        <InputStyle
           placeholder={title}
-          placeholderTextColor="#AAAAAA"
-          style={styles.textSearch}
+          placeholderTextColor={theme.TEXT_COLOR_SECONDARY}
           onChangeText={onChangeText}
           value={value}
+        
         />
-      </View>
+      </SearchContainer>
     </React.Fragment>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    // borderWidth: 1,
-    // borderColor: '#f00',
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    width: "90%"
-  },
-  textSearch: {
-    fontSize: 20,
-    color: '#AAAAAA'
-  },
-  iconSearch: {
-    paddingLeft: 10,
-  }
-});
+};

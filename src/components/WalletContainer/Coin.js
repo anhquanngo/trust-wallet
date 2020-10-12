@@ -34,13 +34,14 @@ Coin.defaultProps = {
 const CardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10;
+  padding-top: 10px;
   padding-right: 10px;
-  padding-left: 10;
+  padding-left: 10px;
   padding-bottom: 10px;
   /* border-top-width: 1; */
   /* border-bottom-width: 1; */
-  margin-bottom: 5;
+  /* margin-bottom: 5; */
+  margin-top: ${props => props.theme.MARGIN_TOP};
   border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
@@ -50,15 +51,15 @@ const CardBody = styled.View`
 `;
 
 const CardImage = styled.Image`
-  width: 50;
-  height: 50;
-  border-radius: 25;
-  margin-right: 15;
-  margin-left: 15;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-right: 15px;
+  margin-left: 15px;
 `;
 
 const CardText = styled.Text`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
-  margin-right: 15;
+  margin-right: 15px;
 `;

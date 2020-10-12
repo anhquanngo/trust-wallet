@@ -29,8 +29,7 @@ export const WalletScreen = () => {
         component={DetailStack}
         options={{
           headerStyle: {
-            backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
-          },
+            backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,          },
           headerTintColor: theme.TEXT_COLOR_PRIMARY,
           headerTitle: (props) => <SearchItem title="Search tokens" />,
         }}
