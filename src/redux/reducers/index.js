@@ -5,15 +5,15 @@ import {
   getTokenStr_Reducer,
   getUserInfo_Reducer,
   getAllWalletByAddress_Reducer,
-  getCurrenBalanceEth_Reducer
+  getCurrenBalanceEth_Reducer,
+  addAddress_Reducer,
 } from './user.reducer';
 
-import { themeReducer } from './theme.reducer';
+import {themeReducer} from './theme.reducer';
 
-import { switchCoin, sendETH_Reducer } from './coin.reducer';
+import {switchCoin, sendETH_Reducer} from './coin.reducer';
 
-import { searchReducer } from './search.reducer';
-
+import {searchReducer} from './search.reducer';
 
 const rootReducer = combineReducers({
   mnemonicStr: getMnemonicStr_Reducer,
@@ -24,7 +24,8 @@ const rootReducer = combineReducers({
   coins: switchCoin,
   search: searchReducer,
   balance: getCurrenBalanceEth_Reducer,
-  sendETH: sendETH_Reducer
+  sendETH: sendETH_Reducer,
+  listAddress: addAddress_Reducer,
 });
 
 export default rootReducer;

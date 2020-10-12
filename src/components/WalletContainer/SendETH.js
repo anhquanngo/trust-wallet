@@ -3,6 +3,8 @@ import {View, Text, Button, TouchableOpacity, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import {useSelector, useDispatch} from 'react-redux';
 import {sendETH} from '../../redux/actions';
+import {ModalItem} from '../';
+import {AddressModal} from './AddressModal';
 
 const SendETHContainer = styled.View`
   padding-top: 20;
@@ -54,6 +56,17 @@ const WarnStyle = styled.Text`
   color: #ca4e55;
 `;
 
+const ButtonSmallStyle = styled.Text`
+  width: ${(props) => `${props.width}px`};
+  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  text-align: center;
+  margin-top: ${(props) => props.theme.MARGIN_TOP};
+  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: ${(props) => props.theme.BORDER_RADIUS};
+`;
+
 /**
  * post{
  * fromAddress
@@ -66,12 +79,14 @@ const WarnStyle = styled.Text`
 
 export const SendETH = () => {
   let [state, setState] = React.useState();
+  let [modal, setModal] = React.useState(false);
+  let [modalAddress, setModalAddress] = React.useState(false);
   let sendEthNotice = useSelector((state) => state.sendETH);
   const dispatch = useDispatch();
   let user = useSelector((state) => state.user);
   let [toAddress, setToAddress] = React.useState();
   let [value, setValue] = React.useState();
-  let [warn, setWarn] = React.useState();
+  // let [warn, setWarn] = React.useState();
   // let balance = useSelector(state => state.balance);
 
   const gasPrice = 210000000000;
@@ -99,14 +114,23 @@ export const SendETH = () => {
 
   const onChangeValue = (text) => {
     if (!/^[0-9]*\.?[0-9]*$/gm.test(text)) {
-      setWarn('Giá trị nhập phải là số');
+      // setWarn('Giá trị nhập phải là số');
     } else {
       setValue(text);
-      setWarn(null);
+      // setWarn(null);
     }
   };
   return (
     <SendETHContainer>
+      {modal && (
+        <ModalItem modal={modal} setModal={setModal} toAddress={toAddress} />
+      )}
+      {modalAddress && (
+        <AddressModal
+          modalAddress={modalAddress}
+          setModalAddress={setModalAddress}
+        />
+      )}
       <SendETHFormContainer>
         <View style={{marginBottom: 30}}>
           <AddressContainer>
@@ -121,11 +145,21 @@ export const SendETH = () => {
               value={toAddress}
               onChangeText={onChangeAddress}
             />
+            <View style={{flexDirection: 'row'}}>
+              <ButtonSmallStyle width={80} onPress={() => setModal(!modal)}>
+                Thêm vào sổ
+              </ButtonSmallStyle>
+              <ButtonSmallStyle
+                width={120}
+                onPress={() => setModalAddress(!modalAddress)}>
+                Danh sách đã lưu
+              </ButtonSmallStyle>
+            </View>
           </AddressContainer>
 
           <AddressContainer>
             <TextStyle bold>Value</TextStyle>
-            {warn && <WarnStyle>{warn}</WarnStyle>}
+            {/* {warn && <WarnStyle>{warn}</WarnStyle>} */}
             <TextInputStyle
               placeholder="type a value"
               value={value}

@@ -5,7 +5,8 @@ import {
   GET_ALL_WALLET_BY_ADDRESS,
   FORGOT_ACCOUNT,
   INSERT_WALLET_SYMBOL,
-  GET_CURRENT_BALANCE_ETH
+  GET_CURRENT_BALANCE_ETH,
+  ADD_ADDRESS
 } from '../constants';
 
 export const getMnemonicStr = (data) => ({
@@ -39,3 +40,7 @@ export const getForgotAccount = (data) => ({
   data: data,
 });
 
+export const addAddress = (data) => ({
+  type: ADD_ADDRESS,
+  data: data
+});

@@ -29,7 +29,7 @@ import rootSaga from './src/redux/sagas';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['theme', 'user', 'coins', 'token'],
+  whitelist: ['user', 'coins', 'token', 'listAddress'],
   // blacklist: [''],
 };
 

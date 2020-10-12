@@ -11,9 +11,12 @@ import {
   INSERT_WALLET_RECEIVED,
   FORGOT_ACCOUNT,
   GET_CURRENT_BALANCE_ETH,
-  CURRENT_BALANCE_ETH_RECEIVED
+  CURRENT_BALANCE_ETH_RECEIVED,
+  ADD_ADDRESS
 
 } from '../constants';
+
+import { add } from '../../utils';
 
 
 export const getMnemonicStr_Reducer = (state = "", action) => {
@@ -66,3 +69,13 @@ export const getCurrenBalanceEth_Reducer = (state = {}, action) => {
 //     default: return state;
 //   }
 // }
+
+export const addAddress_Reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD_ADDRESS: {
+      return {name: "Hung"}
+      // return add(state, action.data)
+    };
+    default: return state;
+  }
+}
