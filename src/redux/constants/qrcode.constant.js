@@ -1,0 +1,2 @@
+export const CREATE_QRCODE = "CREATE_QRCODE";
+export const QRCODE_RECEIVED = "QRCODE_RECEIVED";

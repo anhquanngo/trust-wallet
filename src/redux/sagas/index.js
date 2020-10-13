@@ -15,6 +15,8 @@ import {
 
 import { switchCoin_ActionWatcher, sendETH_ActionWatcher } from './coin.saga';
 
+import { qrcodeCreate_ActionWatcher } from './qrcode.saga';
+
 export default function* rootSaga() {
   yield all([
       getMnemonicStr_ActionWatcher(),
@@ -25,6 +27,7 @@ export default function* rootSaga() {
       getCurrentBalanceEth_ActionWatcher(),
       switchTheme_ActionWatcher(),
       switchCoin_ActionWatcher(),
-      sendETH_ActionWatcher()
+      sendETH_ActionWatcher(),
+      qrcodeCreate_ActionWatcher()
   ]);
 }

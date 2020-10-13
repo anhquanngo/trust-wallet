@@ -46,6 +46,10 @@ const TextStyle = styled.Text`
   padding-bottom: 10px;
 `;
 
+const ReceiveStyle = styled.TouchableOpacity`
+
+`;
+
 export const TokenWallet = (props) => {
   const {name, navigation} = props;
   const balance = useSelector((state) => state.balance);
@@ -79,12 +83,12 @@ export const TokenWallet = (props) => {
             <TextStyle>Send</TextStyle>
           </View>
         </TouchableOpacity>
-        <View style={{alignItems: 'center'}}>
+        <ReceiveStyle onPress={() => navigation.navigate("QRcode")}>
           <IconStyleContainer>
             <IconStyle name="arrowdown" size={30} />
           </IconStyleContainer>
           <TextStyle> Receive</TextStyle>
-        </View>
+        </ReceiveStyle>
         <View style={{alignItems: 'center'}}>
           <IconStyleContainer>
             <IconStyle name="tago" size={30} />

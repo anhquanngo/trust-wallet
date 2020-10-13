@@ -15,6 +15,8 @@ import {switchCoin, sendETH_Reducer} from './coin.reducer';
 
 import {searchReducer} from './search.reducer';
 
+import { qrcodeReducer } from './qrcode.reducer';
+
 const rootReducer = combineReducers({
   mnemonicStr: getMnemonicStr_Reducer,
   token: getTokenStr_Reducer,
@@ -26,6 +28,7 @@ const rootReducer = combineReducers({
   balance: getCurrenBalanceEth_Reducer,
   sendETH: sendETH_Reducer,
   listAddress: addAddress_Reducer,
+  qrcode: qrcodeReducer
 });
 
 export default rootReducer;
