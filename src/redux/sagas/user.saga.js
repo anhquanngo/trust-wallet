@@ -128,8 +128,11 @@ function* getCurrentBalanceEth(disp) {
       addres: disp.data,
     },
   });
-  if (res.data) {
-    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: res.data});
+  
+  if (res.data.StatusCode == 200 ) {
+    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: res.data.Item});
+  } else {
+    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: {message: "Không lấy được số dư"}});
   }
 }
 

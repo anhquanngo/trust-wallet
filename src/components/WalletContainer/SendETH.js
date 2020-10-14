@@ -88,7 +88,6 @@ export const SendETH = () => {
   let [value, setValue] = React.useState();
   // let [warn, setWarn] = React.useState();
   // let balance = useSelector(state => state.balance);
-
   const gasPrice = 210000000000;
   const gasLimit = 42000;
 
@@ -129,6 +128,7 @@ export const SendETH = () => {
         <AddressModal
           modalAddress={modalAddress}
           setModalAddress={setModalAddress}
+          setToAddress={setToAddress}
         />
       )}
       <SendETHFormContainer>

@@ -6,7 +6,8 @@ import {
   FORGOT_ACCOUNT,
   INSERT_WALLET_SYMBOL,
   GET_CURRENT_BALANCE_ETH,
-  ADD_ADDRESS
+  ADD_ADDRESS,
+  DELETE_ADDRESS
 } from '../constants';
 
 export const getMnemonicStr = (data) => ({
@@ -42,5 +43,10 @@ export const getForgotAccount = (data) => ({
 
 export const addAddress = (data) => ({
   type: ADD_ADDRESS,
+  data: data
+});
+
+export const deleteAddress = (data) => ({
+  type: DELETE_ADDRESS,
   data: data
 });

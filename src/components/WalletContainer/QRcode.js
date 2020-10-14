@@ -1,6 +1,7 @@
 import React from 'react';
 import {Share, Dimensions, Clipboard} from 'react-native';
 
+
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
 import styled from 'styled-components/native';

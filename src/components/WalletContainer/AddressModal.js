@@ -28,7 +28,7 @@ const TextStyle = styled.Text`
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
 `;
 
-export const AddressModal = ({modalAddress, setModalAddress}) => {
+export const AddressModal = ({modalAddress, setModalAddress, setToAddress}) => {
   let listAddress = useSelector((state) => state.listAddress);
   //   console.log(listAddress);
 
@@ -46,7 +46,7 @@ export const AddressModal = ({modalAddress, setModalAddress}) => {
         </ButtonStyle>
         {listAddress &&
           listAddress.map((item) => (
-            <AddressItem {...item} key={item.AddressBip} />
+            <AddressItem {...item} key={item.AddressBip} setToAddress={setToAddress} setModalAddress={setModalAddress} modalAddress={modalAddress}/>
           ))}
         
       </AddressListContainer>

@@ -12,11 +12,12 @@ import {
   FORGOT_ACCOUNT,
   GET_CURRENT_BALANCE_ETH,
   CURRENT_BALANCE_ETH_RECEIVED,
-  ADD_ADDRESS
+  ADD_ADDRESS,
+  DELETE_ADDRESS
 
 } from '../constants';
 
-import { add } from '../../utils';
+import { add, deleteArray } from '../../utils';
 
 
 export const getMnemonicStr_Reducer = (state = "", action) => {
@@ -73,9 +74,9 @@ export const getCurrenBalanceEth_Reducer = (state = {}, action) => {
 export const addAddress_Reducer = (state = [], action) => {
   switch (action.type) {
     case ADD_ADDRESS: {
-      return {name: "Hung"}
-      // return add(state, action.data)
+      return add(state, action.data)
     };
+    case DELETE_ADDRESS: return deleteArray(state, action.data)
     default: return state;
   }
 }

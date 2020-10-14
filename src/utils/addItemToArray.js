@@ -1,6 +1,8 @@
-export const add = (arr, obj) => {
-    let check = false;
-    for (let i =0 ; i < arr.length; i++) {
+export const add = (state, obj) => {
+  let check = false;
+  let arr = [...state];
+  if (obj.name && obj.AddressBip) {
+    for (i = 0; i < arr.length; i++) {
       if (arr[i].AddressBip == obj.AddressBip) {
         check = true;
         break;
@@ -9,5 +11,10 @@ export const add = (arr, obj) => {
     if (!check) {
       arr.push(obj);
       return arr;
+    } else {
+      return arr;
     }
+  } else {
+    return arr;
   }
+};
