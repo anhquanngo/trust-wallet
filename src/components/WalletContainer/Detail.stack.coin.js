@@ -51,7 +51,7 @@ export const DetailStackCoin = ({WalletSymbol, Name, avatar, active}) => {
             </View>
           </View>
           <View style={{justifyContent: 'center'}}>
-            <TextStyle size={20}>{Name}</TextStyle>
+            <TextStyle size={'20px'}>{Name}</TextStyle>
           </View>
         </View>
         <View style={{justifyContent: 'center'}}>

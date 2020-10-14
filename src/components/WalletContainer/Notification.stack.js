@@ -27,7 +27,7 @@ const Container = styled.View`
 const TextPrimary = styled.Text`
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
   align-items: center;
-  margin-top: 350;
+  margin-top: 350px;
   text-align: center
 `;
 const TextSecondary = styled.Text`

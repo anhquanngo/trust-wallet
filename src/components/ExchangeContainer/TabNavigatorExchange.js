@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import {View, Text, TouchableOpacity, Animated, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
-export const TabNavigatorExchange = ({ setPositionTab }) => {
+export const TabNavigatorExchange = ({setPositionTab}) => {
   let [active, setActive] = React.useState(0);
   let [xTabOne, setTabOne] = React.useState(0);
   let [xTabTwo, setTabTwo] = React.useState(0);
@@ -18,12 +18,10 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
   };
   return (
     <React.Fragment>
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         <TabNavigatorExchangeContainer>
           <TabContainer>
-            <AnimatedStyle
-              style={{ transform: [{ translateX }] }}
-            />
+            <AnimatedStyle style={{transform: [{translateX}]}} />
             <TouchableOpacity
               style={{
                 flex: 1,
@@ -35,8 +33,7 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
                 handleSlide(xTabOne, 0);
                 // setActive(0);
               }}>
-              <TextStyle
-                active={active} param={0}>
+              <TextStyle active={active} param={0}>
                 Swap
               </TextStyle>
             </TouchableOpacity>
@@ -50,17 +47,16 @@ export const TabNavigatorExchange = ({ setPositionTab }) => {
               onPress={() => {
                 handleSlide(xTabTwo, 1);
               }}>
-              <TextStyle
-                active={active} param={1}>
+              <TextStyle active={active} param={1}>
                 Exchange
               </TextStyle>
             </TouchableOpacity>
           </TabContainer>
         </TabNavigatorExchangeContainer>
-      </View >
-    </React.Fragment >
+      </View>
+    </React.Fragment>
   );
-}
+};
 
 const TabNavigatorExchangeContainer = styled.View`
   width: 70%;
@@ -68,16 +64,16 @@ const TabNavigatorExchangeContainer = styled.View`
   margin-right: auto;
   border-radius: 10px;
   padding-top: 2px;
-  padding-right: 3;
-  padding-bottom: 3;
-  padding-left: 3;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
 
 const TabContainer = styled.View`
   position: relative;
   flex-direction: row;
-  height: 35;
+  height: 35px;
   border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_PRIMARY};
 `;
@@ -86,8 +82,8 @@ const AnimatedStyle = styled(Animated.View)`
   position: absolute;
   width: 50%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   border-radius: 10px;
 `;
@@ -98,4 +94,3 @@ const TextStyle = styled.Text`
       ? props.theme.TEXT_COLOR_PRIMARY
       : props.theme.TEXT_COLOR_SECONDARY};
 `;
-

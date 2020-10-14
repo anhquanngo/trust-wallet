@@ -39,7 +39,7 @@ const TextSecondary = styled.Text`
 const ButtonStyle = styled.TouchableOpacity`
   align-items: center;
   background-color: ${(props) => props.theme.TEXT_COLOR_THIRDARY};
-  padding-top: 10;
+  padding-top: 10px;
   padding-bottom: 10px;
   width: 100px;
 `;

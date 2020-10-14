@@ -14,20 +14,20 @@ import {LIGHT_THEME, DARK_THEME} from '../../redux/constants';
 const ThemeSettingContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 10;
-  padding-bottom: 10;
-  padding-left: 10;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
 
 const ImageContainer = styled.View`
   justify-content: center;
   align-items: center;
-  height: 50;
-  width: 50;
+  height: 50px;
+  width: 50px;
   background-color: #666;
-  border-radius: 10;
-  margin-right: 10;
+  border-radius: 10px;
+  margin-right: 10px;
 `;
 
 export const ThemeSetting = () => {

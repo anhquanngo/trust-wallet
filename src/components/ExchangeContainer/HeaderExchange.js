@@ -21,9 +21,9 @@ const HeaderContainer = styled.View`
   height: 70px;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10;
+  padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10;
+  padding-left: 10px;
   padding-right: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;
