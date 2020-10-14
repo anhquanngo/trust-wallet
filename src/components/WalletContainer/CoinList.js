@@ -33,13 +33,14 @@ export const CoinList = (props) => {
   return (
     <React.Fragment>
       {coins.length > 0 && (
-        <CoinListContainer>
-          <FlatList
-            data={coins}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.Name}
-          />
-        </CoinListContainer>
+        coins.map(item => <Coin {...item} key={item.WalletSymbol}/>)
+        // <CoinListContainer>
+        //   <FlatList
+        //     data={coins}
+        //     renderItem={renderItem}
+        //     keyExtractor={(item) => item.Name}
+        //   />
+        // </CoinListContainer>
       )}
   </React.Fragment>
   );

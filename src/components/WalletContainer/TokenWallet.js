@@ -61,11 +61,11 @@ export const TokenWallet = (props) => {
   // console.log(balance);
   return (
     <TokenWalletContainer>
-      {balance.message && <TitleStyle size={16}>{balance.message}</TitleStyle>}
+      {balance.message && <TitleStyle size={'16px'}>{balance.message}</TitleStyle>}
       {balance.balance ? (
         <TitleStyle>${balance.balance}</TitleStyle>
       ) : (
-        <TitleStyle size={16}>Đang đợi máy chủ phản hồi...</TitleStyle>
+        <TitleStyle size={'16px'}>Đang đợi máy chủ phản hồi...</TitleStyle>
       )}
       <SubTitleStyle>Multi-Coin Wallet {name}</SubTitleStyle>
       <View
