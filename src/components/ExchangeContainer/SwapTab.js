@@ -51,7 +51,8 @@ function Exchange() {
 
 const SwapTab = (props) => (
     <Container >
-        <Exchange />
+        <TextDemo>Tính năng đang cập nhật...</TextDemo>
+        {/* <Exchange />
         <ViewPercent>
             <ButtonPercent>
                 <TextThirdary>25%</TextThirdary>
@@ -73,7 +74,7 @@ const SwapTab = (props) => (
 
         <View style={{ justifyContent: 'center', alignContent: 'center' }}>
             <ButtonNext >Next</ButtonNext>
-        </View>
+        </View> */}
     </Container>
 );
 
@@ -144,7 +145,11 @@ const NumberExchange = styled.Text`
     color: ${(props) => props.theme.TEXT_COLOR_SECONDARY}
 `
 
-
+const TextDemo = styled.Text`
+  margin-top: 315px;
+  text-align: center;
+  color: ${props => props.theme.TEXT_COLOR_PRIMARY}
+`;
 
 
 export default SwapTab;

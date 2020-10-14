@@ -61,6 +61,7 @@ const ButtonSmallStyle = styled.Text`
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
   text-align: center;
   margin-top: ${(props) => props.theme.MARGIN_TOP};
+  margin-left: 5px;
   color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
   font-weight: bold;
   font-size: 12px;
@@ -141,7 +142,6 @@ export const SendETH = () => {
           <AddressContainer>
             <TextStyle bold>To</TextStyle>
             <TextInputStyle
-              placeholder="type a address"
               value={toAddress}
               onChangeText={onChangeAddress}
             />
@@ -161,7 +161,6 @@ export const SendETH = () => {
             <TextStyle bold>Value</TextStyle>
             {/* {warn && <WarnStyle>{warn}</WarnStyle>} */}
             <TextInputStyle
-              placeholder="type a value"
               value={value}
               onChangeText={onChangeValue}
             />

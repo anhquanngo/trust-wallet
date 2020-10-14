@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 
+const {height} = Dimensions.get('window');
+
 const Container = styled.View`
-  background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
+  /* background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY}; */
   margin-top: ${(props) => props.theme.MARGIN_TOP};
   border-radius: ${(props) => props.theme.BORDER_RADIUS};
 `;
@@ -21,11 +23,18 @@ const ItemCoin = styled.View`
   border-radius: 10px;
 `;
 
+const TextDemo = styled.Text`
+  margin-top: 330px;
+  text-align: center;
+  color: ${(props) => props.theme.TEXT_COLOR_PRIMARY};
+`;
+
 export const FinanceTab = (props) => {
   const {lists} = props;
   return (
     <Container>
-        <TextSecondary style={{fontWeight: 'bold', fontSize: 20, padding: 10}}>
+      <TextDemo>Tính năng đang cập nhật...</TextDemo>
+      {/* <TextSecondary style={{fontWeight: 'bold', fontSize: 20, padding: 10}}>
           Staking
         </TextSecondary>
         {lists &&
@@ -46,7 +55,7 @@ export const FinanceTab = (props) => {
                 </View>
               </ItemCoin>
             );
-          })}
+          })} */}
     </Container>
   );
 };
@@ -70,6 +79,6 @@ FinanceTab.defaultProps = {
         'https://s2.coinmarketcap.com/static/img/coins/200x200/2011.png',
       title: 'Tezos (XTZ)',
       percent: '6,09',
-    }
+    },
   ],
 };

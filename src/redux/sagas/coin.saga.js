@@ -49,13 +49,11 @@ export function* switchCoin_ActionWatcher() {
  */
 
 function* sendETH(disp) {
-  console.log(disp.data);
   let res = yield axios.post(sendETH_Uri, null, {
     params: {
       ...disp.data,
     },
   });
-  console.log(res);
   if (res.data.StatusCode == 200 && res.data.Item) {
     yield put({type: SENDETH_RECEVED, data: 'Gửi thành công!'});
   } else {
