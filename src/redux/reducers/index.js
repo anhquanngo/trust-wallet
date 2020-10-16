@@ -11,11 +11,15 @@ import {
 
 import {themeReducer} from './theme.reducer';
 
-import {switchCoin, sendETH_Reducer} from './coin.reducer';
+import {
+  switchCoin,
+  sendETH_Reducer,
+  historyTransaction_Reducer,
+} from './coin.reducer';
 
 import {searchReducer} from './search.reducer';
 
-import { qrcodeReducer } from './qrcode.reducer';
+import {qrcodeReducer} from './qrcode.reducer';
 
 const rootReducer = combineReducers({
   mnemonicStr: getMnemonicStr_Reducer,
@@ -28,7 +32,8 @@ const rootReducer = combineReducers({
   balance: getCurrenBalanceEth_Reducer,
   sendETH: sendETH_Reducer,
   listAddress: addAddress_Reducer,
-  qrcode: qrcodeReducer
+  qrcode: qrcodeReducer,
+  historyTransaction: historyTransaction_Reducer,
 });
 
 export default rootReducer;

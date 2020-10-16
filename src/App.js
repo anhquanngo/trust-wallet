@@ -32,7 +32,7 @@ function App({theme, state, user, token}) {
             barStyle={theme.STATUS_BAR_STYLE}
           />
           <AppContainer>
-            {true? <Public theme={theme} /> : <Private />}
+            {user._id? <Public theme={theme} /> : <Private />}
           </AppContainer>
         </ThemeProvider>
       </NavigationContainer>

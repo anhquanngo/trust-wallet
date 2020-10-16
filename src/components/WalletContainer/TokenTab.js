@@ -11,7 +11,7 @@ export const TokenTab = (props) => {
   return (
     <View>
       <TokenWallet {...props} />
-      <CoinList />
+      <CoinList {...props}/>
     </View>
   );
 };

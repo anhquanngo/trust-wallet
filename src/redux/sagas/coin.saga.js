@@ -6,8 +6,11 @@ import {
   COIN_CHANGED,
   SENDETH_RECEVED,
   SENDETH,
+  HISTORY_TRANSACTION,
+  HISTORY_TRANSACTION_RECEIVED
 } from '../constants';
-import {insertWalletSymbol_Uri, removeSymbolInWallit, sendETH_Uri} from '../api';
+
+import {insertWalletSymbol_Uri, removeSymbolInWallit, sendETH_Uri, getHistoryTransaction_Uri} from '../api';
 
 function* switchCoin(disp) {
   // console.log(disp);
@@ -63,4 +66,28 @@ function* sendETH(disp) {
 
 export function* sendETH_ActionWatcher() {
   yield takeLatest(SENDETH, sendETH);
+}
+
+
+/**
+ * 
+ * get history transaction
+ */
+
+function* historyTransaction(disp) {
+  let res = yield axios.get(getHistoryTransaction_Uri, {
+    params: {
+      address: disp.data.address,
+      fromtime: "2020-09-16 10:35:22 UTC",
+      totime: "2020-10-16 10:35:22 UTC"
+    }
+  });
+
+  if (res.data.StatusCode == 200 && typeof res.data.Item !== 'string') {
+      yield put({type: HISTORY_TRANSACTION_RECEIVED, data: {[`${disp.data.name}`]: res.data.Item.payload}})
+  }
+}
+
+export function* historyTransaction_ActionWatcher() {
+  yield takeLatest(HISTORY_TRANSACTION, historyTransaction)
 }

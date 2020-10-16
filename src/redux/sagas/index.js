@@ -13,7 +13,7 @@ import {
   switchTheme_ActionWatcher
 } from './theme.saga';
 
-import { switchCoin_ActionWatcher, sendETH_ActionWatcher } from './coin.saga';
+import { switchCoin_ActionWatcher, sendETH_ActionWatcher, historyTransaction_ActionWatcher } from './coin.saga';
 
 import { qrcodeCreate_ActionWatcher } from './qrcode.saga';
 
@@ -28,6 +28,7 @@ export default function* rootSaga() {
       switchTheme_ActionWatcher(),
       switchCoin_ActionWatcher(),
       sendETH_ActionWatcher(),
-      qrcodeCreate_ActionWatcher()
+      qrcodeCreate_ActionWatcher(),
+      historyTransaction_ActionWatcher()
   ]);
 }

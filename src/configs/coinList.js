@@ -23,7 +23,7 @@ export const coinList = [
         avatar: BTC,
         WalletSymbol: "BTC",
         Name: "Bitcoin",
-        active: true
+        active: false
     },
     {
         avatar: ETH,

@@ -33,7 +33,7 @@ export const CoinList = (props) => {
   return (
     <React.Fragment>
       {coins.length > 0 && (
-        coins.map(item => <Coin {...item} key={item.WalletSymbol}/>)
+        coins.map(item => <Coin {...item} key={item.WalletSymbol} {...props}/>)
         // <CoinListContainer>
         //   <FlatList
         //     data={coins}

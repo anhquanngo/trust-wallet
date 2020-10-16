@@ -125,12 +125,11 @@ export function* getForgotAccount_ActionWatcher() {
 function* getCurrentBalanceEth(disp) {
   let res = yield axios.get(getCurrentBalanceEth_Uri, {
     params: {
-      addres: disp.data,
+      address: disp.data,
     },
   });
-  
-  if (res.data.StatusCode == 200 ) {
-    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: res.data.Item});
+  if (res.data.StatusCode == 200 && typeof res.data.Item !== 'string'  ) {
+    yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: res.data.Item.payload});
   } else {
     yield put({type: CURRENT_BALANCE_ETH_RECEIVED, data: {message: "Không lấy được số dư"}});
   }

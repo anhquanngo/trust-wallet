@@ -1,24 +1,47 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
+import {useSelector, useDispatch} from 'react-redux';
+
+import {historyTransaction} from '../../redux/actions';
 
 export const Coin = (props) => {
   // let { imageUrl, title, value, quality, currency } = props;
-  let {WalletSymbol, Name, avatar} = props;
+  let {WalletSymbol, Name, avatar, navigation} = props;
+  let balance = useSelector((state) => state.balance);
+  let user = useSelector((state) => state.user);
+  let dispatch = useDispatch();
+
   return (
     <View>
-      <CardContainer>
-        <CardBody>
-          <CardImage source={{uri: avatar}} />
-          <View style={{justifyContent: 'center'}}>
-            <CardText fontSize={'22px'}>{Name}</CardText>
-            {/* <CardText fontSize={15}>{value}</CardText> */}
-          </View>
-        </CardBody>
-        <View style={{justifyContent: 'center'}}>
-          <CardText fontSize={'18px'}>{`0 ${WalletSymbol}`}</CardText>
-        </View>
-      </CardContainer>
+      {balance.balance && (
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(
+              historyTransaction({
+                address: user.AddressBip,
+                name: WalletSymbol,
+              }),
+            );
+            navigation.navigate('HistoryTransaction', {symbol: WalletSymbol});
+          }}>
+          <CardContainer>
+            <CardBody>
+              <CardImage source={{uri: avatar}} />
+              <View style={{justifyContent: 'center'}}>
+                <CardText fontSize={'22px'}>{Name}</CardText>
+                {/* <CardText fontSize={15}>{value}</CardText> */}
+              </View>
+            </CardBody>
+            <View style={{justifyContent: 'center'}}>
+              <CardText
+                fontSize={
+                  '18px'
+                }>{`${balance.balance} ${WalletSymbol}`}</CardText>
+            </View>
+          </CardContainer>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -41,7 +64,7 @@ const CardContainer = styled.View`
   /* border-top-width: 1; */
   /* border-bottom-width: 1; */
   /* margin-bottom: 5; */
-  margin-top: ${props => props.theme.MARGIN_TOP};
+  margin-top: ${(props) => props.theme.MARGIN_TOP};
   border-radius: 10px;
   background-color: ${(props) => props.theme.BACKGROUND_COLOR_SECONDARY};
 `;

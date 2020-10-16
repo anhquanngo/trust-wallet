@@ -8,6 +8,7 @@ import {DetailStack} from '../components/WalletContainer/Detail.stack';
 import {Notification} from '../components/WalletContainer/Notification.stack';
 import {SendETH} from '../components/WalletContainer/SendETH';
 import { QRcodeItem } from '../components/WalletContainer/QRcode';
+import {HistoryTransaction} from '../components/WalletContainer/HistoryTransaction';
 
 //import component
 import {SearchItem} from '../components';
@@ -65,6 +66,17 @@ export const WalletScreen = () => {
           headerTintColor: theme.TEXT_COLOR_PRIMARY,
         }}
       />
+      <Stack.Screen
+        name="HistoryTransaction"
+        component={HistoryTransaction}
+        options={{
+          headerStyle: {
+            backgroundColor: theme.BACKGROUND_COLOR_SECONDARY,
+          },
+          headerTintColor: theme.TEXT_COLOR_PRIMARY,
+        }}
+      />
+      
     </Stack.Navigator>
   );
 };

@@ -43,7 +43,7 @@ export const getAllWalletByAddress_Uri = '/GetAllWalletByAddress';
 /**
  * get current balance eth
  */
-export const getCurrentBalanceEth_Uri = '/GetCurrentBalanceETH';
+export const getCurrentBalanceEth_Uri = '/GetBalanceETH';
 
 /**
  * post{
@@ -61,3 +61,5 @@ export const getCurrentBalanceEth_Uri = '/GetCurrentBalanceETH';
  */
 
 export const getForgotAccount_Uri = '/forgotaccount';
+
+export const getHistoryTransaction_Uri = '/GetHistoryTrancsaction';
